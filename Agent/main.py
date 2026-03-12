@@ -317,30 +317,83 @@ Capture structured notes and propose canonical blocker values when useful.
 When done, delegate back to RequirementCoordinator.
 """,
     "BackendAgent": """
-Clarify backend architecture, APIs, framework, runtime, services, integrations, and scaling needs.
-Prefer practical choices suitable for a final-year project unless the user states otherwise.
-Capture structured notes and canonical contract values where relevant.
-When done, delegate back to RequirementCoordinator.
+You are a backend planning specialist during the internal planning phase.
+Create a backend architecture sub-plan from the locked requirements, rich requirement notes,
+reasoner reviews, issue ledger, and revision memory.
+
+Return JSON only with:
+- service_design
+- api_patterns
+- business_modules
+- llm_integration_design
+- background_jobs
+- failure_handling
+- scaling_notes
+- backend_risks
 """,
-    "FrontendAgent": """
-Clarify frontend framework, UX flows, pages, components, and interaction style.
-Capture structured notes and canonical contract values where relevant.
-When done, delegate back to RequirementCoordinator.
+
+"FrontendAgent": """
+You are a frontend planning specialist during the internal planning phase.
+Create a frontend architecture sub-plan from the locked requirements, rich requirement notes,
+reasoner reviews, issue ledger, and revision memory.
+
+Return JSON only with:
+- app_structure
+- pages_and_flows
+- state_management
+- ui_modules
+- accessibility_notes
+- frontend_security_notes
+- performance_notes
+- frontend_risks
 """,
-    "SecurityAgent": """
-Clarify auth, authorization, secrets, rate limiting, privacy, moderation, and security posture.
-Capture structured notes and canonical contract values where relevant.
-When done, delegate back to RequirementCoordinator.
+
+"SecurityAgent": """
+You are a security planning specialist during the internal planning phase.
+Create a security architecture sub-plan from the locked requirements, rich requirement notes,
+reasoner reviews, issue ledger, and revision memory.
+
+Return JSON only with:
+- auth_design
+- authorization_model
+- secrets_management
+- abuse_prevention
+- privacy_controls
+- audit_and_logging_controls
+- incident_response_notes
+- security_risks
 """,
-    "DataAgent": """
-Clarify data model, storage, retention, analytics, information flow, and persistence choices.
-Capture structured notes and canonical contract values where relevant.
-When done, delegate back to RequirementCoordinator.
+
+"DataAgent": """
+You are a data planning specialist during the internal planning phase.
+Create a data architecture sub-plan from the locked requirements, rich requirement notes,
+reasoner reviews, issue ledger, and revision memory.
+
+Return JSON only with:
+- entities
+- storage_design
+- schema_notes
+- retention_and_deletion
+- analytics_events
+- consistency_notes
+- migration_notes
+- data_risks
 """,
-    "DevOpsAgent": """
-Clarify hosting, deployment, CI/CD, observability, environments, cost posture, and recovery.
-Capture structured notes and canonical contract values where relevant.
-When done, delegate back to RequirementCoordinator.
+
+"DevOpsAgent": """
+You are a DevOps planning specialist during the internal planning phase.
+Create an infrastructure and operations sub-plan from the locked requirements, rich requirement notes,
+reasoner reviews, issue ledger, and revision memory.
+
+Return JSON only with:
+- deployment_topology
+- environments
+- ci_cd_design
+- observability_stack
+- rollback_strategy
+- backup_and_recovery
+- cost_controls
+- devops_risks
 """,
     "ProductReasoner": """
 Return JSON only with:
@@ -641,9 +694,9 @@ class SharedState:
 
 class AzureLLM:
     def __init__(self) -> None:
-        api_key = os.getenv("AZURE_OPENAI_API_KEY")
-        endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
-        chat_deployment = os.getenv("AZURE_OPENAI_CHAT_DEPLOYMENT", "gpt-4o")
+        api_key = os.getenv("AZURE_OPENAI_API_KEY","F79rr24XOyTKAprSSVMiQuo8j99MQM9gzJD3oEIAmlfn4vrsj0TVJQQJ99CBACHYHv6XJ3w3AAABACOGX5Md")
+        endpoint = os.getenv("AZURE_OPENAI_ENDPOINT","https://cmg-ai-poc-eu2.openai.azure.com/")
+        chat_deployment = os.getenv("AZURE_OPENAI_CHAT_DEPLOYMENT","gpt-5-chat")
         reasoning_deployment = os.getenv("AZURE_OPENAI_REASONING_DEPLOYMENT", chat_deployment)
 
         if not api_key:
@@ -1404,20 +1457,40 @@ class GovernanceHybridApp:
             for round_no in range(1, self.state.max_planning_rounds + 1):
                 self.console.print(Rule(f"[bold cyan]Architecture Round {round_no}"))
 
-                specialist_reviews = self.run_specialist_reasoners(round_no)
-                plan = self.architect_generate(round_no, specialist_reviews)
-                audit = self.auditor_validate(round_no, plan, specialist_reviews)
+                reasoner_reviews = self.run_specialist_reasoners(round_no)
+                specialist_subplans = self.run_planning_specialists(round_no, reasoner_reviews)
+
+                specialist_reviews = {
+                    "reasoner_reviews": reasoner_reviews,
+                    "specialist_subplans": specialist_subplans,
+                }
+
+                plan = self.architect_generate(round_no, reasoner_reviews, specialist_subplans)
+                audit = self.auditor_validate(round_no, plan, reasoner_reviews, specialist_subplans)
 
                 self.state.specialist_history.append(
-                    {"round": round_no, "reviews": specialist_reviews, "timestamp": now_iso()}
+                    {
+                        "round": round_no,
+                        "reviews": deepcopy(specialist_reviews),
+                        "timestamp": now_iso(),
+                    }
                 )
                 self.state.audit_history.append(deepcopy(audit))
                 self.state.current_plan = deepcopy(plan)
                 self.state.current_audit = deepcopy(audit)
 
-                write_json(Path(self.state.artifacts_dir) / f"specialists_round_{round_no}.json", specialist_reviews)
-                write_json(Path(self.state.artifacts_dir) / f"plan_round_{round_no}.json", plan)
-                write_json(Path(self.state.artifacts_dir) / f"audit_round_{round_no}.json", audit)
+                write_json(
+                    Path(self.state.artifacts_dir) / f"specialists_round_{round_no}.json",
+                    specialist_reviews,
+                )
+                write_json(
+                    Path(self.state.artifacts_dir) / f"plan_round_{round_no}.json",
+                    plan,
+                )
+                write_json(
+                    Path(self.state.artifacts_dir) / f"audit_round_{round_no}.json",
+                    audit,
+                )
 
                 self.update_issue_ledger(audit)
                 self.update_revision_memory(plan, audit)
@@ -1425,7 +1498,7 @@ class GovernanceHybridApp:
 
                 self.show_round_tables(round_no, plan, audit)
 
-                if audit["passed"]:
+                if audit.get("passed"):
                     self.state.phase = PHASE_APPROVED
                     self.generate_report_and_export()
                     self.panel(
@@ -1451,6 +1524,7 @@ class GovernanceHybridApp:
             )
         finally:
             self.state.internal_busy = False
+
 
     def run_specialist_reasoners(self, round_no: int) -> Dict[str, Any]:
         base_payload = {
@@ -1527,12 +1601,60 @@ class GovernanceHybridApp:
             "critic": critic,
         }
 
-    def architect_generate(self, round_no: int, specialist_reviews: Dict[str, Any]) -> Dict[str, Any]:
+    def call_planning_specialist(self, agent_name: str, round_no: int, reasoner_reviews: Dict[str, Any]) -> Dict[str, Any]:
         payload = {
             "round": round_no,
             "frozen_requirement_contract": self.frozen_contract(),
             "requirements": self.state.requirements,
-            "specialist_reviews": specialist_reviews,
+            "reasoner_reviews": reasoner_reviews,
+            "issue_ledger": self.state.issue_ledger,
+            "revision_memory": self.state.revision_memory,
+            "previous_audits": self.state.audit_history[-3:],
+            "best_audit": self.state.best_audit,
+            "best_plan": self.state.best_plan,
+        }
+
+        result = self.llm.complete_json(
+            GLOBAL_SYSTEM + "\n" + AGENT_PROMPTS[agent_name],
+            payload,
+            max_tokens=self.token_budget("analysis"),
+            reasoning=True,
+        )
+
+        if self.state.debug_mode:
+            summary = result.get("summary") or result.get("service_design") or result.get("app_structure") or f"{agent_name} sub-plan complete."
+            self.thinking(agent_name, summary, "specialist sub-plan complete")
+
+        return result
+
+    def run_planning_specialists(self, round_no: int, reasoner_reviews: Dict[str, Any]) -> Dict[str, Any]:
+        backend = self.call_planning_specialist("BackendAgent", round_no, reasoner_reviews)
+        frontend = self.call_planning_specialist("FrontendAgent", round_no, reasoner_reviews)
+        security = self.call_planning_specialist("SecurityAgent", round_no, reasoner_reviews)
+        data = self.call_planning_specialist("DataAgent", round_no, reasoner_reviews)
+        devops = self.call_planning_specialist("DevOpsAgent", round_no, reasoner_reviews)
+
+        return {
+            "backend": backend,
+            "frontend": frontend,
+            "security": security,
+            "data": data,
+            "devops": devops,
+        }
+
+    
+    def architect_generate(
+        self,
+        round_no: int,
+        reasoner_reviews: Dict[str, Any],
+        specialist_subplans: Dict[str, Any],
+    ) -> Dict[str, Any]:
+        payload = {
+            "round": round_no,
+            "frozen_requirement_contract": self.frozen_contract(),
+            "requirements": self.state.requirements,
+            "reasoner_reviews": reasoner_reviews,
+            "specialist_subplans": specialist_subplans,
             "issue_ledger": self.state.issue_ledger,
             "revision_memory": self.state.revision_memory,
             "accepted_exceptions": {k: asdict(v) for k, v in self.state.accepted_exceptions.items()},
@@ -1550,11 +1672,17 @@ class GovernanceHybridApp:
 
         summary = result.get("executive_summary") or result.get("thinking_summary") or "Architecture draft generated."
         if self.state.debug_mode:
-            self.thinking("ArchitectAgent", summary, "submit to AuditorAgent")
+            self.thinking("ArchitectAgent", summary, "merge specialist sub-plans and submit to AuditorAgent")
 
-        return self.normalize_plan(result, specialist_reviews)
+        return self.normalize_plan(result, reasoner_reviews, specialist_subplans)
 
-    def normalize_plan(self, raw: Dict[str, Any], specialist_reviews: Dict[str, Any]) -> Dict[str, Any]:
+
+    def normalize_plan(
+        self,
+        raw: Dict[str, Any],
+        reasoner_reviews: Dict[str, Any],
+        specialist_subplans: Dict[str, Any],
+    ) -> Dict[str, Any]:
         contract = self.frozen_contract()
 
         def c(field: str, fallback: str = "Derived from confirmed requirements.") -> str:
@@ -1562,39 +1690,71 @@ class GovernanceHybridApp:
             return str(item.get("value") or fallback)
 
         title = str(raw.get("title") or "Validated Architecture Plan")
-        title = title.replace("Round 1", "").replace("Round 2", "").replace("Round 3", "").replace("Round 4", "").strip(" -")
+        for token in ["Round 1", "Round 2", "Round 3", "Round 4", "(Round 1)", "(Round 2)", "(Round 3)", "(Round 4)"]:
+            title = title.replace(token, "")
+        title = title.strip(" -–")
         if not title:
             title = "Validated Architecture Plan"
 
         plan = {
             "title": title,
-            "executive_summary": raw.get("executive_summary") or "Detailed validated architecture plan generated from the confirmed requirement contract.",
+            "executive_summary": raw.get("executive_summary")
+            or "Detailed validated architecture plan generated from the confirmed requirement contract.",
+
             "architecture_overview": raw.get("architecture_overview") or {
                 "system_style": "Modular cloud-native application",
                 "primary_goal": c("project_goal"),
                 "target_users": c("target_users"),
                 "access_model": c("access_model"),
             },
+
             "technology_stack": raw.get("technology_stack") or {
                 "frontend": c("frontend_stack"),
                 "backend": c("backend_stack"),
                 "data_platform": c("data_platform"),
                 "hosting_target": c("hosting_target"),
-                "llm_integration": c("llm_integration", "Secure backend-managed GPT-compatible integration"),
+                "llm_integration": c(
+                    "llm_integration",
+                    "Secure backend-managed GPT-compatible integration",
+                ),
             },
+
             "functional_feature_map": raw.get("functional_feature_map") or {
                 "mvp_scope": c("mvp_scope"),
                 "expanded_scope": c("feature_scope"),
-                "future_scope": c("future_scope", "Additional advanced features after MVP stabilization"),
+                "future_scope": c(
+                    "future_scope",
+                    "Additional advanced features after MVP stabilization",
+                ),
             },
+
             "system_components": raw.get("system_components") or [
-                {"name": "Web Client", "responsibility": "Interactive UI, authentication UI, settings, and feature access"},
-                {"name": "API Gateway", "responsibility": "Authentication, validation, routing, throttling, and request governance"},
-                {"name": "Application Service Layer", "responsibility": "Business logic, orchestration, and use-case execution"},
-                {"name": "LLM Adapter", "responsibility": "Provider abstraction, retries, safety checks, and token accounting"},
-                {"name": "Data Layer", "responsibility": "Persistence for users, sessions, messages, metadata, and audit events"},
-                {"name": "Observability Layer", "responsibility": "Logs, metrics, traces, alerts, and audit monitoring"},
+                {
+                    "name": "Web Client",
+                    "responsibility": "Interactive UI, authentication UI, settings, and feature access",
+                },
+                {
+                    "name": "API Gateway",
+                    "responsibility": "Authentication, validation, routing, throttling, and request governance",
+                },
+                {
+                    "name": "Application Service Layer",
+                    "responsibility": "Business logic, orchestration, and use-case execution",
+                },
+                {
+                    "name": "LLM Adapter",
+                    "responsibility": "Provider abstraction, retries, safety checks, and token accounting",
+                },
+                {
+                    "name": "Data Layer",
+                    "responsibility": "Persistence for users, sessions, messages, metadata, and audit events",
+                },
+                {
+                    "name": "Observability Layer",
+                    "responsibility": "Logs, metrics, traces, alerts, and audit monitoring",
+                },
             ],
+
             "workflows": raw.get("workflows") or {
                 "primary_flows": [
                     "User authentication or approved guest access",
@@ -1604,52 +1764,101 @@ class GovernanceHybridApp:
                     "Persistence, monitoring, and operational oversight",
                 ]
             },
+
             "data_model": raw.get("data_model") or {
-                "entities": ["User", "Session", "Message", "FeatureArtifact", "Feedback", "UsageEvent", "AuditEvent"],
+                "entities": [
+                    "User",
+                    "Session",
+                    "Message",
+                    "FeatureArtifact",
+                    "Feedback",
+                    "UsageEvent",
+                    "AuditEvent",
+                ],
                 "storage_strategy": c("data_platform"),
                 "retention_policy": c("privacy_retention_policy"),
             },
+
             "api_design": raw.get("api_design") or {
                 "style": "REST plus streaming where needed",
-                "endpoints": ["/api/auth", "/api/users", "/api/sessions", "/api/messages", "/api/stream", "/api/feedback"],
+                "endpoints": [
+                    "/api/auth",
+                    "/api/users",
+                    "/api/sessions",
+                    "/api/messages",
+                    "/api/stream",
+                    "/api/feedback",
+                ],
             },
+
             "security_and_compliance": raw.get("security_and_compliance") or {
                 "baseline": c("security_baseline"),
                 "privacy": c("privacy_retention_policy"),
-                "compliance_context": c("compliance_context", "Privacy-by-design baseline"),
+                "compliance_context": c(
+                    "compliance_context",
+                    "Privacy-by-design baseline",
+                ),
             },
+
             "deployment_and_operations": raw.get("deployment_and_operations") or {
                 "hosting_target": c("hosting_target"),
                 "observability_baseline": c("observability_baseline"),
                 "ops_model": "Phased deployment with monitoring, rollback, and cost tracking",
             },
+
             "observability": raw.get("observability") or {
                 "baseline": c("observability_baseline"),
             },
+
             "cost_and_scaling": raw.get("cost_and_scaling") or {
                 "cost_position": "Usage-driven, especially if external model APIs are used",
                 "scaling_direction": "Horizontal application scaling with managed services, quotas, and caching",
             },
+
             "phased_implementation": raw.get("phased_implementation") or {
                 "phase_1": c("mvp_scope"),
-                "phase_2": c("future_scope", "Expanded features after MVP stabilization"),
+                "phase_2": c(
+                    "future_scope",
+                    "Expanded features after MVP stabilization",
+                ),
             },
+
             "development_guidelines": raw.get("development_guidelines") or [
                 "Keep service boundaries explicit",
                 "Design data contracts before implementation",
                 "Automate tests early",
                 "Never expose model secrets in the frontend",
             ],
+
             "risks_and_tradeoffs": raw.get("risks_and_tradeoffs") or {
-                "risks": ["API cost growth", "Public abuse pressure", "Latency variability", "Feature complexity"],
+                "risks": [
+                    "API cost growth",
+                    "Public abuse pressure",
+                    "Latency variability",
+                    "Feature complexity",
+                ],
                 "tradeoffs": "A faster MVP may reduce governance depth, while stronger governance increases implementation overhead.",
             },
-            "open_questions_resolved": raw.get("open_questions_resolved") or specialist_reviews.get("critic", {}),
+
+            "open_questions_resolved": raw.get("open_questions_resolved")
+            or reasoner_reviews.get("critic", {}),
+
+            "reasoner_reviews": reasoner_reviews,
+            "specialist_subplans": specialist_subplans,
             "generated_at": now_iso(),
         }
+
         return plan
 
-    def auditor_validate(self, round_no: int, plan: Dict[str, Any], specialist_reviews: Dict[str, Any]) -> Dict[str, Any]:
+
+    def auditor_validate(
+        self,
+        round_no: int,
+        plan: Dict[str, Any],
+        reasoner_reviews: Dict[str, Any],
+        specialist_subplans: Dict[str, Any],
+    ) -> Dict[str, Any]:
+
         payload = {
             "round": round_no,
             "frozen_requirement_contract": self.frozen_contract(),
@@ -1657,11 +1866,13 @@ class GovernanceHybridApp:
             "accepted_exceptions": {k: asdict(v) for k, v in self.state.accepted_exceptions.items()},
             "issue_ledger": self.state.issue_ledger,
             "revision_memory": self.state.revision_memory,
-            "specialist_reviews": specialist_reviews,
+            "reasoner_reviews": reasoner_reviews,
+            "specialist_subplans": specialist_subplans,
             "plan": plan,
             "pass_threshold": self.state.pass_threshold,
             "best_audit": self.state.best_audit,
         }
+
 
         result = self.llm.complete_json(
             GLOBAL_SYSTEM + "\n" + AGENT_PROMPTS["AuditorAgent"],
