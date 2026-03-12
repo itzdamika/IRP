@@ -304,8 +304,10 @@ Rules:
 - Ask progressively, not everything at once.
 - Use specialist delegation when beneficial.
 - Use upsert_contract_field for canonical blocker fields.
-- Only mark a blocker field confirmed=true if the user clearly confirmed it.
-- If you infer a sensible default, store it with confirmed=false and needs_confirmation=true.
+- If the user directly answers a blocker-field question, store that field immediately with confirmed=true and needs_confirmation=false.
+- Use confirmed=false and needs_confirmation=true only when you are proposing, inferring, or rewording a value the user has not explicitly accepted yet.
+- If the user says yes/ok/correct to a proposed value, confirm the relevant pending field(s).
+- Never say a field is confirmed unless the canonical contract has been updated for that field.
 - Once all blocker fields are confirmed, stop requirement gathering and ask whether to start planning.
 - If the user confirms they want to proceed, advance to planning in the same turn.
 - Do not ask planning-style questions such as monolith vs microservices unless the user volunteers them.
@@ -506,13 +508,14 @@ Audit the architecture plan against:
 Rules:
 - Use stable issue IDs where possible.
 - Mark issue status as one of: unresolved, resolved, downgraded, new.
-- Avoid random score regression unless a clear severe flaw exists.
-- passed can be true only if score >= threshold and no unresolved critical issue remains.
+- Score the plan against an absolute rubric, not against any approval threshold.
+- Do not try to make the plan pass or fail a gate.
+- Be willing to score below 9 if the plan has real weaknesses.
+- passed is advisory only; the runtime decides approval.
 
 Return JSON only with:
 - thinking_summary
-- score
-- passed
+- rubric_scores
 - summary
 - strengths
 - concerns
@@ -520,6 +523,13 @@ Return JSON only with:
 - recommendations
 - requirement_conflicts
 - issue_updates
+
+rubric_scores must include numeric values from 0 to 10 for:
+- requirements_alignment
+- architecture_quality
+- security
+- operability
+- internal_consistency
 
 Each requirement_conflicts item must include:
 - issue_id
@@ -662,7 +672,7 @@ class SharedState:
     pass_threshold: float = 9.0
     max_requirement_hops: int = 10
     max_tool_rounds: int = 8
-    max_planning_rounds: int = 5
+    max_planning_rounds: int = 10
     debug_mode: bool = False
     show_internal_panels: bool = True
     report_depth: str = "extreme"
@@ -776,7 +786,7 @@ class GovernanceHybridApp:
         self.console.print(Rule("[bold cyan]Architectural Governance Terminal"))
         self.console.print("[dim]Type your project idea. Type 'exit' to quit.[/dim]")
         self.console.print(
-            "[dim]Commands: :threshold 9.0 | :rounds 5 | :debug on/off | "
+            "[dim]Commands: :threshold 9.0 | :rounds 10 | :debug on/off | "
             ":thinking on/off | :status | :export[/dim]\n"
         )
 
@@ -800,11 +810,15 @@ class GovernanceHybridApp:
         turns = self.state.dialogue[-keep_last:]
         out = []
         for turn in turns:
+            content = (turn.content or "").strip()
             if turn.role == "assistant" and turn.agent:
-                out.append({"role": "assistant", "content": f"{turn.agent}: {turn.content}"})
+                content = self.clean_assistant_text(content, turn.agent)
+                if content:
+                    out.append({"role": "assistant", "content": content})
             else:
-                out.append({"role": turn.role, "content": turn.content})
+                out.append({"role": turn.role, "content": content})
         return out
+
 
     def show_status(self) -> None:
         t = Table(title="Runtime Status", box=box.SIMPLE_HEAVY)
@@ -828,22 +842,35 @@ class GovernanceHybridApp:
     def set_contract_field(self, field_name: str, value: str, source: str, confirmed: bool, rationale: str) -> None:
         if field_name not in self.state.requirement_contract:
             return
+
+        existing = self.state.requirement_contract[field_name]
+        clean_value = str(value).strip()
+        if not clean_value:
+            return
+
         self.state.requirement_contract[field_name] = RequirementField(
-            value=str(value).strip(),
-            source=str(source).strip(),
-            confirmed=bool(confirmed),
-            rationale=str(rationale).strip(),
+            value=clean_value,
+            source=str(source).strip() or existing.source,
+            confirmed=existing.confirmed or bool(confirmed),
+            rationale=str(rationale).strip() or existing.rationale,
             updated_at=now_iso(),
         )
+
         note_path = CONTRACT_TO_NOTE_PATH.get(field_name)
         if note_path:
-            deep_set(self.state.requirements, note_path, str(value).strip())
+            deep_set(self.state.requirements, note_path, clean_value)
+
 
     def confirm_fields(self, fields: List[str]) -> None:
         for f in fields:
-            if f in self.state.requirement_contract:
-                self.state.requirement_contract[f].confirmed = True
-                self.state.requirement_contract[f].updated_at = now_iso()
+            if f not in self.state.requirement_contract:
+                continue
+            item = self.state.requirement_contract[f]
+            if not item.value.strip():
+                continue
+            item.confirmed = True
+            item.updated_at = now_iso()
+
 
     def missing_required_fields(self) -> List[str]:
         out = []
@@ -852,6 +879,10 @@ class GovernanceHybridApp:
             if not item.value.strip() or not item.confirmed:
                 out.append(f)
         return out
+
+    def next_missing_field(self) -> Optional[str]:
+        missing = self.missing_required_fields()
+        return missing[0] if missing else None
 
     def all_required_locked(self) -> bool:
         return len(self.missing_required_fields()) == 0
@@ -936,6 +967,9 @@ class GovernanceHybridApp:
             "context_summary": self.state.context_summary,
             "requirement_contract": self.contract_snapshot(),
             "pending_confirmations": self.state.pending_confirmations,
+            "missing_required_fields": self.missing_required_fields(),
+            "next_missing_field": self.next_missing_field(),
+            "all_required_locked": self.all_required_locked(),
             "requirements": self.state.requirements,
             "requirement_status": self.state.requirement_status,
             "issue_ledger": self.state.issue_ledger,
@@ -943,6 +977,7 @@ class GovernanceHybridApp:
             "pass_threshold": self.state.pass_threshold,
             "debug_mode": self.state.debug_mode,
         }
+
 
     def build_agent_messages(self, agent_name: str) -> List[Dict[str, Any]]:
         snapshot = compact_json(self.state_snapshot(), 14000)
@@ -1186,8 +1221,9 @@ class GovernanceHybridApp:
 
             msg = resp.choices[0].message
             tool_calls = getattr(msg, "tool_calls", None) or []
-            assistant_message = {"role": "assistant", "content": msg.content or ""}
+            raw_content = msg.content or ""
 
+            assistant_message = {"role": "assistant", "content": raw_content}
             if tool_calls:
                 assistant_message["tool_calls"] = [
                     {
@@ -1200,7 +1236,6 @@ class GovernanceHybridApp:
                     }
                     for tc in tool_calls
                 ]
-
             messages.append(assistant_message)
 
             if tool_calls:
@@ -1228,13 +1263,36 @@ class GovernanceHybridApp:
                     return False
                 continue
 
-            content = (msg.content or "").strip()
+            pseudo_calls = self.extract_pseudo_tool_calls(raw_content)
+            if pseudo_calls:
+                active_before = self.state.active_agent
+                phase_before = self.state.phase
+
+                for idx, call in enumerate(pseudo_calls, start=1):
+                    result = self.execute_tool(agent_name, call["name"], call["args"])
+                    messages.append(
+                        {
+                            "role": "tool",
+                            "tool_call_id": f"pseudo_{idx}",
+                            "name": call["name"],
+                            "content": json.dumps(result, ensure_ascii=False),
+                        }
+                    )
+
+                if self.state.phase != phase_before:
+                    return False
+                if self.state.active_agent != active_before:
+                    return False
+                continue
+
+            content = self.clean_assistant_text(raw_content, agent_name)
             if content:
                 self.append_dialogue("assistant", content, agent_name)
                 self.panel(agent_name, content, "green")
                 return True
 
         return False
+
 
     def consult_direct(self, agent: str, task: str, deliverable: str = "") -> Dict[str, Any]:
         payload = {
@@ -1318,7 +1376,7 @@ class GovernanceHybridApp:
         if cmd == ":rounds" and len(parts) == 2:
             try:
                 value = int(parts[1])
-                self.state.max_planning_rounds = max(1, min(10, value))
+                self.state.max_planning_rounds = max(1, min(50, value))
                 self.panel("System", f"Planning rounds set to {self.state.max_planning_rounds}.", "cyan")
             except Exception:
                 self.panel("System", "Invalid round count.", "red")
@@ -1362,10 +1420,99 @@ class GovernanceHybridApp:
             )
             self.panel("System", msg, "cyan")
             return
+    
+    def normalize_tool_name(self, name: str) -> str:
+        n = (name or "").strip()
+        if n.startswith("functions."):
+            n = n.split(".", 1)[1]
+        return n
+
+
+    def extract_pseudo_tool_calls(self, content: str) -> List[Dict[str, Any]]:
+        text = (content or "").strip()
+        if not text:
+            return []
+
+        data = safe_json_loads(text)
+        if not isinstance(data, dict):
+            return []
+
+        calls: List[Dict[str, Any]] = []
+
+        tool_uses = data.get("tool_uses")
+        if isinstance(tool_uses, list):
+            for item in tool_uses:
+                if not isinstance(item, dict):
+                    continue
+                raw_name = item.get("recipient_name") or item.get("name") or item.get("tool")
+                args = item.get("parameters") or item.get("arguments") or {}
+                tool_name = self.normalize_tool_name(str(raw_name or ""))
+                if tool_name:
+                    calls.append({"name": tool_name, "args": args if isinstance(args, dict) else {}})
+
+        if not calls and data.get("target_phase") == PHASE_PLANNING:
+            calls.append({
+                "name": "advance_phase",
+                "args": {
+                    "target_phase": PHASE_PLANNING,
+                    "reason": str(data.get("reason", "")).strip(),
+                },
+            })
+
+        return calls
+
+
+    def clean_assistant_text(self, content: str, agent_name: str) -> str:
+        text = (content or "").strip()
+        if not text:
+            return text
+
+        prefixes = [
+            f"{agent_name}:",
+            "RequirementCoordinator:",
+            "ProjectScopeAgent:",
+            "BackendAgent:",
+            "FrontendAgent:",
+            "SecurityAgent:",
+            "DataAgent:",
+            "DevOpsAgent:",
+        ]
+
+        changed = True
+        while changed:
+            changed = False
+            for prefix in prefixes:
+                if text.startswith(prefix):
+                    text = text[len(prefix):].strip()
+                    changed = True
+
+        if safe_json_loads(text):
+            parsed = safe_json_loads(text)
+            if isinstance(parsed, dict) and ("tool_uses" in parsed or "target_phase" in parsed):
+                return ""
+
+        return text
+
 
     # -----------------------------------------------------
     # Requirement phase
     # -----------------------------------------------------
+    
+    def debug_requirement_contract(self) -> None:
+        if not self.state.debug_mode:
+            return
+
+        lines = []
+        for f in USER_ONLY_REQUIRED_FIELDS:
+            item = self.state.requirement_contract[f]
+            lines.append(
+                f"{f}: value={item.value or '<empty>'} | confirmed={item.confirmed}"
+            )
+        lines.append(f"pending_confirmations: {self.state.pending_confirmations}")
+        lines.append(f"missing_required_fields: {self.missing_required_fields()}")
+
+        self.thinking("RequirementState", "\n".join(lines), "inspect canonical contract")
+
 
     def handle_requirement_turn(self, user_text: str) -> None:
         normalized = user_text.lower().strip()
@@ -1428,6 +1575,8 @@ class GovernanceHybridApp:
                 "green",
             )
             return
+        
+        self.debug_requirement_contract()
 
         if self.state.pending_confirmations:
             self.panel(
@@ -1869,10 +2018,8 @@ class GovernanceHybridApp:
             "reasoner_reviews": reasoner_reviews,
             "specialist_subplans": specialist_subplans,
             "plan": plan,
-            "pass_threshold": self.state.pass_threshold,
             "best_audit": self.state.best_audit,
         }
-
 
         result = self.llm.complete_json(
             GLOBAL_SYSTEM + "\n" + AGENT_PROMPTS["AuditorAgent"],
@@ -1884,7 +2031,6 @@ class GovernanceHybridApp:
         if self.state.debug_mode:
             self.thinking("AuditorAgent", result.get("summary", "Audit complete."), "approve or request revision")
 
-        score = self.normalize_score(result.get("score", 6.5))
         strengths = ensure_list_of_str(result.get("strengths"))
         concerns = ensure_list_of_str(result.get("concerns"))
         blocking_issues = ensure_list_of_str(result.get("blocking_issues"))
@@ -1895,14 +2041,46 @@ class GovernanceHybridApp:
             if isinstance(item, dict)
         ]
 
-        unresolved_critical = any(
-            str(item.get("severity", "")).lower() == "critical"
-            and str(item.get("status", "")).lower() != "resolved"
-            for item in issue_updates if isinstance(item, dict)
+        rubric = result.get("rubric_scores", {}) or {}
+        requirements_alignment = self.normalize_score(rubric.get("requirements_alignment", 0))
+        architecture_quality = self.normalize_score(rubric.get("architecture_quality", 0))
+        security = self.normalize_score(rubric.get("security", 0))
+        operability = self.normalize_score(rubric.get("operability", 0))
+        internal_consistency = self.normalize_score(rubric.get("internal_consistency", 0))
+
+        base_score = (
+            requirements_alignment * 0.30 +
+            architecture_quality * 0.25 +
+            security * 0.20 +
+            operability * 0.15 +
+            internal_consistency * 0.10
         )
 
-        raw_passed = bool(result.get("passed", False))
-        passed = raw_passed and score >= self.state.pass_threshold and not unresolved_critical
+        penalty = 0.0
+        unresolved_critical = False
+
+        for item in issue_updates:
+            if not isinstance(item, dict):
+                continue
+
+            status = str(item.get("status", "")).lower()
+            severity = str(item.get("severity", "")).lower()
+
+            if status == "resolved":
+                continue
+
+            if severity == "critical":
+                penalty += 1.50
+                unresolved_critical = True
+            elif severity == "high":
+                penalty += 0.60
+            elif severity == "medium":
+                penalty += 0.20
+            elif severity == "low":
+                penalty += 0.05
+
+        score = max(0.0, min(10.0, base_score - penalty))
+        passed = score >= self.state.pass_threshold and not unresolved_critical
 
         previous_best = float(self.state.best_audit.get("score", 0.0)) if self.state.best_audit else 0.0
         if previous_best > 0 and score + 0.7 < previous_best:
@@ -1921,9 +2099,19 @@ class GovernanceHybridApp:
             "recommendations": unique_strs(recommendations),
             "issue_updates": issue_updates,
             "requirement_conflicts": requirement_conflicts,
+            "rubric_scores": {
+                "requirements_alignment": requirements_alignment,
+                "architecture_quality": architecture_quality,
+                "security": security,
+                "operability": operability,
+                "internal_consistency": internal_consistency,
+            },
+            "base_score": round(base_score, 2),
+            "penalty": round(penalty, 2),
             "timestamp": now_iso(),
             "raw": result,
         }
+
 
     def normalize_score(self, value: Any) -> float:
         try:
@@ -2011,9 +2199,19 @@ class GovernanceHybridApp:
         self.console.print(pt)
 
         at = Table(title=f"Audit Result Round {round_no}", box=box.SIMPLE_HEAVY)
-        at.add_column("Metric", style="magenta", width=20)
+        at.add_column("Metric", style="magenta", width=24)
         at.add_column("Value")
-        at.add_row("Score", f"{audit['score']:.2f}")
+
+        rubric = audit.get("rubric_scores", {}) or {}
+
+        at.add_row("Requirements", f"{float(rubric.get('requirements_alignment', 0.0)):.2f}")
+        at.add_row("Architecture", f"{float(rubric.get('architecture_quality', 0.0)):.2f}")
+        at.add_row("Security", f"{float(rubric.get('security', 0.0)):.2f}")
+        at.add_row("Operability", f"{float(rubric.get('operability', 0.0)):.2f}")
+        at.add_row("Consistency", f"{float(rubric.get('internal_consistency', 0.0)):.2f}")
+        at.add_row("Base score", f"{float(audit.get('base_score', 0.0)):.2f}")
+        at.add_row("Penalty", f"{float(audit.get('penalty', 0.0)):.2f}")
+        at.add_row("Final score", f"{audit['score']:.2f}")
         at.add_row("Passed", str(audit["passed"]))
         at.add_row("Threshold", f"{self.state.pass_threshold:.2f}")
         at.add_row("Summary", as_text(audit.get("summary"), 320))
@@ -2022,6 +2220,7 @@ class GovernanceHybridApp:
 
         if self.state.debug_mode and audit.get("blocking_issues"):
             self.panel("Internal Blocking Issues", "\n".join(f"- {x}" for x in audit["blocking_issues"]), "red")
+
 
     # -----------------------------------------------------
     # Final package
