@@ -66,6 +66,7 @@ def safe_json_loads(text: str) -> Dict[str, Any]:
         return json.loads(text)
     except Exception:
         pass
+
     start = text.find("{")
     end = text.rfind("}")
     if start != -1 and end != -1 and end > start:
@@ -76,22 +77,17 @@ def safe_json_loads(text: str) -> Dict[str, Any]:
     return {}
 
 
-def compact_json(obj: Any, limit: int = 12000) -> str:
-    try:
-        s = json.dumps(obj, indent=2, ensure_ascii=False)
-    except Exception:
-        s = str(obj)
-    return s if len(s) <= limit else s[:limit] + "\n...<truncated>..."
-
-
-def as_text(value: Any, limit: int = 5000) -> str:
+def as_text(value: Any, limit: int = 4000) -> str:
     if value is None:
         return ""
     if isinstance(value, str):
         s = value
     else:
-        s = compact_json(value, limit)
-    return s if len(s) <= limit else s[:limit] + "..."
+        try:
+            s = json.dumps(value, indent=2, ensure_ascii=False)
+        except Exception:
+            s = str(value)
+    return s if len(s) <= limit else s[:limit] + "\n...<truncated>..."
 
 
 def ensure_list(value: Any) -> List[Any]:
@@ -103,7 +99,7 @@ def ensure_list(value: Any) -> List[Any]:
 
 
 def ensure_list_of_str(value: Any) -> List[str]:
-    out: List[str] = []
+    out = []
     seen = set()
     for item in ensure_list(value):
         s = str(item).strip()
@@ -111,6 +107,15 @@ def ensure_list_of_str(value: Any) -> List[str]:
             out.append(s)
             seen.add(s)
     return out
+
+
+def obj_to_text(obj: Any, limit: int = 50000) -> str:
+    if isinstance(obj, str):
+        return obj[:limit]
+    try:
+        return json.dumps(obj, indent=2, ensure_ascii=False)[:limit]
+    except Exception:
+        return str(obj)[:limit]
 
 
 def slugify(text: str) -> str:
@@ -122,17 +127,11 @@ def write_json(path: Path, payload: Any) -> None:
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
-def clean_markdownish(text: str) -> str:
-    text = text.replace("\r", "").strip()
-    text = re.sub(r"\n{3,}", "\n\n", text)
-    return text
-
-
 def split_paragraphs(text: str) -> List[str]:
-    text = clean_markdownish(text)
+    text = (text or "").replace("\r", "").strip()
     if not text:
         return []
-    parts = [p.strip() for p in text.split("\n\n") if p.strip()]
+    parts = [p.strip() for p in re.split(r"\n\s*\n", text) if p.strip()]
     return parts if parts else [text]
 
 
@@ -160,30 +159,24 @@ def json_to_lines(obj: Any, indent: int = 0) -> List[str]:
     return lines
 
 
-def obj_to_text(obj: Any, limit: int = 40000) -> str:
-    if isinstance(obj, str):
-        return obj
-    return "\n".join(json_to_lines(obj))[:limit]
-
-
 def positive_reply(text: str) -> bool:
     t = text.lower().strip()
-    terms = [
+    words = {
         "yes", "y", "ok", "okay", "sure", "approved", "approve", "yes please",
-        "go ahead", "looks good", "sounds good", "thats good", "that's good",
-        "fine", "correct", "right", "perfect"
-    ]
-    return any(x in t for x in terms)
+        "go ahead", "sounds good", "looks good", "fine", "correct", "right",
+        "perfect", "lets go", "let's go", "proceed", "continue"
+    }
+    return any(w in t for w in words)
 
 
 def negative_reply(text: str) -> bool:
     t = text.lower().strip()
-    terms = ["no", "reject", "change", "not good", "dont", "don't", "not this", "wrong"]
-    return any(x in t for x in terms)
+    words = {"no", "reject", "wrong", "not this", "dont", "don't", "change"}
+    return any(w in t for w in words)
 
 
 # =========================================================
-# Phases and fields
+# Phases
 # =========================================================
 
 PHASE_REQUIREMENTS = "REQUIREMENTS"
@@ -193,19 +186,10 @@ PHASE_CHANGE_REVIEW = "CHANGE_REVIEW"
 PHASE_APPROVED = "APPROVED"
 PHASE_DEVELOPMENT = "DEVELOPMENT"
 
-MANDATORY_FIELDS = [
-    "project_goal",
-    "target_users",
-    "access_model",
-    "feature_scope",
-    "frontend_stack",
-    "backend_stack",
-    "data_platform",
-    "hosting_target",
-    "security_baseline",
-    "privacy_retention_policy",
-    "mvp_scope",
-]
+
+# =========================================================
+# Fields
+# =========================================================
 
 FIELD_PROMPTS = {
     "project_goal": "What exactly should the software do at a high level?",
@@ -219,12 +203,50 @@ FIELD_PROMPTS = {
     "security_baseline": "What basic security and abuse-prevention controls are required?",
     "privacy_retention_policy": "How should chat history, logs, and retention be handled?",
     "mvp_scope": "What should the first shippable version include?",
-    "future_scope": "What features can wait for later phases?",
-    "constraints": "Are there budget, time, team, complexity, or platform constraints?",
-    "observability_baseline": "What monitoring, logging, tracing, and alerting should exist?",
-    "execution_preference": "Should the plan optimize for speed, simplicity, low cost, scale, or compliance first?",
-    "llm_integration": "What LLM or model access strategy should be used?",
-    "compliance_context": "Are there compliance expectations such as GDPR, HIPAA, or internal policy controls?",
+    "future_scope": "What can be phased after MVP?",
+    "constraints": "What practical constraints exist?",
+    "observability_baseline": "What logging, metrics, tracing, and alerting should exist?",
+    "execution_preference": "How should execution trade-offs be handled?",
+    "llm_integration": "What model integration strategy should be used?",
+    "compliance_context": "What compliance or privacy posture is expected?",
+}
+
+USER_ONLY_REQUIRED_FIELDS = [
+    "project_goal",
+    "target_users",
+    "access_model",
+    "feature_scope",
+    "frontend_stack",
+    "backend_stack",
+    "data_platform",
+    "hosting_target",
+    "security_baseline",
+    "privacy_retention_policy",
+    "mvp_scope",
+]
+
+INTERNAL_PLANNING_FIELDS = [
+    "future_scope",
+    "constraints",
+    "observability_baseline",
+    "execution_preference",
+    "llm_integration",
+    "compliance_context",
+]
+
+PLANNING_INTENT_TERMS = {
+    "move to planning",
+    "move to the planning phase",
+    "go to planning",
+    "start planning",
+    "continue to planning",
+    "continue planning",
+    "planning phase",
+    "lets move",
+    "let's move",
+    "go ahead",
+    "proceed",
+    "continue",
 }
 
 
@@ -235,57 +257,57 @@ FIELD_PROMPTS = {
 FRIENDLY_REQ_SYSTEM = """
 You are RequirementCoordinator for a phase-based SDLC planning system.
 
-Your visible behavior:
-- be highly intelligent, warm, natural, and friendly
-- produce exactly ONE assistant message for this turn
-- do not sound robotic or bureaucratic
-- do not dump all mandatory fields at once
-- ask 1-3 natural clarifying questions at a time
-- if the user does not know technical details, gently suggest sensible defaults
-- if you suggest defaults, ask for confirmation in the SAME message
-- do not mention hidden gates or mandatory tracking
-- never create a second separate summary block
-
-Your hidden behavior:
-- planning must not start until all mandatory fields are captured and confirmed
-- only propose a small cluster of technical decisions at a time
-- preserve already confirmed user choices
+Hard rules:
+- ask only for essential project requirements needed to freeze the requirement contract
+- ONLY care about these fields as blockers:
+  project_goal, target_users, access_model, feature_scope, frontend_stack, backend_stack,
+  data_platform, hosting_target, security_baseline, privacy_retention_policy, mvp_scope
+- NEVER ask the user to choose between high-level plan vs detailed plan
+- NEVER ask whether they want a step-by-step plan; always assume the final plan must be extremely detailed
+- NEVER ask planning-phase preference questions such as monolith vs microservices, Docker vs direct deployment,
+  architecture style, roadmap format, observability level, execution priority, compliance style, or report style,
+  unless the user explicitly volunteers them
+- once all mandatory blocker fields are confirmed, immediately stop requirement gathering
+- if the user indicates they want to proceed, transition to planning in the same turn
+- do not promise planning soon and then ask more questions
+- if the user is unsure, propose a sensible default and ask for confirmation once
+- do not ask optional fields as blockers
+- ask 1-3 natural questions maximum in a turn
+- be warm and natural
 
 Return JSON only with:
 - thinking_summary
 - assistant_message
 - updates: list of {field, value, source, confirmed, rationale, needs_confirmation}
-- pending_confirmations: list of field names that need confirmation after this turn
+- pending_confirmations: list of field names
 - ready_for_requirement_approval: boolean
 """
 
 REQUIREMENT_CONFIRM_SYSTEM = """
 You are RequirementCoordinator for a phase-based SDLC planning system.
 
-You are handling the user's reply to previously proposed requirement choices.
+You are handling confirmation of previously proposed requirement values.
 
-Visible behavior:
-- produce exactly ONE assistant message for this turn
-- be warm, smart, and conversational
-- if the user accepts the proposed choices, confirm them naturally and either ask the next missing question or tell them requirements are ready for approval
-- if the user edits or rejects the choices, respond naturally and refine them
-- do not output robotic confirmation panels
+Hard rules:
+- only the essential user-facing requirement fields can block transition to planning
+- if the proposed mandatory values are accepted and all required fields are now confirmed, mark ready_for_requirement_approval as true
+- NEVER ask plan-format or planning-style questions
+- if the user wants to proceed and mandatory fields are complete, do not ask more requirement questions
 
 Return JSON only with:
 - thinking_summary
 - assistant_message
 - action: one of ["approve_proposals", "revise_proposals", "treat_as_edit"]
 - updates: list of {field, value, source, confirmed, rationale, needs_confirmation}
-- pending_confirmations: list of field names that need confirmation after this turn
+- pending_confirmations: list of field names
 - ready_for_requirement_approval: boolean
 """
 
 PRODUCT_REASONER_SYSTEM = """
 You are ProductReasoner in a multi-agent SDLC planning swarm.
 
-Analyze the confirmed requirement contract from a product and scope perspective.
-Focus on value fit, completeness, blind spots, user experience needs, and product risks.
-Be concrete and specific.
+Analyze the frozen requirement contract from a product and scope perspective.
+Focus on completeness, value fit, UX expectations, and missing product assumptions.
 
 Return JSON only with:
 - summary
@@ -301,8 +323,8 @@ Return JSON only with:
 ARCHITECT_REASONER_SYSTEM = """
 You are ArchitectReasoner in a multi-agent SDLC planning swarm.
 
-Analyze the confirmed requirement contract and prior reviews from an architecture perspective.
-Focus on feasibility, modularity, coherence, scalability, API direction, data flow, and deployment approach.
+Analyze the frozen requirement contract and prior reviews from an architecture perspective.
+Focus on feasibility, modularity, coherence, scalability, API direction, data flow, and deployment direction.
 
 Return JSON only with:
 - summary
@@ -318,8 +340,7 @@ Return JSON only with:
 SECURITY_REASONER_SYSTEM = """
 You are SecurityReasoner in a multi-agent SDLC planning swarm.
 
-Analyze the confirmed requirements and prior reviews from a security, privacy, and abuse-prevention perspective.
-Be concrete and practical.
+Analyze the frozen requirements from a security, privacy, moderation, and abuse-prevention perspective.
 
 Return JSON only with:
 - summary
@@ -334,7 +355,7 @@ Return JSON only with:
 CONSTRAINT_REASONER_SYSTEM = """
 You are ConstraintReasoner in a multi-agent SDLC planning swarm.
 
-Analyze cost, complexity, maintainability, phased delivery, team burden, and operational trade-offs.
+Analyze cost, complexity, maintainability, phased delivery, and operational trade-offs.
 
 Return JSON only with:
 - summary
@@ -349,8 +370,8 @@ Return JSON only with:
 CRITIC_REASONER_SYSTEM = """
 You are CriticReasoner in a multi-agent SDLC planning swarm.
 
-Synthesize all specialist reviews.
-Identify contradictions, blind spots, unresolved assumptions, and corrective directions before the architecture draft is generated.
+Synthesize all specialist reviews and identify contradictions, blind spots, unresolved assumptions,
+and corrective directions before the architecture draft is generated.
 
 Return JSON only with:
 - summary
@@ -372,11 +393,11 @@ Create a very detailed architecture plan from:
 
 Rules:
 - this is NOT a short summary
-- create a long, implementation-grade plan
-- include concrete technical details, boundaries, schemas, APIs, workflows, deployment, security, observability, and roadmap
-- include enough detail that the final report can exceed 10 pages if needed
+- always generate a detailed implementation-grade plan
+- include concrete architecture, modules, workflows, schemas, APIs, security, deployment,
+  observability, roadmap, and implementation details
 - preserve user-confirmed requirements
-- if a user choice creates trade-offs, design around it rather than silently changing it
+- do not ask the user for planning-format choices
 
 Return JSON only with:
 - title
@@ -403,7 +424,7 @@ You are AuditorAgent in a phase-based multi-agent SDLC system.
 
 Audit the architecture plan against the frozen confirmed requirements.
 Review coherence, security, privacy, maintainability, completeness, phase readiness, and execution realism.
-You may approve only if the plan is genuinely strong.
+Approve only if the plan is genuinely strong.
 
 Return JSON only with:
 - score
@@ -435,7 +456,6 @@ Requirements:
 - include frontend, backend, data, infra, security, QA, and rollout work
 - include dependencies, deliverables, and done criteria
 - include feature-by-feature implementation guidance
-- include suggested task breakdowns that a student or small team can follow
 
 Return JSON only with:
 - execution_overview
@@ -479,7 +499,6 @@ You are NarrativeWriterAgent.
 
 Write a long-form validated architecture report package.
 Never leave sections blank.
-The report should be detailed enough to support a long PDF.
 
 Return JSON only with:
 - title
@@ -520,8 +539,8 @@ Create real structured diagram specs for:
 Rules:
 - provide actual nodes and edges
 - do not return placeholders
-- for ER, include entities with fields and relationships
-- for roadmap, model phases and dependencies
+- for ER include entities with fields and relationships
+- for roadmap model phases and dependencies
 
 Return JSON only with:
 - diagrams
@@ -530,8 +549,7 @@ Return JSON only with:
 DEVELOPMENT_SUMMARY_SYSTEM = """
 You are DevelopmentPhaseAgent.
 
-Create the final development phase handoff after approval.
-This should bridge the validated plan into implementation support.
+Create the final development handoff after approval.
 
 Return JSON only with:
 - development_summary
@@ -612,7 +630,7 @@ class AzureLLM:
 
         if not api_key or not endpoint or not chat_deployment:
             raise RuntimeError(
-                "Missing Azure OpenAI configuration. Set AZURE_OPENAI_API_KEY, "
+                "Missing Azure OpenAI config. Set AZURE_OPENAI_API_KEY, "
                 "AZURE_OPENAI_ENDPOINT, and AZURE_OPENAI_CHAT_DEPLOYMENT."
             )
 
@@ -647,7 +665,7 @@ class AzureLLM:
 
 
 # =========================================================
-# Application
+# Main app
 # =========================================================
 
 class GovernanceTerminal:
@@ -660,7 +678,7 @@ class GovernanceTerminal:
         Path(self.state.artifacts_dir).mkdir(parents=True, exist_ok=True)
 
     # -----------------------------------------------------
-    # UI helpers
+    # UI
     # -----------------------------------------------------
 
     def banner(self) -> None:
@@ -728,7 +746,7 @@ class GovernanceTerminal:
 
     def missing_required_fields(self) -> List[str]:
         out = []
-        for f in MANDATORY_FIELDS:
+        for f in USER_ONLY_REQUIRED_FIELDS:
             item = self.state.requirement_contract[f]
             if not item.value.strip() or not item.confirmed:
                 out.append(f)
@@ -755,15 +773,41 @@ class GovernanceTerminal:
                 lines.append(f"- {k}: {v.value} ({suffix})")
         return "\n".join(lines)
 
+    def wants_planning_transition(self, text: str) -> bool:
+        t = text.lower().strip()
+        if positive_reply(t):
+            return True
+        return any(term in t for term in PLANNING_INTENT_TERMS)
+
+    def fill_internal_defaults(self) -> None:
+        defaults = {
+            "future_scope": "Derive additional post-MVP features internally from the requested full ChatGPT-like feature set, including richer multimodal and advanced personalization capabilities.",
+            "constraints": "Assume final-year-project context with quality prioritized over brevity, likely solo or small-team execution, and a need for academically strong planning artifacts.",
+            "observability_baseline": "Structured application logs, error tracking, request metrics, latency monitoring, tracing, uptime alerts, audit events, and admin-visible operational dashboards.",
+            "execution_preference": "Prioritize correctness, completeness, maintainability, and implementation readiness over shortness or oversimplification.",
+            "llm_integration": "Use secure backend-managed GPT-compatible model integration through an adapter layer, never direct browser-side secret exposure.",
+            "compliance_context": "Adopt privacy-by-design baseline with deletion support, retention enforcement, secure secret storage, and explicit handling of user data and logs.",
+        }
+        for field, value in defaults.items():
+            current = self.state.requirement_contract[field]
+            if not current.value.strip():
+                self.set_field(
+                    field_name=field,
+                    value=value,
+                    source="system_default_for_planning",
+                    confirmed=True,
+                    rationale="Internal planning default; not a user-blocking requirement.",
+                )
+
     # -----------------------------------------------------
-    # Run loop
+    # Commands and run loop
     # -----------------------------------------------------
 
     def run(self) -> None:
         self.banner()
         welcome = (
-            "Hi — I’ll help you define the project step by step in a natural way, and once the important requirements are clear, "
-            "I’ll move the project into the internal multi-agent planning and validation phase. Start by telling me what you want to build."
+            "Hi — I’ll help you define the project step by step in a natural way. "
+            "Once the essential requirements are locked, I’ll move straight into the internal multi-agent planning and validation phase."
         )
         self.append_dialogue("assistant", welcome, "RequirementCoordinator")
         self.panel("RequirementCoordinator", welcome)
@@ -827,7 +871,7 @@ class GovernanceTerminal:
 
         if cmd == ":thinking" and len(parts) == 2:
             self.state.show_internal_panels = parts[1].lower() in {"on", "true", "1"}
-            self.panel("System", f"Internal planning panels set to {self.state.show_internal_panels}.", "cyan")
+            self.panel("System", f"Internal thinking panels set to {self.state.show_internal_panels}.", "cyan")
             return True
 
         if cmd == ":status":
@@ -867,27 +911,31 @@ class GovernanceTerminal:
         if self.state.phase in {PHASE_APPROVED, PHASE_DEVELOPMENT}:
             msg = (
                 f"The validated plan is already approved.\nPDF: {self.state.final_pdf_path or 'not exported yet'}\n\n"
-                f"You can use :export to regenerate the report, or start a new session for a new project."
+                "Use :export to regenerate the report, or start a new session for a new project."
             )
             self.panel("System", msg, "cyan")
             return
 
     # -----------------------------------------------------
-    # Requirement flow
+    # Requirement stage
     # -----------------------------------------------------
 
     def requirement_coordinator_consult(self, user_text: str) -> Dict[str, Any]:
         payload = {
             "current_contract": self.contract_snapshot(),
-            "mandatory_fields": MANDATORY_FIELDS,
+            "required_fields": USER_ONLY_REQUIRED_FIELDS,
             "missing_required_fields": self.missing_required_fields(),
             "field_prompts": FIELD_PROMPTS,
             "user_message": user_text,
             "dialogue_tail": self.dialogue_tail(),
         }
-        result = self.llm.complete_json(FRIENDLY_REQ_SYSTEM, payload, max_tokens=2400, reasoning=True)
+        result = self.llm.complete_json(FRIENDLY_REQ_SYSTEM, payload, max_tokens=2200, reasoning=True)
         if self.state.debug_mode:
-            self.thinking("RequirementCoordinator", result.get("thinking_summary", "Continuing requirement gathering."), "continue natural requirement gathering")
+            self.thinking(
+                "RequirementCoordinator",
+                result.get("thinking_summary", "Continuing requirement gathering."),
+                "ask only essential requirement questions",
+            )
         return result
 
     def requirement_confirmation_consult(self, user_text: str) -> Dict[str, Any]:
@@ -899,7 +947,7 @@ class GovernanceTerminal:
         }
         payload = {
             "current_contract": self.contract_snapshot(),
-            "mandatory_fields": MANDATORY_FIELDS,
+            "required_fields": USER_ONLY_REQUIRED_FIELDS,
             "missing_required_fields": self.missing_required_fields(),
             "pending_confirmation_fields": pending_fields,
             "pending_confirmation_snapshot": pending_snapshot,
@@ -908,7 +956,11 @@ class GovernanceTerminal:
         }
         result = self.llm.complete_json(REQUIREMENT_CONFIRM_SYSTEM, payload, max_tokens=2200, reasoning=True)
         if self.state.debug_mode:
-            self.thinking("RequirementCoordinator", result.get("thinking_summary", "Resolving requirement confirmations."), "produce one friendly reply")
+            self.thinking(
+                "RequirementCoordinator",
+                result.get("thinking_summary", "Resolving requirement confirmations."),
+                "confirm or revise mandatory requirement values",
+            )
         return result
 
     def apply_requirement_updates(self, result: Dict[str, Any]) -> List[str]:
@@ -941,24 +993,43 @@ class GovernanceTerminal:
         if explicit_pending:
             pending = explicit_pending
 
+        # Hard filter: only user-facing required fields can block planning.
+        pending = [f for f in pending if f in USER_ONLY_REQUIRED_FIELDS]
         return pending
+
+    def try_transition_to_planning(self, user_text: str, result: Optional[Dict[str, Any]] = None) -> bool:
+        ready_flag = bool((result or {}).get("ready_for_requirement_approval", False))
+        if self.all_required_locked() and (self.wants_planning_transition(user_text) or ready_flag):
+            self.fill_internal_defaults()
+            self.state.pending_confirmations = []
+            self.state.phase = PHASE_PLANNING
+            msg = (
+                "Perfect — the required project requirements are now locked. "
+                "I’m moving to the internal planning and validation phase now."
+            )
+            self.panel("RequirementCoordinator", msg, "green")
+            self.start_governance_cycle()
+            return True
+        return False
 
     def handle_requirement_turn(self, user_text: str) -> None:
         normalized = user_text.lower().strip()
 
         if normalized in {"approve requirements", "approve contract", "finalize requirements"}:
             if self.all_required_locked():
-                msg = (
-                    "Perfect — the requirement contract is now complete, so I’m moving into the internal multi-agent planning and validation stage. "
-                    "You’ll now see the architecture swarm reason through the plan phase by phase."
+                self.fill_internal_defaults()
+                self.panel(
+                    "RequirementCoordinator",
+                    "Perfect — the required project requirements are now locked. I’m moving to the internal planning and validation phase now.",
+                    "green",
                 )
-                self.panel("RequirementCoordinator", msg, "green")
+                self.state.phase = PHASE_PLANNING
                 self.start_governance_cycle()
             else:
                 next_field = self.next_missing_field()
                 self.panel(
                     "RequirementCoordinator",
-                    f"We’re close, but I still need to lock one important area before planning: {next_field}.",
+                    f"We’re close, but one essential requirement still needs to be locked before planning: {next_field}.",
                     "yellow",
                 )
             return
@@ -971,20 +1042,46 @@ class GovernanceTerminal:
             if action == "approve_proposals":
                 self.confirm_fields(old_pending)
                 self.state.pending_confirmations = []
-                fresh_pending = self.apply_requirement_updates(result)
-                self.state.pending_confirmations = fresh_pending
             else:
                 self.state.pending_confirmations = []
-                fresh_pending = self.apply_requirement_updates(result)
-                self.state.pending_confirmations = fresh_pending
+
+            new_pending = self.apply_requirement_updates(result)
+            self.state.pending_confirmations = [f for f in new_pending if f in USER_ONLY_REQUIRED_FIELDS]
+
+            if self.try_transition_to_planning(user_text, result):
+                return
 
             self.state.phase = PHASE_REQUIREMENT_CONFIRMATION if self.state.pending_confirmations else PHASE_REQUIREMENTS
+
+            # If all required fields are done, do not ask any new planning-like questions.
+            if self.all_required_locked():
+                msg = (
+                    "Perfect — the essential requirements are fully locked. "
+                    "Reply yes when you want me to move straight into the internal planning and validation phase."
+                )
+                self.panel("RequirementCoordinator", msg, "green")
+                return
+
             self.panel("RequirementCoordinator", result.get("assistant_message", "Got it — I’ve updated the requirement notes."), "green")
             return
 
         result = self.requirement_coordinator_consult(user_text)
-        self.state.pending_confirmations = self.apply_requirement_updates(result)
+        self.state.pending_confirmations = [f for f in self.apply_requirement_updates(result) if f in USER_ONLY_REQUIRED_FIELDS]
+
+        if self.try_transition_to_planning(user_text, result):
+            return
+
         self.state.phase = PHASE_REQUIREMENT_CONFIRMATION if self.state.pending_confirmations else PHASE_REQUIREMENTS
+
+        # Hard stop if complete.
+        if self.all_required_locked():
+            msg = (
+                "Perfect — the essential requirements are fully locked. "
+                "Reply yes when you want me to move straight into the internal planning and validation phase."
+            )
+            self.panel("RequirementCoordinator", msg, "green")
+            return
+
         self.panel("RequirementCoordinator", result.get("assistant_message", "Got it — I’ve updated the requirement notes."), "green")
 
     # -----------------------------------------------------
@@ -1052,14 +1149,14 @@ class GovernanceTerminal:
 
             self.panel(
                 "Revision In Progress",
-                "The planning swarm is revising the architecture based on auditor feedback before the next round.",
+                "The planning swarm is revising the architecture internally based on auditor feedback.",
                 "yellow",
             )
 
         self.state.phase = PHASE_REQUIREMENTS
         self.panel(
             "Planning",
-            "The architecture did not reach approval within the current round limit. You can refine the requirements, raise planning rounds, or lower the threshold.",
+            "The architecture did not reach approval within the current round limit. Refine requirements, increase rounds, or lower the threshold.",
             "red",
         )
 
@@ -1144,7 +1241,7 @@ class GovernanceTerminal:
             max_tokens=self.token_budget("plan"),
             reasoning=True,
         )
-        summary = result.get("executive_summary") or result.get("summary") or "Architecture draft generated."
+        summary = result.get("executive_summary") or "Architecture draft generated."
         self.thinking("ArchitectAgent", summary, "submit to AuditorAgent")
         return self.normalize_plan(result, specialist_reviews)
 
@@ -1169,7 +1266,7 @@ class GovernanceTerminal:
                 "backend": c("backend_stack"),
                 "data_platform": c("data_platform"),
                 "hosting_target": c("hosting_target"),
-                "llm_integration": c("llm_integration", "Backend-managed OpenAI-compatible API integration"),
+                "llm_integration": c("llm_integration", "Secure backend-managed GPT-compatible integration"),
             },
             "functional_feature_map": raw.get("functional_feature_map") or {
                 "mvp_scope": c("mvp_scope"),
@@ -1178,25 +1275,25 @@ class GovernanceTerminal:
             },
             "system_components": raw.get("system_components") or {
                 "components": [
-                    {"name": "Web Client", "responsibility": "User interface and interactive chat experience"},
-                    {"name": "API Layer", "responsibility": "Authentication, request validation, and routing"},
-                    {"name": "Conversation Service", "responsibility": "Session and prompt orchestration"},
-                    {"name": "LLM Gateway", "responsibility": "Model calls, retries, guardrails, and usage accounting"},
-                    {"name": "Persistence Layer", "responsibility": "Users, sessions, messages, and metadata"},
-                    {"name": "Monitoring Layer", "responsibility": "Logs, metrics, alerts, tracing, and auditing"},
+                    {"name": "Web Client", "responsibility": "Interactive chat UI, auth UI, settings, and thread management"},
+                    {"name": "API Gateway", "responsibility": "Authentication, validation, routing, and rate limiting"},
+                    {"name": "Conversation Service", "responsibility": "Session, prompt orchestration, and memory handling"},
+                    {"name": "LLM Adapter", "responsibility": "Model calls, retries, safety checks, and token accounting"},
+                    {"name": "Data Layer", "responsibility": "User, session, message, feedback, and usage persistence"},
+                    {"name": "Observability Layer", "responsibility": "Logs, metrics, traces, alarms, and auditing"},
                 ]
             },
             "workflows": raw.get("workflows") or {
                 "primary_flows": [
-                    "Account registration and login",
+                    "User registration/login or limited guest access",
                     "Session creation and chat submission",
-                    "Prompt assembly and guardrail checks",
-                    "LLM inference and streaming response delivery",
-                    "Message persistence and observability event capture",
+                    "Prompt assembly, safety checks, and LLM inference",
+                    "Streaming response delivery and message persistence",
+                    "Monitoring, retention, and administrative oversight",
                 ]
             },
             "data_model": raw.get("data_model") or {
-                "entities": ["User", "ChatSession", "Message", "Attachment", "Feedback", "UsageEvent", "AuditEvent"],
+                "entities": ["User", "GuestQuota", "ChatSession", "Message", "Attachment", "Feedback", "UsageEvent", "AuditEvent"],
                 "storage_strategy": c("data_platform"),
                 "retention_policy": c("privacy_retention_policy"),
             },
@@ -1205,45 +1302,50 @@ class GovernanceTerminal:
                 "endpoints": [
                     "/api/auth/signup",
                     "/api/auth/login",
+                    "/api/auth/google",
                     "/api/chat/sessions",
                     "/api/chat/messages",
                     "/api/chat/stream",
                     "/api/user/profile",
+                    "/api/feedback",
                 ],
             },
             "security_and_compliance": raw.get("security_and_compliance") or {
                 "baseline": c("security_baseline"),
                 "privacy": c("privacy_retention_policy"),
-                "compliance_context": c("compliance_context", "Basic privacy-by-design and deletion support"),
+                "compliance_context": c("compliance_context", "Privacy-by-design baseline"),
             },
             "deployment_and_operations": raw.get("deployment_and_operations") or {
                 "hosting_target": c("hosting_target"),
                 "observability_baseline": c("observability_baseline", "Logs, metrics, traces, alerts"),
-                "ops_model": "Phased deployment with rollback and monitoring",
+                "ops_model": "Phased deployment with monitoring, rollback, and cost tracking",
             },
             "observability": raw.get("observability") or {
-                "baseline": c("observability_baseline", "Centralized logs, metrics, tracing, and alerting"),
+                "baseline": c("observability_baseline", "Centralized logs, metrics, tracing, alerting"),
             },
             "cost_and_scaling": raw.get("cost_and_scaling") or {
                 "cost_position": "Usage-driven due to external LLM calls",
-                "scaling_direction": "Horizontal application scaling with managed services and caching",
+                "scaling_direction": "Horizontal application scaling with managed services, caching, and quotas",
             },
             "phased_implementation": raw.get("phased_implementation") or {
                 "phase_1": c("mvp_scope"),
                 "phase_2": c("future_scope", "Expanded features after MVP stabilization"),
             },
             "development_guidelines": raw.get("development_guidelines") or {
-                "principles": ["Keep services modular", "Preserve clear contracts", "Automate testing early"],
+                "principles": [
+                    "Keep service boundaries explicit",
+                    "Automate tests early",
+                    "Never expose model secrets in the frontend",
+                    "Design data contracts before implementation",
+                ],
             },
             "risks_and_tradeoffs": raw.get("risks_and_tradeoffs") or {
-                "risks": ["API cost growth", "Abuse pressure", "Latency variability"],
-                "tradeoffs": ["Faster MVP simplicity versus later governance and scale hardening"],
+                "risks": ["API cost growth", "Public abuse pressure", "Latency variability", "Feature complexity"],
+                "tradeoffs": ["Faster MVP simplicity versus deeper governance and multimodal complexity"],
             },
             "open_questions_resolved": raw.get("open_questions_resolved") or specialist_reviews.get("critic", {}),
             "generated_at": now_iso(),
         }
-
-        plan["title"] = re.sub(r"\bRound\s+\d+\b", "", plan["title"], flags=re.IGNORECASE).strip(" -–") or "Validated Architecture Plan"
         return plan
 
     def auditor_validate(self, round_no: int, plan: Dict[str, Any], specialist_reviews: Dict[str, Any]) -> Dict[str, Any]:
@@ -1268,8 +1370,7 @@ class GovernanceTerminal:
         score = max(0.0, min(10.0, score))
         blocking_issues = ensure_list_of_str(result.get("blocking_issues"))
         recommendations = ensure_list_of_str(result.get("recommendations"))
-        conflicts = ensure_list(result.get("requirement_conflicts"))
-        conflicts = [c for c in conflicts if isinstance(c, dict)]
+        conflicts = [c for c in ensure_list(result.get("requirement_conflicts")) if isinstance(c, dict)]
         unresolved_conflicts = [c for c in conflicts if c.get("issue_id") not in self.state.accepted_exceptions]
 
         passed = score >= self.state.pass_threshold and len(blocking_issues) == 0 and len(unresolved_conflicts) == 0
@@ -1344,8 +1445,7 @@ class GovernanceTerminal:
         self.console.print(at)
 
         if audit.get("blocking_issues"):
-            body = "\n".join(f"- {x}" for x in audit["blocking_issues"])
-            self.panel("Blocking Issues", body, "red")
+            self.panel("Blocking Issues", "\n".join(f"- {x}" for x in audit["blocking_issues"]), "red")
 
     # -----------------------------------------------------
     # Change review
@@ -1522,7 +1622,7 @@ class GovernanceTerminal:
             "development_playbook": obj_to_text(tutor),
             "testing_validation": obj_to_text(qa),
             "risks_tradeoffs": obj_to_text(plan.get("risks_and_tradeoffs")),
-            "final_notes": "This approved package is ready to guide implementation, testing, and phased rollout.",
+            "final_notes": "This validated package is ready to guide implementation, testing, and phased rollout.",
         }
 
         for key, value in defaults.items():
@@ -1530,7 +1630,7 @@ class GovernanceTerminal:
                 sections[key] = value
 
         package["sections"] = sections
-        package["title"] = re.sub(r"\bRound\s+\d+\b", "", str(package.get("title") or "Validated Architecture Plan"), flags=re.IGNORECASE).strip(" -–") or "Validated Architecture Plan"
+        package["title"] = str(package.get("title") or "Validated Architecture Plan")
         package["executive_summary"] = package.get("executive_summary") or "Validated architecture report."
         return package
 
@@ -1956,17 +2056,12 @@ class GovernanceTerminal:
                 if isinstance(item, dict):
                     name = str(item.get("feature") or item.get("name") or "Feature")
                     story.append(Paragraph(self.pdf_escape(name), body))
-                    details = json_to_lines(item, 1)
-                    story.append(self.bullet_list(details, body))
-
-        milestone_checks = ensure_list_of_str(execution.get("milestone_checks"))
-        if milestone_checks:
-            story.append(Paragraph("Milestone Checks", h2))
-            story.append(self.bullet_list(milestone_checks, body))
+                    story.append(self.bullet_list(json_to_lines(item, 1), body))
 
     def append_feature_build_guides(self, story: List[Any], tutor: Dict[str, Any], h2, body) -> None:
         if not tutor:
             return
+
         for key, title in [
             ("development_playbook", "Development Playbook"),
             ("coding_order", "Coding Order"),
@@ -1994,6 +2089,7 @@ class GovernanceTerminal:
     def append_qa_sections(self, story: List[Any], qa: Dict[str, Any], h2, body) -> None:
         if not qa:
             return
+
         for key, title in [
             ("validation_strategy", "Validation Strategy"),
             ("test_layers", "Test Layers"),
@@ -2018,7 +2114,8 @@ class GovernanceTerminal:
 
     def pdf_escape(self, text: str) -> str:
         return (
-            text.replace("&", "&amp;")
+            (text or "")
+            .replace("&", "&amp;")
             .replace("<", "&lt;")
             .replace(">", "&gt;")
             .replace("\n", "<br/>")
