@@ -1,0 +1,55 @@
+# --- Python & Data Science ---
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+# Excluding large datasets or local generations
+Datasets/DataGenerator/.env
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# --- Node.js / React / Next.js ---
+node_modules/
+.pnp
+.pnp.js
+dist/
+build/
+.next/
+out/
+.docusaurus/
+.cache/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.eslintcache
+
+# --- Docker ---
+.dockerignore
+# Generally keep the Dockerfile, but ignore local data persistence
+*/data/db/
+*/data/logs/
+
+# --- Environment & Secrets ---
+.env
+*.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+# Specifically for your DataGenerator
+Datasets/DataGenerator/.env
+
+# --- Operating System ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- Editor / IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo
