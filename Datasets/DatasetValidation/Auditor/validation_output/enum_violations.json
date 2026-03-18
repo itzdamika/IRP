@@ -238,12 +238,12 @@
   "AUD-SYNC26-097": [
     {
       "path": "global",
-      "value": "secret",
+      "value": "pii",
       "type": "forbidden_value"
     },
     {
       "path": "global",
-      "value": "pii",
+      "value": "secret",
       "type": "forbidden_value"
     }
   ],
@@ -290,24 +290,24 @@
   "AUD-SYNC26-108": [
     {
       "path": "global",
-      "value": "phi",
+      "value": "pii",
       "type": "forbidden_value"
     },
     {
       "path": "global",
-      "value": "pii",
+      "value": "phi",
       "type": "forbidden_value"
     }
   ],
   "AUD-SYNC26-109": [
     {
       "path": "global",
-      "value": "phi",
+      "value": "pii",
       "type": "forbidden_value"
     },
     {
       "path": "global",
-      "value": "pii",
+      "value": "phi",
       "type": "forbidden_value"
     }
   ],
@@ -874,24 +874,24 @@
   "AUD-SYNC26-431": [
     {
       "path": "global",
-      "value": "secret",
+      "value": "pci",
       "type": "forbidden_value"
     },
     {
       "path": "global",
-      "value": "pci",
+      "value": "secret",
       "type": "forbidden_value"
     }
   ],
   "AUD-SYNC26-432": [
     {
       "path": "global",
-      "value": "secret",
+      "value": "pci",
       "type": "forbidden_value"
     },
     {
       "path": "global",
-      "value": "pci",
+      "value": "secret",
       "type": "forbidden_value"
     }
   ],
@@ -996,24 +996,24 @@
   "AUD-SYNC26-482": [
     {
       "path": "global",
-      "value": "secret",
+      "value": "pci",
       "type": "forbidden_value"
     },
     {
       "path": "global",
-      "value": "pci",
+      "value": "secret",
       "type": "forbidden_value"
     }
   ],
   "AUD-SYNC26-483": [
     {
       "path": "global",
-      "value": "secret",
+      "value": "pci",
       "type": "forbidden_value"
     },
     {
       "path": "global",
-      "value": "pci",
+      "value": "secret",
       "type": "forbidden_value"
     }
   ],
@@ -1052,15 +1052,236 @@
       "type": "forbidden_value"
     }
   ],
-  "AUD-SYNC26-550": [
+  "AUD-SYNC26-501": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-508": [
     {
       "path": "global",
       "value": "secret",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-515": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-521": [
+    {
+      "path": "global",
+      "value": "pii",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-522": [
+    {
+      "path": "global",
+      "value": "pii",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-523": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-528": [
+    {
+      "path": "global",
+      "value": "phi",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-529": [
+    {
+      "path": "global",
+      "value": "phi",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-532": [
+    {
+      "path": "global",
+      "value": "pci",
       "type": "forbidden_value"
     },
     {
       "path": "global",
       "value": "pii",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-533": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    },
+    {
+      "path": "global",
+      "value": "pii",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-540": [
+    {
+      "path": "global",
+      "value": "pii",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-541": [
+    {
+      "path": "global",
+      "value": "pii",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-542": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-543": [
+    {
+      "path": "issueupdates.status",
+      "value": "partially fixed",
+      "type": "invalid_status"
+    },
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-544": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-548": [
+    {
+      "path": "global",
+      "value": "pii",
+      "type": "forbidden_value"
+    },
+    {
+      "path": "global",
+      "value": "secret",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-549": [
+    {
+      "path": "global",
+      "value": "pii",
+      "type": "forbidden_value"
+    },
+    {
+      "path": "global",
+      "value": "secret",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-550": [
+    {
+      "path": "global",
+      "value": "pii",
+      "type": "forbidden_value"
+    },
+    {
+      "path": "global",
+      "value": "secret",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-552": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-556": [
+    {
+      "path": "global",
+      "value": "pii",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-561": [
+    {
+      "path": "global",
+      "value": "pii",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-565": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-570": [
+    {
+      "path": "global",
+      "value": "pii",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-577": [
+    {
+      "path": "global",
+      "value": "pii",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-579": [
+    {
+      "path": "global",
+      "value": "secret",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-583": [
+    {
+      "path": "global",
+      "value": "pii",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-584": [
+    {
+      "path": "global",
+      "value": "pii",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-585": [
+    {
+      "path": "global",
+      "value": "pii",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-597": [
+    {
+      "path": "global",
+      "value": "secret",
       "type": "forbidden_value"
     }
   ],
@@ -1076,10 +1297,126 @@
       "type": "forbidden_value"
     }
   ],
+  "AUD-SYNC26-601": [
+    {
+      "path": "global",
+      "value": "pii",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-602": [
+    {
+      "path": "global",
+      "value": "pii",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-620": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    },
+    {
+      "path": "global",
+      "value": "pii",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-621": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    },
+    {
+      "path": "global",
+      "value": "pii",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-626": [
+    {
+      "path": "global",
+      "value": "secret",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-627": [
+    {
+      "path": "global",
+      "value": "secret",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-628": [
+    {
+      "path": "global",
+      "value": "pii",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-629": [
+    {
+      "path": "issueupdates.status",
+      "value": "partially fixed",
+      "type": "invalid_status"
+    }
+  ],
   "AUD-SYNC26-630": [
     {
       "path": "global",
       "value": "secret",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-650": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    },
+    {
+      "path": "global",
+      "value": "pii",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-651": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    },
+    {
+      "path": "global",
+      "value": "pii",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-652": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    },
+    {
+      "path": "global",
+      "value": "pii",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-658": [
+    {
+      "path": "global",
+      "value": "pii",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-659": [
+    {
+      "path": "global",
+      "value": "pii",
       "type": "forbidden_value"
     }
   ],
@@ -1090,7 +1427,208 @@
       "type": "forbidden_value"
     }
   ],
+  "AUD-SYNC26-661": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-662": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-663": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-664": [
+    {
+      "path": "global",
+      "value": "phi",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-665": [
+    {
+      "path": "global",
+      "value": "phi",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-666": [
+    {
+      "path": "global",
+      "value": "phi",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-676": [
+    {
+      "path": "global",
+      "value": "pii",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-677": [
+    {
+      "path": "global",
+      "value": "pii",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-687": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-688": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-689": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
   "AUD-SYNC26-690": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-691": [
+    {
+      "path": "global",
+      "value": "phi",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-692": [
+    {
+      "path": "global",
+      "value": "phi",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-693": [
+    {
+      "path": "global",
+      "value": "phi",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-694": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-695": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-696": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-715": [
+    {
+      "path": "global",
+      "value": "pii",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-716": [
+    {
+      "path": "global",
+      "value": "pii",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-717": [
+    {
+      "path": "global",
+      "value": "pii",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-730": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-734": [
+    {
+      "path": "issueupdates.status",
+      "value": "unchanged",
+      "type": "invalid_status"
+    }
+  ],
+  "AUD-SYNC26-737": [
+    {
+      "path": "issueupdates.status",
+      "value": "unchanged",
+      "type": "invalid_status"
+    }
+  ],
+  "AUD-SYNC26-739": [
+    {
+      "path": "issueupdates.status",
+      "value": "partially fixed",
+      "type": "invalid_status"
+    }
+  ],
+  "AUD-SYNC26-743": [
+    {
+      "path": "issueupdates.status",
+      "value": "unchanged",
+      "type": "invalid_status"
+    }
+  ],
+  "AUD-SYNC26-744": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-747": [
+    {
+      "path": "issueupdates.status",
+      "value": "unchanged",
+      "type": "invalid_status"
+    }
+  ],
+  "AUD-SYNC26-749": [
+    {
+      "path": "issueupdates.status",
+      "value": "unchanged",
+      "type": "invalid_status"
+    },
     {
       "path": "global",
       "value": "pci",
@@ -1102,6 +1640,214 @@
       "path": "issueupdates.status",
       "value": "unchanged",
       "type": "invalid_status"
+    }
+  ],
+  "AUD-SYNC26-751": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-758": [
+    {
+      "path": "global",
+      "value": "secret",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-762": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-764": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-766": [
+    {
+      "path": "issueupdates.status",
+      "value": "unchanged",
+      "type": "invalid_status"
+    }
+  ],
+  "AUD-SYNC26-769": [
+    {
+      "path": "issueupdates.status",
+      "value": "unchanged",
+      "type": "invalid_status"
+    }
+  ],
+  "AUD-SYNC26-772": [
+    {
+      "path": "global",
+      "value": "secret",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-774": [
+    {
+      "path": "issueupdates.status",
+      "value": "unchanged",
+      "type": "invalid_status"
+    }
+  ],
+  "AUD-SYNC26-776": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-778": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-781": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-790": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-793": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-794": [
+    {
+      "path": "issueupdates.status",
+      "value": "unchanged",
+      "type": "invalid_status"
+    }
+  ],
+  "AUD-SYNC26-795": [
+    {
+      "path": "issueupdates.status",
+      "value": "partially fixed",
+      "type": "invalid_status"
+    }
+  ],
+  "AUD-SYNC26-799": [
+    {
+      "path": "issueupdates.status",
+      "value": "unchanged",
+      "type": "invalid_status"
+    }
+  ],
+  "AUD-SYNC26-801": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-805": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-807": [
+    {
+      "path": "issueupdates.status",
+      "value": "unchanged",
+      "type": "invalid_status"
+    }
+  ],
+  "AUD-SYNC26-809": [
+    {
+      "path": "issueupdates.status",
+      "value": "unchanged",
+      "type": "invalid_status"
+    }
+  ],
+  "AUD-SYNC26-814": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-816": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-824": [
+    {
+      "path": "issueupdates.status",
+      "value": "unchanged",
+      "type": "invalid_status"
+    }
+  ],
+  "AUD-SYNC26-825": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-826": [
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
+    }
+  ],
+  "AUD-SYNC26-827": [
+    {
+      "path": "issueupdates.status",
+      "value": "partially fixed",
+      "type": "invalid_status"
+    }
+  ],
+  "AUD-SYNC26-835": [
+    {
+      "path": "issueupdates.status",
+      "value": "unchanged",
+      "type": "invalid_status"
+    }
+  ],
+  "AUD-SYNC26-836": [
+    {
+      "path": "issueupdates.status",
+      "value": "partially fixed",
+      "type": "invalid_status"
+    }
+  ],
+  "AUD-SYNC26-839": [
+    {
+      "path": "issueupdates.status",
+      "value": "unchanged",
+      "type": "invalid_status"
+    },
+    {
+      "path": "global",
+      "value": "pci",
+      "type": "forbidden_value"
     }
   ]
 }

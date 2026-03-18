@@ -3382,6 +3382,154 @@
       "detail": "Average rubric=10.0 but 6 sections have <=2 words"
     }
   ],
+  "AUD-SYNC26-501": [
+    {
+      "rule": "all_tens",
+      "severity": "WARNING",
+      "detail": "All rubric scores are 10 \u2014 verify plan is exceptionally strong"
+    },
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 5 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=6w, observability=5w"
+    },
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=10 for high/financial system but securityandcompliance only 10 words"
+    }
+  ],
+  "AUD-SYNC26-508": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 5 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=11w, observability=4w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.8 but 4 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-510": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 5 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=8w, observability=2w"
+    }
+  ],
+  "AUD-SYNC26-512": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 3 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=4w, observability=2w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.4 but 9 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-513": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=25w, observability=1w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 12 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-514": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 5 words (thin plan)"
+    },
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=10 for high/confidential system but securityandcompliance only 7 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.4 but 3 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-515": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 5 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=6w, observability=5w"
+    }
+  ],
+  "AUD-SYNC26-517": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=3w, observability=3w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 4 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-519": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 3 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=10w, observability=1w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.8 but 10 sections have <=2 words"
+    }
+  ],
   "AUD-SYNC26-520": [
     {
       "rule": "arch_inflation",
@@ -3399,11 +3547,446 @@
       "detail": "Average rubric=9.6 but 9 sections have <=2 words"
     }
   ],
+  "AUD-SYNC26-522": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 5 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=8w, observability=5w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 4 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-525": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 6 words (thin plan)"
+    },
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=9 for high/internal system but securityandcompliance only 10 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.8 but 5 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-527": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 10 words (thin plan)"
+    }
+  ],
+  "AUD-SYNC26-529": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 6 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=5w, observability=11w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.4 but 4 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-531": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=18w, observability=1w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 9 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-533": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 7 words (thin plan)"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.4 but 4 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-535": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 6 words (thin plan)"
+    },
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=9 for medium/confidential system but securityandcompliance only 12 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.2 but 4 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-537": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=3w, observability=2w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.4 but 8 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-539": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=7w, observability=1w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.8 but 8 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-541": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=7w, observability=1w"
+    },
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=10 for high/personal system but securityandcompliance only 13 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 9 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-544": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 5 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=23w, observability=1w"
+    },
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=10 for high/financial system but securityandcompliance only 7 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.8 but 5 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-547": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=9w, observability=2w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 6 sections have <=2 words"
+    }
+  ],
   "AUD-SYNC26-550": [
     {
       "rule": "arch_inflation",
       "severity": "ERROR",
       "detail": "architecturequality=10 but mean section length is 10 words (thin plan)"
+    }
+  ],
+  "AUD-SYNC26-562": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 3 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=10w, observability=1w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.8 but 10 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-564": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 5 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=6w, observability=1w"
+    },
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=10 for high/health system but securityandcompliance only 12 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 5 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-565": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 5 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=8w, observability=2w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 5 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-566": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 3 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=7w, observability=2w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 7 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-568": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 5 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=9w, observability=4w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.4 but 3 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-569": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=18w, observability=1w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 10 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-570": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=7w, observability=1w"
+    },
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=10 for high/personal system but securityandcompliance only 13 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 9 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-572": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 6 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=4w, observability=2w"
+    },
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=10 for high/confidential system but securityandcompliance only 10 words"
+    }
+  ],
+  "AUD-SYNC26-574": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 5 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=8w, observability=4w"
+    },
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=10 for high/internal system but securityandcompliance only 14 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.8 but 5 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-575": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 3 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=24w, observability=1w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 12 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-576": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=3w, observability=2w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 9 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-577": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 5 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=8w, observability=5w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 4 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-579": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 7 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=7w, observability=4w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 4 sections have <=2 words"
     }
   ],
   "AUD-SYNC26-580": [
@@ -3423,6 +4006,147 @@
       "detail": "operability=10 but deployment=7w, observability=3w"
     }
   ],
+  "AUD-SYNC26-582": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 6 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-585": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=4w, observability=2w"
+    },
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=10 for high/personal system but securityandcompliance only 14 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 8 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-587": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=3w, observability=1w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.4 but 4 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-589": [
+    {
+      "rule": "all_tens",
+      "severity": "WARNING",
+      "detail": "All rubric scores are 10 \u2014 verify plan is exceptionally strong"
+    },
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=6w, observability=2w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=10.0 but 9 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-593": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 5 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=8w, observability=2w"
+    },
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=10 for high/confidential system but securityandcompliance only 12 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.8 but 5 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-595": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 6 words (thin plan)"
+    },
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=9 for high/internal system but securityandcompliance only 10 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.8 but 5 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-597": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 5 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=14w, observability=2w"
+    },
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=10 for high/financial system but securityandcompliance only 11 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.8 but 5 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-599": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 7 words (thin plan)"
+    }
+  ],
   "AUD-SYNC26-600": [
     {
       "rule": "all_tens",
@@ -3438,6 +4162,200 @@
       "rule": "ops_inflation",
       "severity": "ERROR",
       "detail": "operability=10 but deployment=5w, observability=4w"
+    }
+  ],
+  "AUD-SYNC26-602": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 7 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=6w, observability=4w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 4 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-604": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 6 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=5w, observability=1w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 4 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-606": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 6 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=9w, observability=4w"
+    }
+  ],
+  "AUD-SYNC26-608": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 6 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=4w, observability=2w"
+    }
+  ],
+  "AUD-SYNC26-610": [
+    {
+      "rule": "all_tens",
+      "severity": "WARNING",
+      "detail": "All rubric scores are 10 \u2014 verify plan is exceptionally strong"
+    },
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 7 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=13w, observability=2w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=10.0 but 5 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-612": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 8 words (thin plan)"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 3 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-614": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 5 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=23w, observability=1w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 9 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-616": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=11w, observability=1w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 9 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-619": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=5w, observability=1w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 10 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-621": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 5 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=6w, observability=2w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 6 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-623": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 5 words (thin plan)"
+    },
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=10 for high/confidential system but securityandcompliance only 11 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.4 but 5 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-625": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=8w, observability=1w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.8 but 10 sections have <=2 words"
     }
   ],
   "AUD-SYNC26-630": [
@@ -3457,6 +4375,193 @@
       "detail": "operability=10 but deployment=9w, observability=5w"
     }
   ],
+  "AUD-SYNC26-632": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=8w, observability=1w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.8 but 10 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-634": [
+    {
+      "rule": "all_tens",
+      "severity": "WARNING",
+      "detail": "All rubric scores are 10 \u2014 verify plan is exceptionally strong"
+    },
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=2w, observability=1w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=10.0 but 8 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-638": [
+    {
+      "rule": "all_tens",
+      "severity": "WARNING",
+      "detail": "All rubric scores are 10 \u2014 verify plan is exceptionally strong"
+    },
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 6 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=9w, observability=1w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=10.0 but 7 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-640": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 6 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=3w, observability=2w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.4 but 4 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-643": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 6 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=8w, observability=1w"
+    },
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=10 for high/confidential system but securityandcompliance only 8 words"
+    }
+  ],
+  "AUD-SYNC26-645": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 5 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=3w, observability=1w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 5 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-647": [
+    {
+      "rule": "all_tens",
+      "severity": "WARNING",
+      "detail": "All rubric scores are 10 \u2014 verify plan is exceptionally strong"
+    },
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=3w, observability=1w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=10.0 but 8 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-649": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=13w, observability=2w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.8 but 8 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-652": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 6 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=3w, observability=2w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.8 but 5 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-655": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 8 words (thin plan)"
+    }
+  ],
+  "AUD-SYNC26-657": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 6 words (thin plan)"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 4 sections have <=2 words"
+    }
+  ],
   "AUD-SYNC26-660": [
     {
       "rule": "arch_inflation",
@@ -3472,6 +4577,218 @@
       "rule": "high_score_thin_plan",
       "severity": "ERROR",
       "detail": "Average rubric=9.8 but 7 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-663": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 5 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=9w, observability=2w"
+    },
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=10 for high/financial system but securityandcompliance only 12 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.8 but 6 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-666": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 6 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=16w, observability=2w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.8 but 5 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-668": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 6 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=3w, observability=1w"
+    },
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=9 for high/internal system but securityandcompliance only 7 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 5 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-671": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 6 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=10w, observability=2w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.8 but 4 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-673": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 5 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=3w, observability=10w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.8 but 6 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-675": [
+    {
+      "rule": "all_tens",
+      "severity": "WARNING",
+      "detail": "All rubric scores are 10 \u2014 verify plan is exceptionally strong"
+    },
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 5 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=10w, observability=1w"
+    },
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=10 for high/internal system but securityandcompliance only 6 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=10.0 but 6 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-677": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=7w, observability=1w"
+    },
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=10 for high/personal system but securityandcompliance only 13 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 9 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-679": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 3 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=7w, observability=2w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.8 but 10 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-681": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=17w, observability=1w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 10 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-683": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=24w, observability=1w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 11 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-686": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=3w, observability=2w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.8 but 9 sections have <=2 words"
     }
   ],
   "AUD-SYNC26-690": [
@@ -3496,6 +4813,181 @@
       "detail": "Average rubric=9.8 but 5 sections have <=2 words"
     }
   ],
+  "AUD-SYNC26-693": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 6 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=8w, observability=2w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.8 but 6 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-696": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 6 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=5w, observability=2w"
+    },
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=10 for high/financial system but securityandcompliance only 14 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.8 but 5 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-699": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 6 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=11w, observability=1w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.8 but 3 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-701": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=11w, observability=2w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.8 but 6 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-703": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=18w, observability=1w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 10 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-706": [
+    {
+      "rule": "all_tens",
+      "severity": "WARNING",
+      "detail": "All rubric scores are 10 \u2014 verify plan is exceptionally strong"
+    },
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 5 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=15w, observability=4w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=10.0 but 4 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-710": [
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=9 for high/internal system but securityandcompliance only 8 words"
+    }
+  ],
+  "AUD-SYNC26-711": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 5 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=22w, observability=1w"
+    },
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=9 for high/internal system but securityandcompliance only 8 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.8 but 7 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-714": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=3w, observability=2w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 9 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-717": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=7w, observability=1w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.8 but 8 sections have <=2 words"
+    }
+  ],
   "AUD-SYNC26-720": [
     {
       "rule": "arch_inflation",
@@ -3511,6 +5003,578 @@
       "rule": "high_score_thin_plan",
       "severity": "ERROR",
       "detail": "Average rubric=9.8 but 6 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-732": [
+    {
+      "rule": "all_tens",
+      "severity": "WARNING",
+      "detail": "All rubric scores are 10 \u2014 verify plan is exceptionally strong"
+    },
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 14 words (thin plan)"
+    }
+  ],
+  "AUD-SYNC26-733": [
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.4 but 14 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-736": [
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.4 but 14 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-738": [
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=9 for high/confidential system but securityandcompliance only 5 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.6 but 14 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-740": [
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.6 but 14 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-741": [
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=3w, observability=1w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.6 but 14 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-744": [
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=9 for high/financial system but securityandcompliance only 6 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.6 but 14 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-745": [
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=1w, observability=1w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.6 but 14 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-746": [
+    {
+      "rule": "all_tens",
+      "severity": "WARNING",
+      "detail": "All rubric scores are 10 \u2014 verify plan is exceptionally strong"
+    },
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 14 words (thin plan)"
+    }
+  ],
+  "AUD-SYNC26-748": [
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.6 but 14 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-752": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 8 words (thin plan)"
+    }
+  ],
+  "AUD-SYNC26-756": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 4 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=8w, observability=6w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.4 but 4 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-760": [
+    {
+      "rule": "all_tens",
+      "severity": "WARNING",
+      "detail": "All rubric scores are 10 \u2014 verify plan is exceptionally strong"
+    },
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 5 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=6w, observability=10w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=10.0 but 5 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-763": [
+    {
+      "rule": "all_tens",
+      "severity": "WARNING",
+      "detail": "All rubric scores are 10 \u2014 verify plan is exceptionally strong"
+    },
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 13 words (thin plan)"
+    }
+  ],
+  "AUD-SYNC26-764": [
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=9 for high/financial system but securityandcompliance only 8 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.6 but 7 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-765": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 5 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=1w, observability=2w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.0 but 6 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-767": [
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.6 but 4 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-768": [
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.4 but 10 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-770": [
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=2w, observability=1w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.8 but 12 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-772": [
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.6 but 9 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-773": [
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.6 but 10 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-775": [
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.4 but 9 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-776": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 3 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=2w, observability=8w"
+    },
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=9 for high/confidential system but securityandcompliance only 5 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.0 but 9 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-777": [
+    {
+      "rule": "all_tens",
+      "severity": "WARNING",
+      "detail": "All rubric scores are 10 \u2014 verify plan is exceptionally strong"
+    },
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 14 words (thin plan)"
+    }
+  ],
+  "AUD-SYNC26-778": [
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=9 for high/financial system but securityandcompliance only 5 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.6 but 14 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-779": [
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.4 but 6 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-780": [
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.6 but 4 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-784": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 2 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=5w, observability=2w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.4 but 12 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-791": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 5 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=8w, observability=5w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.6 but 3 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-793": [
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=9 for high/financial system but securityandcompliance only 5 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.4 but 12 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-796": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 6 words (thin plan)"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.0 but 4 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-798": [
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.6 but 12 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-800": [
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.4 but 13 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-802": [
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.6 but 12 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-803": [
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.4 but 14 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-804": [
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.6 but 11 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-805": [
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=2w, observability=9w"
+    },
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=9 for high/confidential system but securityandcompliance only 11 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.8 but 10 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-806": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 1 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=1w, observability=1w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.8 but 15 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-808": [
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.4 but 13 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-815": [
+    {
+      "rule": "all_tens",
+      "severity": "WARNING",
+      "detail": "All rubric scores are 10 \u2014 verify plan is exceptionally strong"
+    },
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=10 but mean section length is 5 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=10 but deployment=5w, observability=4w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=10.0 but 6 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-823": [
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.6 but 12 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-825": [
+    {
+      "rule": "arch_inflation",
+      "severity": "ERROR",
+      "detail": "architecturequality=9 but mean section length is 2 words (thin plan)"
+    },
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=8w, observability=1w"
+    },
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=9 for high/financial system but securityandcompliance only 3 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=9.0 but 10 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-826": [
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=9 for high/financial system but securityandcompliance only 5 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.6 but 12 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-828": [
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.6 but 12 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-829": [
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=3w, observability=1w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.6 but 13 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-830": [
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=1w, observability=6w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.6 but 13 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-831": [
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=10 for high/confidential system but securityandcompliance only 6 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.8 but 13 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-832": [
+    {
+      "rule": "ops_inflation",
+      "severity": "ERROR",
+      "detail": "operability=9 but deployment=2w, observability=1w"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.8 but 14 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-834": [
+    {
+      "rule": "security_inflation",
+      "severity": "ERROR",
+      "detail": "security=9 for high/health system but securityandcompliance only 6 words"
+    },
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.6 but 10 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-837": [
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.6 but 13 sections have <=2 words"
+    }
+  ],
+  "AUD-SYNC26-840": [
+    {
+      "rule": "high_score_thin_plan",
+      "severity": "ERROR",
+      "detail": "Average rubric=8.4 but 13 sections have <=2 words"
     }
   ]
 }

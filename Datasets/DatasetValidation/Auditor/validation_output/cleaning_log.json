@@ -2,9 +2,9 @@
   "removed": [],
   "fixed_keys": 0,
   "fixed_enums": 0,
-  "fixed_conditionals": 118,
-  "deflated_scores": 214,
+  "fixed_conditionals": 152,
+  "deflated_scores": 347,
   "exact_dupes_removed": 0,
-  "near_dupes_removed": 9,
-  "total_fixes": 332
+  "near_dupes_removed": 20,
+  "total_fixes": 499
 }

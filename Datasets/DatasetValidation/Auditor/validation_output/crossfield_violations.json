@@ -1922,5 +1922,458 @@
       "severity": "ERROR",
       "detail": "revision_round summary must contain one of ['meaningfully improved', 'stayed roughly flat', 'regressed']"
     }
+  ],
+  "AUD-SYNC26-524": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=high, sensitivity=internal requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-525": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=high, sensitivity=internal requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-543": [
+    {
+      "rule": "revision_no_progression",
+      "severity": "ERROR",
+      "detail": "revision_round summary must contain one of ['meaningfully improved', 'stayed roughly flat', 'regressed']"
+    }
+  ],
+  "AUD-SYNC26-545": [
+    {
+      "rule": "meta_none_but_unresolved_high",
+      "severity": "ERROR",
+      "detail": "primary_flaw_family='none' but has unresolved high/critical issues"
+    }
+  ],
+  "AUD-SYNC26-558": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=high, sensitivity=internal requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-571": [
+    {
+      "rule": "revision_no_progression",
+      "severity": "ERROR",
+      "detail": "revision_round summary must contain one of ['meaningfully improved', 'stayed roughly flat', 'regressed']"
+    }
+  ],
+  "AUD-SYNC26-573": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=high, sensitivity=internal requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-574": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=high, sensitivity=internal requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-583": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=high, sensitivity=personal requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-584": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=high, sensitivity=personal requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-585": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=high, sensitivity=personal requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-591": [
+    {
+      "rule": "meta_none_but_unresolved_high",
+      "severity": "ERROR",
+      "detail": "primary_flaw_family='none' but has unresolved high/critical issues"
+    }
+  ],
+  "AUD-SYNC26-594": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=high, sensitivity=internal requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-595": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=high, sensitivity=internal requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-596": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=high, sensitivity=financial requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-597": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=high, sensitivity=financial requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-601": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=high, sensitivity=personal requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-602": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=high, sensitivity=personal requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-626": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=high, sensitivity=internal requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-627": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=high, sensitivity=internal requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-629": [
+    {
+      "rule": "revision_no_progression",
+      "severity": "ERROR",
+      "detail": "revision_round summary must contain one of ['meaningfully improved', 'stayed roughly flat', 'regressed']"
+    }
+  ],
+  "AUD-SYNC26-633": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=high, sensitivity=internal requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-634": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=high, sensitivity=internal requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-635": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=medium, sensitivity=personal requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-636": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=medium, sensitivity=personal requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-637": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=medium, sensitivity=personal requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-638": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=medium, sensitivity=personal requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-639": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=high, sensitivity=confidential requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-640": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=high, sensitivity=confidential requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-642": [
+    {
+      "rule": "revision_no_progression",
+      "severity": "ERROR",
+      "detail": "revision_round summary must contain one of ['meaningfully improved', 'stayed roughly flat', 'regressed']"
+    }
+  ],
+  "AUD-SYNC26-644": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=medium, sensitivity=personal requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-645": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=medium, sensitivity=personal requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-654": [
+    {
+      "rule": "revision_no_progression",
+      "severity": "ERROR",
+      "detail": "revision_round summary must contain one of ['meaningfully improved', 'stayed roughly flat', 'regressed']"
+    }
+  ],
+  "AUD-SYNC26-659": [
+    {
+      "rule": "meta_none_but_unresolved_high",
+      "severity": "ERROR",
+      "detail": "primary_flaw_family='none' but has unresolved high/critical issues"
+    }
+  ],
+  "AUD-SYNC26-670": [
+    {
+      "rule": "revision_no_progression",
+      "severity": "ERROR",
+      "detail": "revision_round summary must contain one of ['meaningfully improved', 'stayed roughly flat', 'regressed']"
+    }
+  ],
+  "AUD-SYNC26-674": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=high, sensitivity=internal requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-675": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=high, sensitivity=internal requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-689": [
+    {
+      "rule": "meta_none_but_unresolved_high",
+      "severity": "ERROR",
+      "detail": "primary_flaw_family='none' but has unresolved high/critical issues"
+    }
+  ],
+  "AUD-SYNC26-698": [
+    {
+      "rule": "revision_no_progression",
+      "severity": "ERROR",
+      "detail": "revision_round summary must contain one of ['meaningfully improved', 'stayed roughly flat', 'regressed']"
+    }
+  ],
+  "AUD-SYNC26-705": [
+    {
+      "rule": "revision_no_progression",
+      "severity": "ERROR",
+      "detail": "revision_round summary must contain one of ['meaningfully improved', 'stayed roughly flat', 'regressed']"
+    }
+  ],
+  "AUD-SYNC26-709": [
+    {
+      "rule": "meta_none_but_unresolved_high",
+      "severity": "ERROR",
+      "detail": "primary_flaw_family='none' but has unresolved high/critical issues"
+    }
+  ],
+  "AUD-SYNC26-710": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=high, sensitivity=internal requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-711": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=high, sensitivity=internal requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-713": [
+    {
+      "rule": "revision_no_progression",
+      "severity": "ERROR",
+      "detail": "revision_round summary must contain one of ['meaningfully improved', 'stayed roughly flat', 'regressed']"
+    }
+  ],
+  "AUD-SYNC26-719": [
+    {
+      "rule": "revision_no_progression",
+      "severity": "ERROR",
+      "detail": "revision_round summary must contain one of ['meaningfully improved', 'stayed roughly flat', 'regressed']"
+    }
+  ],
+  "AUD-SYNC26-721": [
+    {
+      "rule": "meta_mix_critical_missing",
+      "severity": "WARNING",
+      "detail": "intended_severity_mix includes 'critical' but no unresolved critical issues"
+    }
+  ],
+  "AUD-SYNC26-724": [
+    {
+      "rule": "meta_mix_critical_missing",
+      "severity": "WARNING",
+      "detail": "intended_severity_mix includes 'critical' but no unresolved critical issues"
+    }
+  ],
+  "AUD-SYNC26-726": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=low, sensitivity=personal requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-730": [
+    {
+      "rule": "meta_mix_critical_missing",
+      "severity": "WARNING",
+      "detail": "intended_severity_mix includes 'critical' but no unresolved critical issues"
+    }
+  ],
+  "AUD-SYNC26-740": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=low, sensitivity=personal requires 'compliancecontext'"
+    }
+  ],
+  "AUD-SYNC26-751": [
+    {
+      "rule": "meta_mix_critical_missing",
+      "severity": "WARNING",
+      "detail": "intended_severity_mix includes 'critical' but no unresolved critical issues"
+    }
+  ],
+  "AUD-SYNC26-754": [
+    {
+      "rule": "meta_mix_critical_missing",
+      "severity": "WARNING",
+      "detail": "intended_severity_mix includes 'critical' but no unresolved critical issues"
+    }
+  ],
+  "AUD-SYNC26-758": [
+    {
+      "rule": "meta_mix_critical_missing",
+      "severity": "WARNING",
+      "detail": "intended_severity_mix includes 'critical' but no unresolved critical issues"
+    }
+  ],
+  "AUD-SYNC26-759": [
+    {
+      "rule": "meta_mix_critical_missing",
+      "severity": "WARNING",
+      "detail": "intended_severity_mix includes 'critical' but no unresolved critical issues"
+    }
+  ],
+  "AUD-SYNC26-781": [
+    {
+      "rule": "meta_mix_critical_missing",
+      "severity": "WARNING",
+      "detail": "intended_severity_mix includes 'critical' but no unresolved critical issues"
+    }
+  ],
+  "AUD-SYNC26-788": [
+    {
+      "rule": "meta_mix_critical_missing",
+      "severity": "WARNING",
+      "detail": "intended_severity_mix includes 'critical' but no unresolved critical issues"
+    }
+  ],
+  "AUD-SYNC26-790": [
+    {
+      "rule": "meta_mix_critical_missing",
+      "severity": "WARNING",
+      "detail": "intended_severity_mix includes 'critical' but no unresolved critical issues"
+    }
+  ],
+  "AUD-SYNC26-801": [
+    {
+      "rule": "revision_no_progression",
+      "severity": "ERROR",
+      "detail": "revision_round summary must contain one of ['meaningfully improved', 'stayed roughly flat', 'regressed']"
+    }
+  ],
+  "AUD-SYNC26-811": [
+    {
+      "rule": "meta_mix_critical_missing",
+      "severity": "WARNING",
+      "detail": "intended_severity_mix includes 'critical' but no unresolved critical issues"
+    }
+  ],
+  "AUD-SYNC26-813": [
+    {
+      "rule": "meta_mix_critical_missing",
+      "severity": "WARNING",
+      "detail": "intended_severity_mix includes 'critical' but no unresolved critical issues"
+    }
+  ],
+  "AUD-SYNC26-816": [
+    {
+      "rule": "meta_mix_critical_missing",
+      "severity": "WARNING",
+      "detail": "intended_severity_mix includes 'critical' but no unresolved critical issues"
+    }
+  ],
+  "AUD-SYNC26-818": [
+    {
+      "rule": "meta_mix_critical_missing",
+      "severity": "WARNING",
+      "detail": "intended_severity_mix includes 'critical' but no unresolved critical issues"
+    }
+  ],
+  "AUD-SYNC26-821": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=high, sensitivity=confidential requires 'compliancecontext'"
+    },
+    {
+      "rule": "meta_mix_critical_missing",
+      "severity": "WARNING",
+      "detail": "intended_severity_mix includes 'critical' but no unresolved critical issues"
+    }
+  ],
+  "AUD-SYNC26-831": [
+    {
+      "rule": "conditional_compliance",
+      "severity": "ERROR",
+      "detail": "Risk=high, sensitivity=confidential requires 'compliancecontext'"
+    }
   ]
 }
