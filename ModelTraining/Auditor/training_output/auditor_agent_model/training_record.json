@@ -1,0 +1,81 @@
+{
+  "model_name": "microsoft/Phi-3-mini-4k-instruct",
+  "dataset_path": "auditor_dataset_final.jsonl",
+  "dataset_size": 799,
+  "train_size": 681,
+  "val_size": 118,
+  "config": {
+    "lora_r": 32,
+    "lora_alpha": 64,
+    "lora_dropout": 0.05,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ],
+    "bits": 4,
+    "bnb_4bit_compute_dtype": "bfloat16",
+    "bnb_4bit_quant_type": "nf4",
+    "use_double_quant": true,
+    "num_epochs": 3,
+    "per_device_batch_size": 1,
+    "gradient_accumulation": 8,
+    "learning_rate": 0.0002,
+    "lr_scheduler": "cosine",
+    "warmup_ratio": 0.05,
+    "weight_decay": 0.01,
+    "max_grad_norm": 1.0,
+    "max_seq_length": 4096,
+    "val_ratio": 0.15,
+    "eval_steps_ratio": 0.1,
+    "save_steps_ratio": 0.25,
+    "fp16": false,
+    "bf16": true
+  },
+  "lora_config": {
+    "r": 32,
+    "alpha": 64,
+    "dropout": 0.05,
+    "target_modules": [
+      "q_proj",
+      "k_proj",
+      "v_proj",
+      "o_proj",
+      "gate_proj",
+      "up_proj",
+      "down_proj"
+    ]
+  },
+  "trainable_parameters": 17825792,
+  "trainable_percentage": 0.8794322084973722,
+  "training_loss": 1.4757966319488924,
+  "eval_loss": 0.13331283628940582,
+  "perplexity": 1.1426073914818047,
+  "structural_metrics": {
+    "json_validity_rate": 0.0,
+    "schema_compliance_rate": 0.0,
+    "rubric_range_compliance": 0.0,
+    "issue_template_compliance": 0.0,
+    "severity_status_compliance": 0.0
+  },
+  "semantic_metrics": {
+    "rubric_mae_overall": null,
+    "rubric_mae_per_dim": {
+      "requirementsalignment": null,
+      "architecturequality": null,
+      "security": null,
+      "operability": null,
+      "internalconsistency": null
+    },
+    "issue_detection_f1": null,
+    "issue_detection_precision": null,
+    "issue_detection_recall": null,
+    "blocking_agreement": null
+  },
+  "training_duration_minutes": 20.267829167842866,
+  "seed": 42
+}

@@ -53,3 +53,9 @@ desktop.ini
 .idea/
 *.swp
 *.swo
+
+# Models
+*.safetensors
+*.pt
+*.pth
+*.ckpt
