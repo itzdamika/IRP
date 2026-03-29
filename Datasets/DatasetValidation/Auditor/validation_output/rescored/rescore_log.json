@@ -1,0 +1,4484 @@
+[
+  {
+    "sample_id": "AUD-SYNC26-023",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the low-risk, frontend-only library requirements and correctly externalizes peer dependencies; architecture and security are strong and consistent, though operability is slightly weaker due to minimal observability detail."
+  },
+  {
+    "sample_id": "AUD-SYNC26-035",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 9,
+      "security": 8,
+      "operability": 8,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan perfectly matches the static, low-risk marketing site requirements with clear Astro and Cloudflare design; architecture and consistency are strong, security and operability are solid but not deeply elaborated."
+  },
+  {
+    "sample_id": "AUD-SYNC26-064",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract by using only React and D3, showing strong alignment and security compliance; architecture is clean and implementation-ready, but operability is modest since deployment details stop short of full runbook or observability coverage."
+  },
+  {
+    "sample_id": "AUD-SYNC26-076",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract—five VPCs, Terraform, SSM-only access, and non-overlapping CIDRs—showing strong alignment and security compliance; architecture is clear though operational observability is only briefly covered, leading to slightly lower operability score."
+  },
+  {
+    "sample_id": "AUD-SYNC26-083",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the simple, low-risk daily sync requirement and implements the mandated Secrets Manager use; architecture is clean and consistent, though operability and observability remain basic."
+  },
+  {
+    "sample_id": "AUD-SYNC26-087",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan tightly matches the frozen contract by delivering a zero-dependency TypeScript SDK with React and Express peers, showing strong alignment and security compliance; architecture is clear and modular, but operability details like deployment and observability are minimal, and while consistent overall, lacks full operational depth."
+  },
+  {
+    "sample_id": "AUD-SYNC26-089",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan strongly aligns with the contract by enforcing VPC-only isolation and removing NAT gateways, showing solid architecture and security compliance, but lacks detailed operability and observability guidance, slightly reducing overall consistency and operational clarity."
+  },
+  {
+    "sample_id": "AUD-SYNC26-113",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan tightly matches the contract for a React TypeScript SSO SDK and fixes the XSS issue with a Web Worker vault, showing strong alignment and security; architecture is clear but operational details like observability and release automation are thin, yielding slightly lower operability."
+  },
+  {
+    "sample_id": "AUD-SYNC26-115",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 5,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan aligns well with the frozen contract and shows strong native architecture quality and consistency, but lacks detailed security and operability measures for a high-risk, PHI-handling medical app."
+  },
+  {
+    "sample_id": "AUD-SYNC26-118",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan tightly matches the contract goals and stacks with strong security alignment via Vault and dry-run enforcement; architecture is clear though minimal component detail limits operability depth, and overall consistency is solid but observability specifics are thin."
+  },
+  {
+    "sample_id": "AUD-SYNC26-121",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract with correct stacks and streaming redaction, shows solid modular design and security compliance for a high‑risk public AI system, but offers limited detail on observability and operational procedures."
+  },
+  {
+    "sample_id": "AUD-SYNC26-123",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 8,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the zero-trust and GitOps requirements with clear FluxCD and Istio integration, strong deny-by-default security, and coherent component design, though it lacks detailed observability and runbook depth."
+  },
+  {
+    "sample_id": "AUD-SYNC26-125",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan perfectly matches the research prototype contract and stack choices, has solid module clarity for its scope, minimal but adequate security for low-risk local use, basic operability via Conda and console logs, and strong internal coherence."
+  },
+  {
+    "sample_id": "AUD-SYNC26-127",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan now fully aligns with the SSR constraint and requirement contract, shows solid Django monolith design with clear components, adequate but minimal security and operability detail, and strong internal coherence."
+  },
+  {
+    "sample_id": "AUD-SYNC26-135",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 9,
+      "security": 8,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan perfectly matches the static, zero-cost requirements and shows clear, consistent component design; security is adequate for low risk, while operability is slightly limited by minimal runbook detail."
+  },
+  {
+    "sample_id": "AUD-SYNC26-140",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 8,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract (S3→Redshift, MWAA, Secrets Manager, CloudWatch), shows clear component separation and secure configuration, with only minor detail gaps in operational runbooks and scaling specifics."
+  },
+  {
+    "sample_id": "AUD-SYNC26-142",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 7,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan tightly matches the high-security internal VPN requirements and correctly enforces loopback admin access, showing strong alignment and security; architecture is clear but minimal, operability details like monitoring and runbook are thin, and overall consistency is solid."
+  },
+  {
+    "sample_id": "AUD-SYNC26-144",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the simple browser SDK requirements and removes Node dependencies, showing strong alignment and internal coherence; architecture is clear though minimal, security is adequate for low risk, but operability and observability remain basic."
+  },
+  {
+    "sample_id": "AUD-SYNC26-146",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 8,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan now fully aligns with the frozen contract by adopting PostgreSQL and RLS, shows solid modular clarity and coherent stack choices, has good but not deeply detailed security and operational coverage, and is internally consistent throughout."
+  },
+  {
+    "sample_id": "AUD-SYNC26-148",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 9,
+      "security": 8,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan perfectly aligns with the simple, low-risk requirement by replacing custom deletion logic with native S3 lifecycle management; architecture is clean and minimal, security correctly applies least-privilege IAM, operability is adequate but lacks detailed runbook or alerting, and the design is internally coherent."
+  },
+  {
+    "sample_id": "AUD-SYNC26-149",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 9,
+      "security": 8,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan perfectly matches the frozen requirements and uses the specified Tauri/Rust stack with clear component separation; security is solid for a low-risk internal app via code signing, but operability is only moderately covered with minimal observability detail."
+  },
+  {
+    "sample_id": "AUD-SYNC26-150",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan strongly aligns with the frozen contract by removing cloud dependencies and matching the lab-server constraint; architecture is clear and implementation-ready, security is adequate for low risk but lacks explicit access control details, operability is basic with minimal observability, and internal consistency is high with coherent stack and deployment choices."
+  },
+  {
+    "sample_id": "AUD-SYNC26-154",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract (local Go CLI with secure key storage), shows solid modular design and correct use of OS keyring for confidential data, but offers minimal operational/observability detail beyond stdout, keeping operability slightly weaker."
+  },
+  {
+    "sample_id": "AUD-SYNC26-160",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 8,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan precisely aligns with the high-risk, reliability-focused contract—adding Multi-AZ and PITR for zero data loss, maintaining mTLS and encryption, showing strong consistency and solid operational detail though not deeply elaborated beyond standard patterns."
+  },
+  {
+    "sample_id": "AUD-SYNC26-162",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan perfectly matches the simple static requirements and constraints, has clear and coherent architecture, adequate HTTPS security for low risk, minimal but acceptable operability detail, and strong internal consistency throughout."
+  },
+  {
+    "sample_id": "AUD-SYNC26-165",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 7,
+      "security": 5,
+      "operability": 8,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan aligns well with the simple, low-risk requirements and adds useful configurability; architecture is minimal but clear, security is basic as expected, operability improved via dotenv and CLI, and internal consistency is strong across sections."
+  },
+  {
+    "sample_id": "AUD-SYNC26-169",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 6,
+      "security": 8,
+      "operability": 3,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan aligns well with the Node Payment SDK requirements and fixes the key security issue, but it lacks detailed component design and operational/observability guidance, leaving architecture quality moderate and operability weak."
+  },
+  {
+    "sample_id": "AUD-SYNC26-173",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan precisely aligns with the high-security, partner-facing requirements and restores WAF and mTLS enforcement, showing strong consistency and solid architecture detail; operability is adequate but lacks deep runbook or scaling clarity."
+  },
+  {
+    "sample_id": "AUD-SYNC26-175",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 7,
+      "security": 8,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract and correctly implements the 30‑day TTL wipe with encryption, showing strong alignment and security; however, it lacks detailed deployment, monitoring, and operational runbook depth, keeping operability and architecture_quality moderate despite overall consistency."
+  },
+  {
+    "sample_id": "AUD-SYNC26-177",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan perfectly aligns with the low-risk, air-gapped local requirements and shows clear, consistent architecture; minor operability detail gaps (manual deployment, limited runbook) keep it from a perfect score."
+  },
+  {
+    "sample_id": "AUD-SYNC26-179",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 9,
+      "security": 8,
+      "operability": 8,
+      "internal_consistency": 10
+    },
+    "reasoning": "The plan perfectly matches the simple CLI requirements, has a clean single-binary Go design with clear workflows, appropriately minimal security for low risk, straightforward operability via stdout, and no internal contradictions."
+  },
+  {
+    "sample_id": "AUD-SYNC26-181",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan tightly matches the frozen contract with correct stacks and SSO/VPN enforcement, shows solid component separation and security hardening, but lacks detailed observability and operational runbook, leaving operability weaker than other dimensions."
+  },
+  {
+    "sample_id": "AUD-SYNC26-184",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 8,
+      "operability": 5,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract and fixes the TLS issue with proper HTTPS enforcement, showing strong alignment and coherent three-tier design; security is solid but lacks mention of data-at-rest controls, operability is weak with only IIS logs for observability, and overall consistency is high."
+  },
+  {
+    "sample_id": "AUD-SYNC26-186",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 8,
+      "operability": 4,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan aligns tightly with the SDK privacy and size requirements and shows clear component separation and anonymization mechanisms, but lacks observability and operational detail, keeping operability low while other dimensions are strong and coherent."
+  },
+  {
+    "sample_id": "AUD-SYNC26-188",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 9,
+      "security": 8,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan perfectly matches the static site, zero-cost, and Vercel hosting requirements with clear architecture and no contradictions; security is adequate for low risk, though operability details like monitoring and rollback are minimal."
+  },
+  {
+    "sample_id": "AUD-SYNC26-190",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the contract with secure Kafka and tokenization per PCI constraints, shows clear component design and encryption enforcement, minor operational detail gaps keep operability slightly lower."
+  },
+  {
+    "sample_id": "AUD-SYNC26-192",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 9,
+      "security": 8,
+      "operability": 8,
+      "internal_consistency": 10
+    },
+    "reasoning": "The plan perfectly aligns with the static, zero-compute, low-risk requirements; architecture is clean and minimal with clear components; security is solid for a low-risk public site; operability is well covered with GitHub Actions and analytics; and all sections are internally consistent."
+  },
+  {
+    "sample_id": "AUD-SYNC26-194",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 8,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan closely matches the low-risk, internal-only backup requirements with clear Bash-based workflow and S3 archival; architecture and operability are well detailed, security is adequate but could better document credential handling, and overall consistency is strong."
+  },
+  {
+    "sample_id": "AUD-SYNC26-199",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 6,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan aligns well with the low-risk, local-only desktop requirements and shows strong cross-platform architecture detail; minor weakness in security and limited observability reduce those scores slightly."
+  },
+  {
+    "sample_id": "AUD-SYNC26-202",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 8,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan strongly aligns with the contract—meeting latency, stack, and PII scrubbing requirements—with clear modular design and coherent components; security is well addressed via Presidio and HTTPS, though operational details like observability and runbook depth are thin, making operability the weakest area."
+  },
+  {
+    "sample_id": "AUD-SYNC26-205",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan tightly aligns with the high-scale, internal-only AWS Transit Gateway requirement and shows strong segmentation and routing security; architecture is clear and implementation-ready, though operability and observability details remain minimal."
+  },
+  {
+    "sample_id": "AUD-SYNC26-208",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 9,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract for a local Python SDK with MQTT and internal certs, shows clear modular design and operability improvements, maintains consistent stack choices, but provides only brief security detail despite medium risk."
+  },
+  {
+    "sample_id": "AUD-SYNC26-210",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 8,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract with correct Go backend, Redis cache, mTLS, and EKS hosting; architecture is well-structured and performance-focused, security is strong but lacks explicit SOC2 operational detail, operability is adequate but light on runbook specifics, and internal consistency is excellent with no contradictions."
+  },
+  {
+    "sample_id": "AUD-SYNC26-214",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan strongly aligns with the contract by adding a secure backend proxy and removing secrets from the client, showing solid architecture and security maturity; operability is adequate but lacks detailed monitoring and rollback procedures."
+  },
+  {
+    "sample_id": "AUD-SYNC26-216",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 8,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan closely matches the frozen contract with correct stacks and resilience improvements; architecture and operability are strong and coherent, though security remains basic given low risk and internal data."
+  },
+  {
+    "sample_id": "AUD-SYNC26-218",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract with correct serverless Spark on EMR and KMS encryption, shows solid modular design and cost alignment, but offers only minimal operational and observability detail and limited elaboration on IAM and compliance controls."
+  },
+  {
+    "sample_id": "AUD-SYNC26-220",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the multiplayer server requirements and adds proper edge security; architecture is clear and consistent, though operational details like runbooks and monitoring depth are only moderately covered."
+  },
+  {
+    "sample_id": "AUD-SYNC26-222",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan tightly matches the frozen contract (Vue+Django+S3+Postgres, SAML SSO, private S3) and shows strong security alignment with presigned URLs and encryption, but lacks detailed deployment, scaling, and operational runbook depth, keeping operability moderate."
+  },
+  {
+    "sample_id": "AUD-SYNC26-224",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the simple CRM sync requirements and fixes the non-root execution issue with clear implementation detail; architecture and security are strong, though operability is only moderately covered with minimal observability and runbook depth."
+  },
+  {
+    "sample_id": "AUD-SYNC26-226",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 6,
+      "operability": 5,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the requirement for concurrent writes and backend upgrade, with clear component design and consistent stack choices; however, it lacks observability and operational detail, and security is minimal though acceptable for low-risk internal use."
+  },
+  {
+    "sample_id": "AUD-SYNC26-228",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 7,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan tightly matches the frozen contract and fixes the key security flaw with proper VPN whitelisting, showing strong alignment and security; however, it lacks detailed operational and observability procedures, and the architecture remains minimal though coherent."
+  },
+  {
+    "sample_id": "AUD-SYNC26-232",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the Bash-based, Vault-secured DB sync requirements with clear module flow and strong secret handling; minor operability detail gaps (limited runbook/monitoring depth) keep it from a perfect score."
+  },
+  {
+    "sample_id": "AUD-SYNC26-234",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan aligns tightly with the frozen contract and fixes prior cloud exposure, showing strong local security and coherent architecture, but lacks detailed operational and observability guidance, slightly reducing operability and overall consistency."
+  },
+  {
+    "sample_id": "AUD-SYNC26-236",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 7,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan tightly matches the frozen contract and adds SQLCipher encryption aligned with HIPAA, showing strong security and requirement alignment; however, architecture detail and operability (logs, deployment, runbook) remain minimal though consistent overall."
+  },
+  {
+    "sample_id": "AUD-SYNC26-238",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan strongly aligns with the contract and implements certificate pinning per PCI-DSS needs, showing solid architecture and security; however, operability is weaker with minimal deployment and runbook detail, while overall consistency remains high."
+  },
+  {
+    "sample_id": "AUD-SYNC26-240",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 4,
+      "operability": 6,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan tightly aligns with the high-performance, bare-metal C++ requirement and achieves sub‑2 ms latency, but it lacks PCI‑DSS controls and detailed security measures for a high‑risk financial API, offers only minimal operational detail, and is otherwise coherent and technically strong."
+  },
+  {
+    "sample_id": "AUD-SYNC26-242",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the contract (Angular, Spring Boot, MySQL, Azure App Service) and adds correct RBAC security; architecture is clear and consistent, though operability lacks detailed deployment and monitoring procedures."
+  },
+  {
+    "sample_id": "AUD-SYNC26-244",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan perfectly matches the simple offline CLI requirements and removes all network dependencies; architecture is clear and minimal but lacks deeper operational detail, yielding strong alignment and security with slightly lower operability depth."
+  },
+  {
+    "sample_id": "AUD-SYNC26-246",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the contract (S3→Snowflake, MWAA, dbt, Datadog) and adds strong PII hashing for high-risk data; architecture is clear and implementation-grade, though operability lacks detailed runbook or scaling procedures."
+  },
+  {
+    "sample_id": "AUD-SYNC26-248",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 9,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan perfectly matches the simple static site requirements and adds strong HTTPS security via CloudFront and ACM; architecture is clean and detailed, but observability and operational guidance remain minimal, slightly lowering operability."
+  },
+  {
+    "sample_id": "AUD-SYNC26-250",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan fully aligns with the zero-dependency and internal-only requirements, has a clean and coherent single-script architecture with strong security isolation, but offers only minimal operational detail beyond basic syslog observability."
+  },
+  {
+    "sample_id": "AUD-SYNC26-252",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 4,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan perfectly aligns with the low-risk, Vanilla JS, CDN-hosted requirements and shows strong modular clarity, but lacks observability and operational detail, with only minimal security mention appropriate for low sensitivity."
+  },
+  {
+    "sample_id": "AUD-SYNC26-255",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract (Vue, Go, PostgreSQL, ECS, Datadog) and fixes a key security flaw by using AWS Secrets Manager; architecture is clear though somewhat minimal in operational detail, yielding strong alignment and security but only moderate operability depth."
+  },
+  {
+    "sample_id": "AUD-SYNC26-257",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 7,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan strongly aligns with the frozen contract by switching to local inference and meeting the 'data stays inside VPC' constraint, with solid security compliance; however, it lacks detailed data modeling, scaling, and operational runbook depth, slightly reducing architecture quality and operability scores."
+  },
+  {
+    "sample_id": "AUD-SYNC26-259",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the contract with correct stack and PCI tokenization fix, shows solid PySpark and Airflow design, strong security alignment, slightly thin operational detail, and consistent architecture throughout."
+  },
+  {
+    "sample_id": "AUD-SYNC26-261",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract with correct Kotlin/Room/SQLCipher stack and biometric auth, shows solid module clarity and encryption implementation, minor operability detail gaps, and overall consistent, compliant design."
+  },
+  {
+    "sample_id": "AUD-SYNC26-263",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 6,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan strongly aligns with the contract by adopting AWS EKS for Multi-AZ reliability and internal-only exposure, shows solid architecture detail, but security is under-specified for high risk/confidential data (VPN-only access lacks mention of OIDC and compliance controls), operability is decent but limited to Terraform and Prometheus, and overall consistency is high."
+  },
+  {
+    "sample_id": "AUD-SYNC26-265",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the contract for a Go-based single-binary CLI and fixes the hardcoded secret issue, showing strong alignment and security; architecture is clear though minimal, operability is basic with only stdout logging, and overall consistency is high."
+  },
+  {
+    "sample_id": "AUD-SYNC26-266",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 9,
+      "security": 8,
+      "operability": 8,
+      "internal_consistency": 10
+    },
+    "reasoning": "The plan perfectly matches the simple, zero-cost static landing page requirements; architecture is clean and implementation-ready, security and operability are adequate for low-risk public exposure, and all sections are consistent with no contradictions."
+  },
+  {
+    "sample_id": "AUD-SYNC26-272",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 9,
+      "security": 8,
+      "operability": 9,
+      "internal_consistency": 10
+    },
+    "reasoning": "The revised plan perfectly aligns with the static website requirements, has clear and simple architecture with automated deployment, appropriate low-risk security, strong operability for its scale, and no internal contradictions."
+  },
+  {
+    "sample_id": "AUD-SYNC26-288",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan aligns closely with the infrastructure and security requirements, has solid modular design and clear AWS components, but lacks full drift detection and advanced operational controls, keeping operability and security slightly below top marks."
+  },
+  {
+    "sample_id": "AUD-SYNC26-299",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract with correct stacks and offline-first constraint, shows strong encryption and HTTPS pinning for high-risk health data, has clear modular design, but only minimal operational detail beyond Crashlytics limits operability depth."
+  },
+  {
+    "sample_id": "AUD-SYNC26-303",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 9,
+      "security": 8,
+      "operability": 8,
+      "internal_consistency": 10
+    },
+    "reasoning": "The plan perfectly matches the static website requirements with clear S3/CloudFront deployment and no backend, shows strong modular clarity and consistency, includes standard TLS and analytics for low-risk exposure, and provides solid though minimal operational detail appropriate for a simple marketing site."
+  },
+  {
+    "sample_id": "AUD-SYNC26-305",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 9,
+      "security": 8,
+      "operability": 8,
+      "internal_consistency": 10
+    },
+    "reasoning": "The simplified S3+CloudFront static design perfectly matches the low-risk, low-ops landing page requirements; architecture and operations are cleanly defined with TLS and OAI security, minor observability but fully coherent and consistent."
+  },
+  {
+    "sample_id": "AUD-SYNC26-308",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan perfectly matches the frozen requirements and constraints, has clear and simple architecture with standard library use, adequate security for a low-risk open-source library, minimal but acceptable operability detail, and is internally coherent throughout."
+  },
+  {
+    "sample_id": "AUD-SYNC26-309",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan strongly aligns with the low-risk, internal-only requirements and fixes the key security flaw using AWS SSO; architecture is clean and implementation-ready, but operability is limited to basic STDERR logging and lacks detailed runbook guidance."
+  },
+  {
+    "sample_id": "AUD-SYNC26-311",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract with correct Ansible-based automation and least-privilege SSH model; architecture is clear and implementation-ready, security is strong and compliant, operability is adequate but lacks detailed runbook or monitoring escalation, and internal consistency is excellent."
+  },
+  {
+    "sample_id": "AUD-SYNC26-314",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 8,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract for a private Databricks-based ETL with CloudWatch observability and IAM-based isolation; architecture and security are strong and coherent, with only minor room for more detailed operational runbooks."
+  },
+  {
+    "sample_id": "AUD-SYNC26-322",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 9,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 10
+    },
+    "reasoning": "The plan perfectly matches the static site requirements and fixes the TLS issue with CloudFront, showing strong architecture and security; operability is adequate but minimal given the simple observability baseline."
+  },
+  {
+    "sample_id": "AUD-SYNC26-326",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the simple Bash-based server bootstrap requirements and adds strong checksum verification, showing high alignment and security; architecture is clean and consistent though operability details like monitoring and update process are only lightly covered."
+  },
+  {
+    "sample_id": "AUD-SYNC26-329",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 8,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract (Vue/Fastify/Postgres/AWS ECS), adds concrete Redis hardening and scaling details, shows strong security alignment with medium risk and personal data, includes clear deployment and observability setup, and maintains consistent stack choices throughout."
+  },
+  {
+    "sample_id": "AUD-SYNC26-331",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract for an Electron-based local Postgres GUI, with strong security isolation and coherent stack choices; architecture is clear and implementation-ready, though operability details like monitoring and runbook depth are only moderately covered."
+  },
+  {
+    "sample_id": "AUD-SYNC26-334",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract with correct stack and OAuth2 security, strong modular clarity and compliance alignment, though operational details like runbooks and monitoring depth are only briefly covered."
+  },
+  {
+    "sample_id": "AUD-SYNC26-337",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 8,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the banking portal contract with correct stacks and MFA, shows strong security fixes and compliance alignment, clear modular architecture and deployment, minor room for deeper operational runbook detail but overall highly consistent and well-aligned."
+  },
+  {
+    "sample_id": "AUD-SYNC26-340",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan strongly aligns with the contract and fixes the key management issue with proper Keychain use, showing solid architecture and security; however, operability is thin with minimal deployment and runbook detail, slightly lowering that dimension."
+  },
+  {
+    "sample_id": "AUD-SYNC26-342",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan closely matches the contract with correct stack and compliance context, strong security integration via API Gateway and WAF, solid modular architecture, slightly limited operational detail beyond deployment, and overall consistent design."
+  },
+  {
+    "sample_id": "AUD-SYNC26-345",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract and fixes the prior exposure with clear private MWAA setup, showing strong alignment and security; architecture is solid though operational details like monitoring and runbooks remain basic."
+  },
+  {
+    "sample_id": "AUD-SYNC26-347",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 8,
+      "architecture_quality": 7,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan aligns well with the frozen contract and adds strong mTLS and encryption controls for a high-risk confidential system, but lacks detailed operational and deployment procedures, leaving observability and runbook depth modest."
+  },
+  {
+    "sample_id": "AUD-SYNC26-349",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 9,
+      "security": 8,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan perfectly aligns with the frozen contract by removing all external dependencies and using only Go’s standard library; architecture is clean and implementation-grade, security is adequate for low-risk internal use, operability is minimal but acceptable for a local CLI, and internal consistency is strong throughout."
+  },
+  {
+    "sample_id": "AUD-SYNC26-352",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 9,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the contract for a high-availability Aurora cluster and fixes the backup issue, showing strong alignment and operability; architecture is clear though minimal, security meets baseline but lacks deeper IAM or compliance detail, and internal consistency is excellent."
+  },
+  {
+    "sample_id": "AUD-SYNC26-354",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 5,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the simple React-based UI library requirements and fixes the XSS issue with clear module design; however, operability is weak due to minimal observability and deployment detail, while all other dimensions are coherent and strong."
+  },
+  {
+    "sample_id": "AUD-SYNC26-356",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 9,
+      "security": 9,
+      "operability": 8,
+      "internal_consistency": 10
+    },
+    "reasoning": "The plan perfectly matches the simple static website contract, has clear module separation and HTTPS enforcement, strong alignment and consistency, with only minor room for more detailed operational runbook."
+  },
+  {
+    "sample_id": "AUD-SYNC26-360",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 8,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan perfectly aligns with the simple Bash-based backup requirement, uses `.pgpass` and Ansible Vault to meet the no-hardcoded-credentials baseline, shows clear and consistent architecture and operations, though limited complexity keeps architecture_quality and operability slightly below perfect."
+  },
+  {
+    "sample_id": "AUD-SYNC26-363",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract with correct stacks and MFA, shows solid architecture and XSS mitigation, but offers only brief operational detail, making operability slightly weaker than the rest."
+  },
+  {
+    "sample_id": "AUD-SYNC26-366",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly aligns with the frozen contract and resolves the key management gap, showing strong security and coherent architecture; operability is adequate but lacks detailed runbook or monitoring depth."
+  },
+  {
+    "sample_id": "AUD-SYNC26-369",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the contract with proper masking and AWS Glue stack alignment; strong security and consistency, good architecture detail, but operability lacks explicit runbook or monitoring depth."
+  },
+  {
+    "sample_id": "AUD-SYNC26-372",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract with correct stacks and compliance context, shows strong encryption and isolation for high-risk health data, has clear modular AWS-based design, but offers only minimal operational detail beyond Terraform and CloudWatch."
+  },
+  {
+    "sample_id": "AUD-SYNC26-375",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract (FastAPI on Lambda, RDS Proxy, OAuth2, Datadog) and adds concrete security hardening; architecture is clear and consistent, though operational details like deployment runbooks and monitoring depth are only moderately covered."
+  },
+  {
+    "sample_id": "AUD-SYNC26-378",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the contract’s EKS private-cluster and GitOps requirements with clear module separation and strong security alignment, though operability details like runbook and scaling remain somewhat minimal."
+  },
+  {
+    "sample_id": "AUD-SYNC26-380",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 8,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan aligns tightly with the static blog requirements and shows clear Gatsby–Netlify implementation detail; security is adequate for low risk but minimal beyond TLS, operability is strong with CI/CD and analytics, and internal consistency is excellent across sections."
+  },
+  {
+    "sample_id": "AUD-SYNC26-382",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 8,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan fully aligns with the simple, low-risk TypeScript library requirements and enforces the 100% test coverage constraint; architecture is clear though minimal, security is adequate for low risk, operability is strong via CI/CD automation, and all sections are coherent and consistent."
+  },
+  {
+    "sample_id": "AUD-SYNC26-384",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract for a Go-based local CLI with AWS KMS rotation and signed binaries, shows strong security remediation via SSO and STS tokens, has clear modular design though limited operational detail, and is internally coherent with no contradictions."
+  },
+  {
+    "sample_id": "AUD-SYNC26-386",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan perfectly matches the R-based local simulation requirements and reproducibility constraint, has clear though simple architecture, adequate low-risk security, minimal but acceptable operability detail, and is internally coherent."
+  },
+  {
+    "sample_id": "AUD-SYNC26-388",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 9,
+      "security": 8,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan perfectly matches the simple, low-risk, ultra-low-cost landing page requirements; architecture is clean and implementation-ready, security is solid for a public static site, operability is adequate but minimal, and all sections are coherent and consistent."
+  },
+  {
+    "sample_id": "AUD-SYNC26-390",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 7,
+      "security": 6,
+      "operability": 8,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the simple automation requirements and fixes idempotency, but offers only minimal security discussion and basic Bash-level architecture detail; operability and consistency are strong for its low-risk, internal scope."
+  },
+  {
+    "sample_id": "AUD-SYNC26-393",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan closely matches the frozen contract with correct stacks and scope, shows strong security improvements and coherent architecture, but operability details like runbooks and monitoring depth are only moderately covered."
+  },
+  {
+    "sample_id": "AUD-SYNC26-396",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract with correct Electron/NodeJS stack and local JSON data, shows strong security through code signing and IPC isolation, has solid modular design, but offers only minimal observability and operational detail beyond logging."
+  },
+  {
+    "sample_id": "AUD-SYNC26-399",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 6,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan closely matches the contract with correct Go microservice and mTLS setup, shows solid async architecture improvements, but lacks detailed operational runbooks and deeper GDPR/privacy handling, keeping security and operability slightly lower."
+  },
+  {
+    "sample_id": "AUD-SYNC26-402",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan strongly aligns with the IoT controller requirements and fixes prior security flaws with scoped JWTs and encrypted transit; architecture is clear and consistent, but operability is thin with minimal deployment and runbook detail."
+  },
+  {
+    "sample_id": "AUD-SYNC26-405",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 8,
+      "security": 8,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan perfectly aligns with the frozen contract by restoring a dependency-free Go binary, shows solid modular design and native security enforcement, has adequate but minimal operability detail, and is internally coherent with only minor depth gaps in operational guidance."
+  },
+  {
+    "sample_id": "AUD-SYNC26-408",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract with correct stacks and latency goals, shows solid module clarity and a concrete CORS security fix, but offers only minimal operational detail beyond Heroku and Datadog."
+  },
+  {
+    "sample_id": "AUD-SYNC26-411",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan tightly matches the frozen contract for a local, HIPAA-compliant research prototype and fixes prior credential issues, showing strong alignment and security; architecture is clear though observability remains minimal, yielding slightly lower operability."
+  },
+  {
+    "sample_id": "AUD-SYNC26-413",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 7,
+      "security": 6,
+      "operability": 9,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan strongly aligns with the CI/CD automation requirement and improves operability through Fastlane integration, but lacks detailed data model and deeper security design, keeping architecture quality and security moderate while overall consistency remains high."
+  },
+  {
+    "sample_id": "AUD-SYNC26-416",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan tightly matches the frozen contract with correct stack and compliance context, shows solid module and security design including mTLS and TLS for database, but offers only minimal operational detail beyond EKS and Datadog, keeping operability slightly lower."
+  },
+  {
+    "sample_id": "AUD-SYNC26-419",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the infrastructure-focused requirements and high-risk security baseline with strong KMS encryption and clear VPC design; architecture is well-structured though operational details are minimal, yielding high alignment and security but moderate operability depth."
+  },
+  {
+    "sample_id": "AUD-SYNC26-422",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 8,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract and improves latency with GPU inference; architecture and operability are well detailed, though security lacks explicit mention of access control and audit logging despite high risk and PHI data."
+  },
+  {
+    "sample_id": "AUD-SYNC26-427",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 7,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan tightly matches the frozen contract and fixes the key security flaw with AWS SSO, showing strong alignment and security; however, architecture detail and operability (deployment and observability depth) remain moderate, though the document is internally coherent."
+  },
+  {
+    "sample_id": "AUD-SYNC26-433",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan tightly aligns with the frozen contract and PCI-DSS requirements, showing strong HTTPS enforcement and clear component design; security is robust, though operability and observability details are moderate, and minor consistency gaps remain in operational depth."
+  },
+  {
+    "sample_id": "AUD-SYNC26-435",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract with correct stacks and compliance fixes, shows solid PySpark and EMR design with strong masking and retention controls, but offers only moderate detail on deployment and observability operations."
+  },
+  {
+    "sample_id": "AUD-SYNC26-438",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 8,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan strongly aligns with the frozen contract (ECS hosting, FastAPI, React, PostgreSQL) and shows clear modular design and scaling improvements; security is decent with PII redaction but lacks explicit CCPA compliance and detailed controls, while operability and consistency are solid with coherent AWS ECS and observability integration."
+  },
+  {
+    "sample_id": "AUD-SYNC26-440",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract with correct stacks and Auth0-based RBAC fix, shows solid module clarity and strong security alignment, but offers only minimal operational detail beyond Heroku and Sentry."
+  },
+  {
+    "sample_id": "AUD-SYNC26-442",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 5,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan strongly aligns with the frozen contract and is technically coherent with clear Go-based architecture and cross-platform build setup, but security treatment is minimal for a high-risk context, and operability is only moderately detailed."
+  },
+  {
+    "sample_id": "AUD-SYNC26-445",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 8,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan fully matches the simple static homepage requirements and uses correct S3+CloudFront stack; architecture is clean and implementation-ready, security is adequate for low risk but not deeply detailed, operability is clear with GitHub Actions and analytics, and all sections are consistent."
+  },
+  {
+    "sample_id": "AUD-SYNC26-447",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 4,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the dependency-free TypeScript JWT validation requirement and is internally coherent, with solid module design and native crypto use, but lacks observability and operational detail despite a high-risk context, limiting security and operability scores."
+  },
+  {
+    "sample_id": "AUD-SYNC26-450",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the desktop video editor requirements and shows solid module separation with a clear IPC workflow; security is adequate for medium risk but not deeply detailed, operability is minimal with only local logs, and overall consistency is strong and coherent."
+  },
+  {
+    "sample_id": "AUD-SYNC26-455",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract with correct AWS serverless and Redshift stack, strong PCI-DSS security controls, and coherent design; only operability is slightly weaker due to minimal runbook and observability detail."
+  },
+  {
+    "sample_id": "AUD-SYNC26-460",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract and resolves the key management flaw with proper secure storage, showing strong alignment and security; architecture is clear though brief, operability is weaker with minimal deployment detail, and internal consistency is high with no contradictions."
+  },
+  {
+    "sample_id": "AUD-SYNC26-463",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the infrastructure CI/CD requirements and constraints, demonstrates solid Terraform-based architecture with proper state encryption and immutable AMIs, strong internal consistency, and good but not deeply detailed operability and observability."
+  },
+  {
+    "sample_id": "AUD-SYNC26-468",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 6,
+      "operability": 5,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan aligns closely with the frozen contract and shows solid modular design and IPC streaming improvements, but security is under-detailed for a high-risk PCI-DSS context and operability lacks deployment and observability depth."
+  },
+  {
+    "sample_id": "AUD-SYNC26-473",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 9,
+      "security": 9,
+      "operability": 8,
+      "internal_consistency": 10
+    },
+    "reasoning": "The plan perfectly matches the simple static marketing site requirements, has a clean and coherent Vercel-based architecture with enforced TLS and observability via Google Analytics; minor operability detail gaps keep it from a perfect 10."
+  },
+  {
+    "sample_id": "AUD-SYNC26-476",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan closely matches the frozen contract with correct stack and scope, strong TLS and WAF security for a high-risk public API, clear modular architecture, slightly limited operational detail beyond Terraform and Datadog, and overall consistent design choices."
+  },
+  {
+    "sample_id": "AUD-SYNC26-479",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 8,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the simple, low-risk CLI requirements and resolves prior cross-compilation issues with clear module and deployment detail; security is adequate for local use, operability and consistency are strong, though not deeply instrumented."
+  },
+  {
+    "sample_id": "AUD-SYNC26-483",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan closely matches the frozen contract with correct stacks and PCI-DSS compliance, shows strong backend security improvements and clear component separation, but offers only moderate operational detail beyond basic observability tools."
+  },
+  {
+    "sample_id": "AUD-SYNC26-486",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 8,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract with correct stacks and MFA, adds Datadog observability, and enforces private S3 and network isolation; architecture and operability are strong though somewhat high-level, yielding high but not perfect scores."
+  },
+  {
+    "sample_id": "AUD-SYNC26-491",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the infrastructure requirements and constraints, demonstrates solid CDK-based architecture with proper encryption and IAM alignment, but offers only basic operational detail and observability beyond flow logs."
+  },
+  {
+    "sample_id": "AUD-SYNC26-494",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 5,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan aligns well with the SDK requirements and is internally coherent, but security is under-addressed given high risk and PCI-DSS context, while operability improves via CI/CD automation but lacks observability."
+  },
+  {
+    "sample_id": "AUD-SYNC26-500",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan closely matches the frozen contract and fixes the OOM issue with clear module logic; security is adequate for low risk but not deeply detailed, operability is minimal with only basic logging, and overall consistency and alignment are strong."
+  },
+  {
+    "sample_id": "AUD-SYNC26-508",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 9,
+      "security": 8,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan perfectly matches the low-risk, internal SDK requirements with strong module clarity and CI/CD detail; security is solid via masking but minimal observability lowers operability slightly."
+  },
+  {
+    "sample_id": "AUD-SYNC26-512",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 9,
+      "security": 8,
+      "operability": 8,
+      "internal_consistency": 10
+    },
+    "reasoning": "The plan perfectly aligns with the static website requirements, shows clear and simple architecture with proper component separation, includes adequate TLS and SaaS form security for low risk, provides clear deployment and observability steps, and is fully consistent across all sections."
+  },
+  {
+    "sample_id": "AUD-SYNC26-513",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 9,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the low-risk, Go-based CLI requirements and adds detailed goreleaser signing and distribution steps, showing strong alignment and operability; security is adequate but minimal given low sensitivity, and all sections are consistent and implementation-grade."
+  },
+  {
+    "sample_id": "AUD-SYNC26-514",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 8,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract by replacing external APIs with a local Llama 3 setup, showing strong alignment and coherent architecture; security is solid with network isolation but lacks detailed access control, operability is adequate but light on runbook detail, and internal consistency is high with no contradictions."
+  },
+  {
+    "sample_id": "AUD-SYNC26-517",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 9,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan fully aligns with the contract (S3, Heroku, Vue, Rails, PostgreSQL), shows strong operability and consistency, has solid architecture detail, and meets low-risk security needs though without advanced hardening."
+  },
+  {
+    "sample_id": "AUD-SYNC26-519",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan fully matches the simple, low-risk research prototype requirements and is internally coherent; architecture quality is solid for a Jupyter-based sandbox, security is adequate for isolated internal use, operability is minimal due to lack of observability, and overall consistency is strong."
+  },
+  {
+    "sample_id": "AUD-SYNC26-520",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 7,
+      "security": 8,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan aligns closely with the low-risk internal automation requirements and adds the dry-run safety feature, showing strong consistency and security adherence, but lacks detailed operability and architecture depth beyond basic Lambda workflow."
+  },
+  {
+    "sample_id": "AUD-SYNC26-522",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan now fully aligns with the offline and SQLite requirements and is internally coherent, with solid module clarity; security is adequate for low risk but minimal, and operability is only moderately detailed with basic local logging and packaging steps."
+  },
+  {
+    "sample_id": "AUD-SYNC26-525",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 8,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan closely matches the frozen requirements with active-active GKE, Terraform IaC, and Prometheus federation; architecture and security are strong with clear multi-region design and zero-trust IAM, though operability details like runbooks and alerting depth are only moderately covered."
+  },
+  {
+    "sample_id": "AUD-SYNC26-529",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 8,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract with correct stacks and HIPAA compliance, shows strong security and observability improvements, and is internally coherent, though architecture detail and operational depth could be expanded slightly."
+  },
+  {
+    "sample_id": "AUD-SYNC26-531",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly aligns with the simple SDK requirements and enforces the 90% coverage constraint, showing strong consistency and solid architecture detail; security is adequate for low risk, but operability and observability remain minimal."
+  },
+  {
+    "sample_id": "AUD-SYNC26-533",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the contract with proper DLP tokenization and masking for high-risk financial data, shows solid modular Dataflow design, and is internally coherent; only operability lacks detailed deployment and monitoring specifics."
+  },
+  {
+    "sample_id": "AUD-SYNC26-535",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract with SHAP explainability and SageMaker hosting, shows solid modular design and compliance alignment, but offers only basic TLS/IAM security and minimal operational detail, leading to strong alignment and consistency but weaker operability depth."
+  },
+  {
+    "sample_id": "AUD-SYNC26-537",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the low-risk internal automation requirements and clearly implements the idempotent deletion constraint with coherent AWS Lambda design, but offers only minimal operational detail and basic security/observability coverage."
+  },
+  {
+    "sample_id": "AUD-SYNC26-539",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 7,
+      "security": 9,
+      "operability": 5,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan aligns closely with the simple local prototype requirements and fixes the credential issue, showing strong security and consistency, but remains minimal in operability and architectural detail."
+  },
+  {
+    "sample_id": "AUD-SYNC26-541",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 7,
+      "security": 8,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan now fully aligns with the EU data residency and GDPR requirements, showing strong consistency and compliance; architecture and operability are adequate but lack deeper module and observability detail."
+  },
+  {
+    "sample_id": "AUD-SYNC26-544",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract with correct stacks and PCI isolation, shows solid component separation and subnet design, strong security alignment with high-risk PCI context, slightly less detail on operational runbooks and observability, and maintains consistent architecture choices throughout."
+  },
+  {
+    "sample_id": "AUD-SYNC26-547",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 9,
+      "security": 8,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan perfectly aligns with the static, low-risk landing page requirements and shows clear component separation with HubSpot integration; security is adequate for public exposure, operability is acceptable but minimal, and internal consistency is strong throughout."
+  },
+  {
+    "sample_id": "AUD-SYNC26-562",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan fully matches the low-risk, simple research prototype requirements and is internally coherent; architecture quality is solid for its scope, security is adequate for isolated VM, operability is minimal due to lack of observability, yielding a balanced high score spread."
+  },
+  {
+    "sample_id": "AUD-SYNC26-564",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan now fully aligns with the frozen contract and adds Auth0 MFA for HIPAA compliance, showing strong security and consistent stack choices; architecture is clear though operational details like monitoring and runbooks remain lightly described."
+  },
+  {
+    "sample_id": "AUD-SYNC26-565",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract with correct tech stack and mTLS enforcement; architecture is clear and implementation-grade, security is strong and PCI-DSS aligned, operability is adequate but lacks detailed runbook, and internal consistency is high with no contradictions."
+  },
+  {
+    "sample_id": "AUD-SYNC26-566",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 8,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan perfectly aligns with the static-site requirements and constraints, has clear and feasible architecture with good deployment clarity, adequate security for a low-risk public site, and is internally coherent with only minor detail gaps in security elaboration."
+  },
+  {
+    "sample_id": "AUD-SYNC26-568",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 6,
+      "operability": 8,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the ETL requirements and idempotency constraint with clear Airflow–Snowflake design, but security is only briefly covered with KMS encryption and lacks IAM or retention details, while other dimensions are strong and coherent."
+  },
+  {
+    "sample_id": "AUD-SYNC26-569",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly aligns with the simple SDK requirements and enforces the 100% coverage constraint, shows solid TypeScript module design and CI integration, includes basic NPM signing for low-risk security, but lacks observability and operational detail while remaining internally coherent."
+  },
+  {
+    "sample_id": "AUD-SYNC26-574",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan closely matches the frozen contract with correct stacks and zero-trust enforcement; architecture is well-structured and detailed, security is strong with Istio mTLS and IAM, operability is adequate but lacks full multi-region deployment clarity, and internal consistency is high with minor omissions in operational detail."
+  },
+  {
+    "sample_id": "AUD-SYNC26-575",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 8,
+      "operability": 9,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract for a local Go-based CLI with signed binaries, adds concrete goreleaser deployment details improving operability, maintains internal coherence, and adequately covers medium security needs with no network calls."
+  },
+  {
+    "sample_id": "AUD-SYNC26-576",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 7,
+      "security": 8,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan aligns closely with the low-risk internal automation requirements and adds the dry-run safety feature, showing strong consistency and security adherence, though operability details like deployment and monitoring remain minimal and architecture depth is moderate."
+  },
+  {
+    "sample_id": "AUD-SYNC26-579",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 8,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan closely matches the contract with correct stack and scope, strong module clarity and security fix via env vars, slightly limited operational detail beyond CI/CD, and overall coherent and consistent architecture."
+  },
+  {
+    "sample_id": "AUD-SYNC26-582",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 9,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan now fully aligns with the contract by adding Datadog APM and maintaining required stacks and WAF; architecture is clear and consistent, security is adequate for low risk, and operability is strong due to explicit ECS and APM integration."
+  },
+  {
+    "sample_id": "AUD-SYNC26-585",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 7,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan fully aligns with the frozen contract and restores encryption compliance, showing strong security and consistency, but offers only moderate architectural detail and limited operational guidance."
+  },
+  {
+    "sample_id": "AUD-SYNC26-587",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 7,
+      "security": 6,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan now fully aligns with the Snowflake requirement and is internally coherent, but offers only moderate architectural and operational detail and minimal security elaboration beyond KMS encryption."
+  },
+  {
+    "sample_id": "AUD-SYNC26-589",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 8,
+      "security": 8,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan perfectly aligns with the static, zero-cost Gatsby-on-Netlify requirement; architecture is clean and implementation-ready, security is adequate for low-risk public content, operability is clear but minimal, and internal consistency is strong with no contradictions."
+  },
+  {
+    "sample_id": "AUD-SYNC26-593",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 7,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan now strongly aligns with the contract and fixes prior exposure issues, showing excellent security and requirement fit, but lacks detailed operational and component design depth, keeping architecture and operability moderate."
+  },
+  {
+    "sample_id": "AUD-SYNC26-595",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 8,
+      "operability": 9,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan fully aligns with the high-scale, multi-region, zero-trust, and observability requirements; architecture and operations are detailed and coherent, with only minor room for deeper implementation specifics."
+  },
+  {
+    "sample_id": "AUD-SYNC26-597",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 8,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract (Go on EKS, Vault, Datadog, mTLS), provides clear module and deployment details, robustly addresses high-risk financial security with Vault integration, shows solid operability via Helm and CI/CD, and maintains consistent stack choices throughout."
+  },
+  {
+    "sample_id": "AUD-SYNC26-602",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan now fully aligns with the frozen contract and fixes the SSO issue, showing strong security and coherent architecture, but operability details like monitoring and runbook depth remain thin."
+  },
+  {
+    "sample_id": "AUD-SYNC26-604",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 9,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan strongly aligns with the frozen contract and effectively resolves offline operability using Isar; architecture is well-structured and consistent, though security remains only baseline TLS/OIDC without deeper threat modeling, keeping that dimension slightly lower."
+  },
+  {
+    "sample_id": "AUD-SYNC26-610",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 9,
+      "security": 8,
+      "operability": 8,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan perfectly matches the static site requirements and CDN constraint, shows clear component separation and deployment flow, includes solid TLS and OAC security for a low-risk public site, provides adequate observability and operations detail, and maintains consistent stack choices throughout."
+  },
+  {
+    "sample_id": "AUD-SYNC26-612",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 9,
+      "security": 8,
+      "operability": 9,
+      "internal_consistency": 10
+    },
+    "reasoning": "The plan perfectly matches the simple, static, low-risk landing page requirements with detailed Vercel CI/CD and observability setup; architecture and operability are implementation-grade, security is adequate for low risk, and all sections are coherent and consistent."
+  },
+  {
+    "sample_id": "AUD-SYNC26-614",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 8,
+      "operability": 9,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan precisely matches the low-risk, internal CLI requirements, adds concrete operability improvements via goreleaser, maintains strong security alignment with no stored credentials, and is internally coherent with clear Go-based component separation."
+  },
+  {
+    "sample_id": "AUD-SYNC26-616",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan perfectly aligns with the simple internal SDK requirements and compliance constraint, shows solid Python module design and CI enforcement for license and CVE checks, but offers minimal operability detail beyond CI publishing."
+  },
+  {
+    "sample_id": "AUD-SYNC26-619",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the simple internal backup requirements, shows clear Lambda–S3 architecture with strong private ACL and SSE security, minor operability detail gaps, and overall consistent stack and workflow design."
+  },
+  {
+    "sample_id": "AUD-SYNC26-621",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract and adds concrete column-level security controls, showing strong alignment and security; architecture is clear and implementation-ready, but operability is under-detailed beyond CI and logging."
+  },
+  {
+    "sample_id": "AUD-SYNC26-623",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 7,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan strongly aligns with the frozen contract by replacing OpenAI with local Llama 3 and enforcing VPC isolation, showing excellent requirement and security compliance; however, it lacks detailed operational and scaling procedures, moderate architectural depth, and only basic observability coverage."
+  },
+  {
+    "sample_id": "AUD-SYNC26-625",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 6,
+      "operability": 9,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan aligns tightly with the simple, internal prototype requirements and adds Docker for reproducibility, showing strong operability and consistency; architecture quality is solid though minimal, while security remains basic but acceptable for low-risk internal use."
+  },
+  {
+    "sample_id": "AUD-SYNC26-634",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the IaC requirements and fixes the high-risk security issue with strong AWS controls; architecture is clear and implementation-grade, though operability details like CI runbook and monitoring integration are only briefly mentioned."
+  },
+  {
+    "sample_id": "AUD-SYNC26-638",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 8,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan closely matches the frozen contract with correct stacks and hosting, adds concrete TLS enforcement improving security, shows solid modular clarity, but offers only brief operational detail, yielding strong alignment and consistency with slightly weaker operability depth."
+  },
+  {
+    "sample_id": "AUD-SYNC26-640",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan closely matches the frozen contract and fixes compliance retention, with solid Spark–Redshift architecture and consistent stack choices; however, security lacks explicit IAM and access control details for a high-risk context, and operability is thin beyond basic CloudWatch metrics."
+  },
+  {
+    "sample_id": "AUD-SYNC26-645",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 5,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan aligns well with the contract and adds Redis for performance, showing strong architecture and consistency, but security is minimal (only TLS) despite personal data and GDPR context, and operability lacks detailed runbook or deployment clarity."
+  },
+  {
+    "sample_id": "AUD-SYNC26-647",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan perfectly matches the frozen contract for a simple, airgapped CLI tool; architecture is clean and implementation-ready, security is strong given offline operation, operability is adequate but minimal, and internal consistency is high with no contradictions."
+  },
+  {
+    "sample_id": "AUD-SYNC26-649",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 9,
+      "security": 8,
+      "operability": 8,
+      "internal_consistency": 10
+    },
+    "reasoning": "The plan perfectly aligns with the static, low-risk landing page requirements, shows clear static Nuxt SSG architecture with Netlify deployment, includes adequate TLS and analytics for its low sensitivity, and is internally coherent with no contradictions."
+  },
+  {
+    "sample_id": "AUD-SYNC26-652",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan closely matches all frozen requirements including MFA, Azure Front Door, and Application Insights; architecture is well-structured and implementation-ready, security is strong with MFA and rate limiting, operability is adequate but lacks detailed runbook, and internal consistency is high with coherent stack choices."
+  },
+  {
+    "sample_id": "AUD-SYNC26-657",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 9,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan tightly matches the frozen contract with correct stacks and MSIX deployment, shows solid MVVM architecture and operability improvements, has adequate but not deeply detailed security for medium risk, and maintains consistent internal logic throughout."
+  },
+  {
+    "sample_id": "AUD-SYNC26-660",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract with correct stacks and GDPR hard-delete compliance, shows solid modular design and OWASP-level security, but offers only brief operational and observability details, slightly lowering operability."
+  },
+  {
+    "sample_id": "AUD-SYNC26-663",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan tightly matches the frozen contract with correct stacks and restored E2E encryption, shows solid modular design and security controls, but offers only moderate operational detail and minor gaps in deployment clarity."
+  },
+  {
+    "sample_id": "AUD-SYNC26-666",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract with correct AWS Glue–Redshift private VPC design and PHI masking, showing strong alignment and security; architecture is clear though operational details like monitoring and scaling are brief, making operability slightly weaker but overall consistent and compliant."
+  },
+  {
+    "sample_id": "AUD-SYNC26-668",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 6,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen requirements and clearly enforces the human-in-the-loop constraint with coherent FastAPI–React design, but security coverage is only baseline despite high risk, and operability details like monitoring and deployment steps are only briefly mentioned."
+  },
+  {
+    "sample_id": "AUD-SYNC26-671",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 6,
+      "operability": 7,
+      "internal_consistency": 5
+    },
+    "reasoning": "The plan aligns well with the contract and fixes latency issues, but mixes ECS and EKS inconsistently, has only minimal rate-limiting security, and provides moderate operability detail."
+  },
+  {
+    "sample_id": "AUD-SYNC26-673",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan now fully aligns with the offline and local-only requirements and shows clear C++ Qt architecture; security is adequate for low risk but minimal beyond OS encryption, operability is weaker due to manual crash handling, and internal consistency is strong with no contradictions."
+  },
+  {
+    "sample_id": "AUD-SYNC26-675",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 8,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen requirements with correct AWS/Terraform stack and active-active DR, shows solid modular design and deployment clarity, includes WAF and Datadog but lacks deeper security and runbook detail, and is internally coherent with no contradictions."
+  },
+  {
+    "sample_id": "AUD-SYNC26-677",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract with correct stacks and EU deployment, shows solid module clarity and strong GDPR security alignment, but operability details like runbooks and monitoring depth remain somewhat minimal."
+  },
+  {
+    "sample_id": "AUD-SYNC26-679",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 9,
+      "security": 8,
+      "operability": 9,
+      "internal_consistency": 10
+    },
+    "reasoning": "The plan perfectly matches the static, zero-cost Hugo blog requirements, has clear and simple architecture with proper GitHub Pages deployment and observability, includes adequate TLS security for low risk, and is internally coherent with no contradictions."
+  },
+  {
+    "sample_id": "AUD-SYNC26-681",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 7,
+      "security": 8,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly aligns with the simple internal SDK requirements and enforces the 100% coverage constraint, shows clear TypeScript module design and CVE scanning, but offers minimal operational or observability detail despite otherwise consistent and coherent documentation."
+  },
+  {
+    "sample_id": "AUD-SYNC26-683",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 8,
+      "operability": 9,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the low-risk, local CLI requirements, adds concrete goreleaser-based deployment and signing details, maintains internal coherence, and provides strong operability and security for its simple scope."
+  },
+  {
+    "sample_id": "AUD-SYNC26-686",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the simple internal cleanup tool requirements, shows clear Lambda-based architecture with least-privilege IAM fix, strong consistency across sections, but only minimal operational detail beyond CloudWatch logging."
+  },
+  {
+    "sample_id": "AUD-SYNC26-690",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract with correct stacks and mTLS enforcement, shows solid component separation and PCI isolation, strong security alignment, slightly limited operational detail beyond Datadog, and overall consistent architecture choices."
+  },
+  {
+    "sample_id": "AUD-SYNC26-693",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract (Dataflow, BigQuery, CMEK, VPC SC) and fixes prior IAM issues, showing strong alignment and security; architecture is clear and implementation-grade, though operability is only moderately detailed with minimal observability description."
+  },
+  {
+    "sample_id": "AUD-SYNC26-696",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan closely matches the frozen contract with correct stacks and PCI/E2E encryption restored, showing strong alignment and security; architecture is clear but deployment and operational details are thin, while overall consistency is good with only minor gaps in ops clarity."
+  },
+  {
+    "sample_id": "AUD-SYNC26-699",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan tightly matches the frozen contract with private network isolation and correct stacks, shows solid modular design and strong security fixes, but operability details like observability and runbook depth remain only moderately covered."
+  },
+  {
+    "sample_id": "AUD-SYNC26-701",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 9,
+      "security": 8,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan perfectly aligns with the static, low-risk requirements and uses Nuxt SSG on Vercel as specified; architecture is clean and implementation-ready, security meets the TLS baseline, operability is adequate but minimal, and all sections are coherent and consistent."
+  },
+  {
+    "sample_id": "AUD-SYNC26-706",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 9,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract and fixes the MSIX deployment issue with clear operability detail; architecture is solid and consistent, though security remains minimal but acceptable for low-risk internal use."
+  },
+  {
+    "sample_id": "AUD-SYNC26-711",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 6,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan strongly aligns with the IaC and DR requirements and is technically coherent, but security coverage is minimal given high risk, and operability lacks detailed runbook or monitoring integration specifics."
+  },
+  {
+    "sample_id": "AUD-SYNC26-714",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the simple internal automation requirements and fixes idempotency well, showing solid architecture and consistency; security is adequate for low risk but minimal detail, and operability is basic with only CloudWatch logs and SAM deployment."
+  },
+  {
+    "sample_id": "AUD-SYNC26-717",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan aligns tightly with the frozen contract and adds AWS WAF for high-risk mitigation, showing strong security and coherent stack choices; operability is adequate but lacks detailed runbook or monitoring procedures."
+  },
+  {
+    "sample_id": "AUD-SYNC26-720",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 6,
+      "operability": 7,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan tightly matches the frozen contract and fixes latency as required, with solid Go/Redis design and consistent stack choices; however, security is minimal beyond rate limiting and operability lacks detailed runbook or deployment clarity."
+  },
+  {
+    "sample_id": "AUD-SYNC26-733",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 6,
+      "security": 8,
+      "operability": 4,
+      "internal_consistency": 7
+    },
+    "reasoning": "Encryption fix aligns well with low-risk local requirements, but the plan remains thin in architecture and lacks operability or observability detail, yielding strong alignment and security yet moderate design and consistency scores."
+  },
+  {
+    "sample_id": "AUD-SYNC26-740",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 6,
+      "security": 8,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan aligns closely with the low-risk, personal-data mobile app contract and fixes encryption per baseline, but architecture detail is minimal and operational guidance is basic though consistent."
+  },
+  {
+    "sample_id": "AUD-SYNC26-741",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan perfectly matches the simple static site requirements and is internally coherent, with solid static architecture quality; security is adequate for low risk (TLS only), while operability and observability remain minimal."
+  },
+  {
+    "sample_id": "AUD-SYNC26-745",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 7,
+      "security": 8,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the simple, low-risk landing page requirements and uses the correct Vercel hosting with TLS; architecture and operability are adequate but minimal, while internal consistency and alignment are strong."
+  },
+  {
+    "sample_id": "AUD-SYNC26-756",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 9,
+      "security": 8,
+      "operability": 8,
+      "internal_consistency": 10
+    },
+    "reasoning": "The plan matches all frozen requirements precisely, has clear and implementation-grade Tauri/Rust module design, appropriate local security for low-risk internal data, solid CI/CD and logging for operability, and no contradictions across sections."
+  },
+  {
+    "sample_id": "AUD-SYNC26-764",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract (React/Java/Postgres/AWS/Datadog), implements tokenization for PCI compliance, and shows clear component separation; only operability is slightly under-detailed beyond ECS and Datadog."
+  },
+  {
+    "sample_id": "AUD-SYNC26-765",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan aligns closely with the contract (Node, Redis, GCP, Cloud Run, rate limiting, tracing) and is internally coherent; architecture quality is solid with clear components, but operability lacks detail beyond Terraform and tracing, and security is adequate for medium risk but not deeply elaborated."
+  },
+  {
+    "sample_id": "AUD-SYNC26-767",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract (Azure, React, Python, Pinecone, SSO, VPC isolation) and fixes prior compliance gaps; architecture is clear and implementation-ready, security is strong for a high-risk confidential system, operability is adequate but light on runbook detail, and internal consistency is excellent."
+  },
+  {
+    "sample_id": "AUD-SYNC26-768",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 7,
+      "security": 6,
+      "operability": 5,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan strongly aligns with the Unity-based frontend requirement and is internally coherent, but lacks depth in operability and only minimally addresses security and deployment details."
+  },
+  {
+    "sample_id": "AUD-SYNC26-770",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 8,
+      "security": 8,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan perfectly aligns with the static, low-risk, public documentation requirements and uses Docusaurus with GitHub Pages as specified; architecture is clean and static with Algolia search, security meets TLS baseline, operability is minimal due to lack of observability or runbook, and internal consistency is strong with no contradictions."
+  },
+  {
+    "sample_id": "AUD-SYNC26-772",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 7,
+      "security": 8,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan aligns closely with the frozen contract and fixes the SSO gap via OIDC, showing strong consistency and good security for a medium-risk internal CLI, but lacks depth in operability and detailed component design."
+  },
+  {
+    "sample_id": "AUD-SYNC26-773",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 7,
+      "security": 9,
+      "operability": 4,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan aligns tightly with the contract (Rust core crypto lib, no unsafe, internal use) and fixes the key security issue, but offers minimal operational or observability detail, keeping architecture quality moderate and operability weak."
+  },
+  {
+    "sample_id": "AUD-SYNC26-775",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 7,
+      "security": 4,
+      "operability": 5,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan aligns well with the research prototype requirements and is internally coherent, but lacks security and observability details, with moderate architecture clarity and minimal operational guidance."
+  },
+  {
+    "sample_id": "AUD-SYNC26-776",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 7,
+      "security": 8,
+      "operability": 8,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan aligns tightly with the WAF-focused contract and Cloudflare hosting target, adds proper SIEM logpush for observability, maintains OWASP blocking mode for high-risk data, but remains somewhat minimal in architectural detail beyond core components."
+  },
+  {
+    "sample_id": "AUD-SYNC26-779",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 8,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan closely matches the low-risk, internal-only ETL contract with clear Airflow and BigQuery details; architecture and operability are strong, security meets baseline encryption but lacks IAM detail, and overall consistency is high."
+  },
+  {
+    "sample_id": "AUD-SYNC26-780",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the frozen contract (Azure, Python, React, Pinecone, SSO, VPC isolation) and fixes prior compliance issues; architecture is clear and implementation-ready, security is strong for a high-risk confidential system, operability is adequate but light on runbook detail, and internal consistency is excellent."
+  },
+  {
+    "sample_id": "AUD-SYNC26-791",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 9,
+      "security": 8,
+      "operability": 8,
+      "internal_consistency": 10
+    },
+    "reasoning": "The Electron-based desktop plan matches all frozen requirements precisely, shows strong modular and security practices, clear deployment and logging setup, and no internal contradictions, with only minor room for deeper operational detail."
+  },
+  {
+    "sample_id": "AUD-SYNC26-793",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 6,
+      "security": 8,
+      "operability": 5,
+      "internal_consistency": 7
+    },
+    "reasoning": "The plan aligns well with the contract and adds MFA as required, but lacks detailed component design and operational clarity; security is strong but operability and architecture depth remain moderate."
+  },
+  {
+    "sample_id": "AUD-SYNC26-796",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 6,
+      "operability": 5,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the SDK requirements and shows solid TypeScript module design, but security is minimal (TLS only) and operability lacks observability or runbook depth, though the overall structure is coherent and consistent."
+  },
+  {
+    "sample_id": "AUD-SYNC26-798",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 6,
+      "security": 8,
+      "operability": 6,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan now aligns closely with the ETL Airflow-to-S3 contract and fixes encryption per baseline, but remains minimal in component detail and operational clarity, yielding strong alignment and security yet only moderate architecture and operability depth."
+  },
+  {
+    "sample_id": "AUD-SYNC26-800",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 6,
+      "security": 4,
+      "operability": 5,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan aligns well with the low-scope research prototype requirements and is internally coherent, but lacks detailed module design, minimal security handling, and limited operational clarity."
+  },
+  {
+    "sample_id": "AUD-SYNC26-802",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the contract (React/Node/EKS/Postgres/OIDC RBAC), implements CASL-based RBAC well, and is internally coherent; however, operability details like runbooks and scaling procedures are minimal, slightly lowering that dimension."
+  },
+  {
+    "sample_id": "AUD-SYNC26-803",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan now aligns closely with the contract (Go API, Postgres HA, Docker, TLS), showing strong consistency and solid architecture detail; security is adequate for medium risk but minimal beyond TLS, and operability is weaker due to limited observability and runbook detail."
+  },
+  {
+    "sample_id": "AUD-SYNC26-805",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 8,
+      "operability": 9,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan precisely matches the contract for a public AWS ALB with WAF and Terraform IaC, adds SIEM integration per observability baseline, maintains strong security alignment with OWASP and PCI-DSS, and is internally coherent with clear deployment and operational details."
+  },
+  {
+    "sample_id": "AUD-SYNC26-806",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 8,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan perfectly matches the simple, low-risk landing page requirements and is internally coherent; architecture and operability are well-specified for a static HTML deployment, with adequate but minimal security detail appropriate to TLS baseline."
+  },
+  {
+    "sample_id": "AUD-SYNC26-815",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 9,
+      "security": 9,
+      "operability": 8,
+      "internal_consistency": 10
+    },
+    "reasoning": "The plan precisely matches all frozen requirements with correct stacks and constraints, shows strong modular design and security isolation, has solid but not deeply detailed operability guidance, and is internally coherent throughout."
+  },
+  {
+    "sample_id": "AUD-SYNC26-823",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan now fully aligns with the internal-only, VPC-isolated requirements and uses the correct stacks; architecture and security are strong with clear private ALB deployment, though operability is only moderately detailed with minimal observability and runbook content."
+  },
+  {
+    "sample_id": "AUD-SYNC26-825",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 7,
+      "security": 5,
+      "operability": 8,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan aligns well with the multi-region AWS Terraform requirement and is internally coherent, but security is underdeveloped for a high-risk PCI context, and architecture detail is moderate though operability is strong."
+  },
+  {
+    "sample_id": "AUD-SYNC26-826",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 7,
+      "security": 9,
+      "operability": 6,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan aligns well with the e-commerce and PCI-DSS requirements and fixes the tokenization issue, showing strong security and consistency, but lacks detailed operational and development guidelines, keeping architecture quality and operability moderate."
+  },
+  {
+    "sample_id": "AUD-SYNC26-828",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 9,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the contract (Go backend, Redis, Docker, mTLS, tracing), shows solid modular design with Envoy offload, strong security alignment, slightly light on operational detail, and is internally coherent."
+  },
+  {
+    "sample_id": "AUD-SYNC26-829",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 7,
+      "operability": 6,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan now tightly matches the low-risk, local Tauri desktop requirements with clear component simplification; architecture is clean and consistent, security is adequate for internal data, but operability lacks detailed build/run instructions or observability depth."
+  },
+  {
+    "sample_id": "AUD-SYNC26-830",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 7,
+      "security": 8,
+      "operability": 9,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the low-risk, internal Cron tool requirements and adds proper alerting; architecture is simple but adequate, security aligns with IAM baseline, and all sections are consistent though design detail remains minimal."
+  },
+  {
+    "sample_id": "AUD-SYNC26-831",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 6,
+      "security": 9,
+      "operability": 3,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan strongly aligns with the airgapped, local-only requirements and fixes the prior security issue, but lacks operational and observability detail; architecture is minimal yet coherent and internally consistent."
+  },
+  {
+    "sample_id": "AUD-SYNC26-832",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 10,
+      "architecture_quality": 8,
+      "security": 8,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan perfectly aligns with the static, low-risk, HTML-on-S3 requirements; architecture is simple and correct for a static site, security meets TLS baseline, operability is adequate but minimal, and internal consistency is strong with no contradictions."
+  },
+  {
+    "sample_id": "AUD-SYNC26-834",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 7,
+      "security": 8,
+      "operability": 6,
+      "internal_consistency": 7
+    },
+    "reasoning": "The plan now aligns well with the contract by adding SQLCipher encryption and biometric MFA, showing strong requirement and security alignment, but lacks detailed operational and architectural depth beyond basic SwiftUI and Firebase mentions."
+  },
+  {
+    "sample_id": "AUD-SYNC26-837",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 8,
+      "security": 8,
+      "operability": 7,
+      "internal_consistency": 9
+    },
+    "reasoning": "The plan tightly matches the API service contract with correct Go, Redis, and Docker stacks; security is solid with TLS, API keys, and Kong rate limiting; architecture is clear though minimal; operability is adequate but lacks detailed runbooks; overall internally consistent and well-aligned."
+  },
+  {
+    "sample_id": "AUD-SYNC26-840",
+    "old_scores": {
+      "requirements_alignment": 7,
+      "architecture_quality": 7,
+      "security": 7,
+      "operability": 7,
+      "internal_consistency": 7
+    },
+    "new_scores": {
+      "requirements_alignment": 9,
+      "architecture_quality": 6,
+      "security": 7,
+      "operability": 5,
+      "internal_consistency": 8
+    },
+    "reasoning": "The plan now aligns well with the BigQuery and Airflow requirements but remains shallow in component detail and deployment clarity; security is adequate for low risk, while operability is underdeveloped though overall consistency is good."
+  }
+]
