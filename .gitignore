@@ -59,3 +59,5 @@ desktop.ini
 *.pt
 *.pth
 *.ckpt
+
+artifacts/
