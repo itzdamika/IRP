@@ -1,0 +1,612 @@
+{
+  "reasoner_reviews": {
+    "product": {
+      "summary": "Round 3 review confirms that the architecture remains implementation-grade and stable, with all prior high-severity issues resolved. The only remaining inconsistencies are administrative: the frozen requirement still lists 'retain data indefinitely' instead of the implemented configurable retention policy, and the DPIA execution remains pending. These do not block technical readiness but must be addressed for compliance closure. Overall, the system demonstrates strong alignment, security, and operational maturity.",
+      "requirement_completeness_score": 9.1,
+      "coverage": {
+        "project": "Complete and consistent with AI system scope and goals.",
+        "frontend": "Defined React-based interface with accessibility and responsive design.",
+        "backend": "Fully specified FastAPI backend with GPT API integration.",
+        "security": "Comprehensive OAuth2/JWT, RBAC, HTTPS, and rate limiting in place.",
+        "data": "PostgreSQL platform with configurable retention and anonymization workflows.",
+        "devops": "Azure hosting with observability, cost monitoring, and CI/CD integration."
+      },
+      "blindspots": [
+        "Frozen requirement text not yet updated to reflect configurable retention.",
+        "Pending DPIA execution and documentation before production.",
+        "No explicit user consent UX flow described for data retention configuration."
+      ],
+      "functional_gaps": [
+        "None blocking implementation; compliance documentation gap remains."
+      ],
+      "ux_considerations": [
+        "Ensure clear consent and privacy settings in the chat interface.",
+        "Maintain accessibility (WCAG 2.1) and responsive design standards.",
+        "Provide transparent user feedback for moderation and data handling actions."
+      ],
+      "future_phase_candidates": [
+        "Advanced personalization and adaptive dialogue memory.",
+        "Expanded multimodal input/output (voice, image, video).",
+        "Enhanced analytics and user behavior insights dashboards.",
+        "Automated compliance reporting and DPIA renewal workflows."
+      ],
+      "next_focus": [
+        "Update frozen requirement contract to match configurable retention policy.",
+        "Execute and document the DPIA before production deployment.",
+        "Design and validate user-facing consent and retention configuration UX."
+      ]
+    },
+    "architect_reasoner": {
+      "summary": "Round 3 confirms the architecture is technically complete, secure, and implementation-ready. All major prior issues remain resolved, with only administrative compliance tasks pending. The system design aligns with the frozen requirements except for the outdated retention clause, which must be updated to reflect the implemented configurable retention policy. The architecture demonstrates strong modularity, observability, and compliance alignment, suitable for public deployment on Azure once DPIA documentation is finalized.",
+      "feasibility": "High. The architecture is feasible within the defined constraints and technology stack (FastAPI, PostgreSQL, Azure). Compliance and privacy readiness depend on completing the DPIA and updating the requirement contract to match the implemented retention policy.",
+      "proposed_architecture_direction": "Maintain the current modular microservice-oriented architecture with a React frontend, FastAPI backend, and PostgreSQL data layer. Continue leveraging Azure-native services for hosting, authentication (Azure AD B2C), observability, and cost management. Ensure compliance workflows (DPIA, consent UX) are integrated before production.",
+      "recommended_modules": [
+        "Frontend: React + TypeScript with accessibility (WCAG 2.1) and responsive design.",
+        "Backend: FastAPI microservices for chat orchestration, user management, and moderation.",
+        "LLM Integration: GPT API client with cost monitoring and caching layer.",
+        "Data Layer: PostgreSQL with configurable retention (default 12 months) and anonymization workflows.",
+        "Security: OAuth2/JWT authentication, RBAC authorization, HTTPS, rate limiting, and audit logging.",
+        "Moderation: Automated and manual review workflows with escalation governance.",
+        "Compliance: Consent management, DPIA documentation, and configurable data retention.",
+        "Observability: Centralized logging, tracing, metrics, and cost dashboards integrated with Azure Monitor."
+      ],
+      "data_and_api_notes": "All personal data must follow configurable retention (default 12 months) with user opt-in for extended storage. APIs should enforce authentication via OAuth2/JWT and include rate limiting. LLM API usage must be monitored for cost and latency. Data anonymization and deletion endpoints should be auditable and compliant with GDPR/CCPA.",
+      "infrastructure_direction": "Deploy on Microsoft Azure using App Service for backend, Azure Front Door for global routing, Azure PostgreSQL Flexible Server for data, and Azure Blob Storage for media. Use Azure Key Vault for secret management and Azure Monitor for observability. Enable autoscaling and CDN caching for performance.",
+      "devops_direction": "Adopt CI/CD pipelines via GitHub Actions or Azure DevOps with automated testing, linting, and deployment. Integrate load and stress testing, cost monitoring, and security scanning. Maintain IaC (Infrastructure as Code) using Terraform or Bicep for reproducibility. Include automated alerts for cost, latency, and error thresholds.",
+      "design_principles": [
+        "Security and privacy by design with compliance traceability.",
+        "Configurable retention and consent-driven data handling.",
+        "Modular, maintainable, and observable architecture.",
+        "Accessibility and transparency in user experience.",
+        "Operational resilience through automation and monitoring.",
+        "Ethical AI governance with moderation accountability."
+      ]
+    },
+    "security": {
+      "summary": "Round 3 confirms the architecture for the public conversational AI chatbot is technically complete, secure, and implementation-ready. All prior high-severity issues remain resolved. The only remaining gaps are administrative: the frozen requirement still lists 'retain data indefinitely' instead of the implemented configurable retention policy, and the Data Protection Impact Assessment (DPIA) execution remains pending. These do not block technical readiness but must be addressed for compliance closure. The system demonstrates strong modularity, observability, and ethical AI governance suitable for Azure deployment.",
+      "key_risks": [
+        "Unresolved DPIA execution and documentation before production.",
+        "Frozen requirement mismatch on data retention policy affecting compliance traceability.",
+        "Potential user confusion if consent and retention configuration UX are not clearly defined.",
+        "Operational cost and latency risks for multimodal features under high load."
+      ],
+      "required_controls": [
+        "Finalize and document DPIA before production deployment.",
+        "Update frozen requirement contract to reflect configurable retention (default 12 months).",
+        "Implement user-facing consent and retention configuration UX flow.",
+        "Maintain automated cost monitoring and alerting for LLM API usage.",
+        "Continue moderation governance with escalation workflows and audit logging."
+      ],
+      "privacy_notes": "Personal data is handled under a configurable retention policy (default 12 months) with anonymization and deletion workflows. User consent must be explicit for extended retention. Privacy UX should provide transparency and control. The frozen requirement text must be updated to align with this implemented policy to maintain GDPR/CCPA compliance traceability.",
+      "compliance_notes": "GDPR and CCPA alignment is achieved through consent management, configurable retention, and auditability. DPIA execution and documentation remain pending and must be completed before production. Compliance readiness depends on reconciling the frozen requirement text and ensuring consent UX integration.",
+      "moderation_notes": "Moderation service includes automated and manual review workflows with escalation governance and audit logging. Ethical AI compliance is strengthened through accountability and transparency. Regular policy review cadence should be maintained.",
+      "incident_response_notes": "Incident response should include automated alerts for data breaches, cost anomalies, and moderation escalations. Azure Monitor and audit logs must support forensic analysis. Privacy incidents require immediate DPIA review and user notification workflows aligned with GDPR breach reporting timelines."
+    },
+    "constraints": {
+      "summary": "Round 3 confirms the architecture for the public conversational AI chatbot is technically complete, secure, and implementation-ready. All prior high-severity issues remain resolved. The only remaining gaps are administrative: the frozen requirement still lists 'retain data indefinitely' instead of the implemented configurable retention policy, and the Data Protection Impact Assessment (DPIA) execution remains pending. These do not block technical readiness but must be addressed for compliance closure. The system demonstrates strong modularity, observability, and ethical AI governance suitable for Azure deployment.",
+      "cost_range": "Medium to High (Azure hosting, GPT API usage, observability, and moderation services contribute to variable operational costs; estimated monthly range $2,000–$10,000 depending on usage volume).",
+      "complexity_profile": "High — involves multimodal AI integration, compliance workflows, cost monitoring, and scalable Azure infrastructure. Technical complexity is balanced by modular design and strong observability.",
+      "maintainability_notes": "Architecture emphasizes modularity (frontend, backend, data, moderation, compliance). Automated CI/CD, observability, and IaC improve maintainability. Compliance documentation and consent UX must be kept current. Regular review of moderation and retention policies required.",
+      "phased_delivery": {
+        "phase_1": "Finalize backend (FastAPI), frontend (React), and LLM integration with GPT API; deploy MVP with configurable retention and moderation.",
+        "phase_2": "Complete DPIA documentation and integrate user-facing consent and retention configuration UX.",
+        "phase_3": "Conduct full-scale load testing, cost validation, and compliance audit before public launch.",
+        "phase_4": "Post-launch enhancements: multimodal expansion, personalization, analytics, and automated compliance reporting."
+      },
+      "tradeoffs": "Full feature parity with ChatGPT at MVP increases initial cost and complexity. Configurable retention improves compliance but adds UX and data management overhead. Azure-native stack ensures scalability and security but ties deployment to vendor ecosystem.",
+      "implementation_pressure_points": [
+        "DPIA execution and documentation before production deployment.",
+        "Updating frozen requirement contract to reflect configurable retention (default 12 months).",
+        "Designing clear consent and retention configuration UX flow.",
+        "Managing operational cost and latency for multimodal features under high load.",
+        "Maintaining moderation governance and audit logging cadence."
+      ]
+    },
+    "critic": {
+      "summary": "Round 3 confirms the architecture for the public conversational AI chatbot is technically complete, secure, and implementation-ready. All prior high-severity issues remain resolved. The only remaining gaps are administrative: the frozen requirement still lists 'retain data indefinitely' instead of the implemented configurable retention policy, and the Data Protection Impact Assessment (DPIA) execution remains pending. These do not block technical readiness but must be addressed for compliance closure. The system demonstrates strong modularity, observability, and ethical AI governance suitable for Azure deployment.",
+      "contradictions": [
+        {
+          "id": "REQ_PRIVACY_CONFLICT",
+          "description": "Frozen requirement states 'retain data indefinitely' while the implemented architecture enforces configurable retention (default 12 months)."
+        }
+      ],
+      "blindspots": [
+        "Frozen requirement text not yet updated to reflect configurable retention.",
+        "Pending DPIA execution and documentation before production.",
+        "No explicit user consent UX flow described for data retention configuration."
+      ],
+      "unresolved_questions": {
+        "DPIA_EXECUTION": "When will the Data Protection Impact Assessment be completed and documented?",
+        "REQ_PRIVACY_CONFLICT": "Will the frozen requirement contract be updated to match the implemented configurable retention policy?"
+      },
+      "corrective_actions": [
+        "Update the frozen requirement contract to reflect configurable retention (default 12 months).",
+        "Execute and document the DPIA before production deployment.",
+        "Design and validate user-facing consent and retention configuration UX.",
+        "Maintain automated cost monitoring and moderation governance cadence."
+      ],
+      "priority_order": [
+        "Execute and document DPIA (high compliance priority).",
+        "Update frozen requirement contract to match implemented retention policy (medium compliance priority).",
+        "Design consent and retention configuration UX (medium usability and compliance priority).",
+        "Maintain cost monitoring and moderation governance (operational continuity)."
+      ]
+    }
+  },
+  "specialist_subplans": {
+    "backend": {
+      "service_design": {
+        "architecture_style": "Modular microservice-oriented architecture using FastAPI on Azure App Service or AKS.",
+        "core_services": {
+          "gateway_service": "Handles routing, authentication, rate limiting, and API versioning.",
+          "conversation_service": "Manages chat sessions, message persistence, and conversation context.",
+          "llm_proxy_service": "Encapsulates GPT API calls with caching, batching, and cost monitoring.",
+          "user_service": "Manages user profiles, authentication, and consent preferences.",
+          "moderation_service": "Performs automated and manual content review with escalation workflows.",
+          "compliance_service": "Handles consent management, retention configuration, and audit logging."
+        },
+        "data_layer": {
+          "database": "PostgreSQL (Azure Database for PostgreSQL Flexible Server)",
+          "cache": "Redis (Azure Cache for Redis)",
+          "storage": "Azure Blob Storage for media and logs"
+        },
+        "observability_layer": "Azure Monitor + Application Insights + OpenTelemetry for logs, metrics, and tracing."
+      },
+      "api_patterns": {
+        "style": "REST + WebSocket hybrid for real-time chat streaming.",
+        "authentication": "OAuth2/JWT via Azure AD B2C.",
+        "authorization": "RBAC with roles for user, moderator, and admin.",
+        "versioning": "URI-based (v1).",
+        "rate_limiting": "Per-IP and per-user limits enforced at gateway.",
+        "key_endpoints": [
+          "/api/v1/chat/start",
+          "/api/v1/chat/{session_id}/message",
+          "/api/v1/chat/{session_id}/stream",
+          "/api/v1/user/login",
+          "/api/v1/moderation/check",
+          "/api/v1/compliance/retention"
+        ]
+      },
+      "business_modules": {
+        "conversation_management": "Handles chat orchestration, message persistence, and context tracking.",
+        "user_management": "Supports registration, authentication, and consent configuration.",
+        "moderation_governance": "Implements automated filtering and manual review with audit trails.",
+        "compliance_management": "Executes configurable retention (default 12 months), anonymization, and deletion workflows.",
+        "analytics_and_cost_monitoring": "Tracks usage metrics, token consumption, and LLM API cost via Azure dashboards."
+      },
+      "llm_integration_design": {
+        "provider": "OpenAI GPT API via secure HTTPS connection.",
+        "authentication": "API key stored in Azure Key Vault with rotation policy.",
+        "request_handling": "LLM proxy batches and caches requests to reduce latency and cost.",
+        "observability": "Logs token usage, latency, and error rates for cost and performance monitoring.",
+        "fallback_strategy": "Graceful degradation with cached or templated responses if API fails."
+      },
+      "background_jobs": {
+        "framework": "Celery with Redis broker.",
+        "jobs": {
+          "data_retention_cleanup": "Purges or anonymizes data after configured retention period.",
+          "audit_log_rotation": "Archives audit logs and compliance events.",
+          "cost_alert_monitoring": "Triggers alerts for LLM API cost anomalies.",
+          "moderation_review_queue": "Processes flagged content for manual review.",
+          "backup_and_recovery": "Performs daily encrypted backups and verifies integrity."
+        },
+        "scheduling": "Azure Functions or Celery Beat for periodic execution."
+      },
+      "failure_handling": {
+        "api_failures": "Retry with exponential backoff and circuit breaker pattern for GPT API calls.",
+        "database_failures": "Automatic failover using Azure PostgreSQL high availability.",
+        "cache_failures": "Fallback to direct DB queries with degraded performance mode.",
+        "security_incidents": "Immediate alerting via Azure Monitor; forensic audit logs retained.",
+        "user-facing_errors": "Graceful error messages with retry options and transparency notices."
+      },
+      "scaling_notes": {
+        "strategy": "Horizontal scaling for stateless services; vertical scaling for PostgreSQL.",
+        "autoscaling_triggers": "CPU, memory, and latency metrics monitored via Azure Monitor.",
+        "load_testing": "Integrated into CI/CD pipeline to validate autoscaling thresholds.",
+        "caching": "Redis caching for frequent GPT responses and session data.",
+        "global_distribution": "Azure Front Door with CDN caching and WAF for global access."
+      },
+      "backend_risks": {
+        "unresolved": [
+          {
+            "id": "DPIA_EXECUTION",
+            "description": "Data Protection Impact Assessment execution and documentation pending before production.",
+            "impact": "Compliance readiness and audit traceability."
+          },
+          {
+            "id": "REQ_PRIVACY_CONFLICT",
+            "description": "Frozen requirement still lists 'retain data indefinitely' instead of configurable retention (default 12 months).",
+            "impact": "Compliance traceability mismatch."
+          }
+        ],
+        "operational": [
+          "High LLM API cost and latency under multimodal load.",
+          "User confusion if consent and retention configuration UX not clearly defined.",
+          "Vendor lock-in risk due to Azure-native dependency."
+        ],
+        "mitigations": [
+          "Finalize and document DPIA before production.",
+          "Update frozen requirement contract to match implemented retention policy.",
+          "Implement clear consent and retention configuration UX.",
+          "Maintain automated cost monitoring and alerting for LLM usage."
+        ]
+      }
+    },
+    "frontend": {},
+    "security": {
+      "auth_design": {
+        "method": "OAuth2 with JWT tokens",
+        "provider": "Azure AD B2C",
+        "session_management": "Stateless JWT validation with refresh token rotation",
+        "transport_security": "TLS 1.3 enforced across all endpoints",
+        "password_policy": "Delegated to Azure AD B2C with MFA and adaptive risk-based authentication",
+        "api_security": "All API endpoints require bearer token validation; rate limiting and IP reputation checks applied at gateway"
+      },
+      "authorization_model": {
+        "type": "Role-Based Access Control (RBAC)",
+        "roles": [
+          "user",
+          "moderator",
+          "admin"
+        ],
+        "enforcement": "Backend middleware validates JWT claims and role scopes per endpoint",
+        "admin_controls": "Administrative actions (moderation override, data export) require elevated role and audit logging",
+        "policy_storage": "Authorization policies stored in configuration and version-controlled"
+      },
+      "secrets_management": {
+        "vault": "Azure Key Vault",
+        "rotation_policy": "Automatic rotation every 90 days or upon compromise",
+        "access_control": "Managed identities for services; least-privilege access enforced",
+        "storage": "No secrets in code or environment variables; all retrieved at runtime via secure SDK",
+        "audit": "Access to secrets logged and monitored via Azure Monitor"
+      },
+      "abuse_prevention": {
+        "moderation_pipeline": "Automated content filtering using AI classifiers and rule-based checks, followed by manual review for flagged items",
+        "rate_limiting": "Per-IP and per-user rate limits enforced at API gateway",
+        "spam_and_bot_detection": "Behavioral analytics and CAPTCHA challenges for suspicious activity",
+        "escalation_workflows": "Flagged content triggers moderator review; repeat offenders subject to account suspension",
+        "monitoring": "Abuse metrics and moderation actions logged for trend analysis"
+      },
+      "privacy_controls": {
+        "data_retention": "Configurable retention (default 12 months) with user opt-in for extended storage",
+        "anonymization": "PII separated from chat content; anonymization and pseudonymization workflows implemented",
+        "user_consent": "Explicit consent required for extended retention; consent UX integrated into chat interface",
+        "data_subject_rights": "APIs for data access, correction, and deletion per GDPR/CCPA",
+        "encryption": "AES-256 at rest, TLS 1.3 in transit",
+        "compliance_alignment": "GDPR and CCPA compliant; DPIA execution pending before production"
+      },
+      "audit_and_logging_controls": {
+        "logging_scope": "Authentication events, data access, moderation actions, and system configuration changes",
+        "log_format": "Structured JSON logs with correlation IDs via OpenTelemetry",
+        "storage": "Centralized in Azure Monitor and Application Insights with 30-day retention",
+        "access_control": "Restricted to security and compliance teams; immutable storage for audit logs",
+        "alerting": "Automated alerts for anomalous access, failed logins, and data export attempts"
+      },
+      "incident_response_notes": {
+        "detection": "Azure Monitor alerts for security anomalies, data breaches, and cost spikes",
+        "containment": "Immediate token revocation and service isolation procedures",
+        "forensics": "Audit logs and telemetry preserved for investigation",
+        "notification": "User and regulator notification workflows aligned with GDPR breach timelines",
+        "post_incident_review": "Root cause analysis and DPIA update required after any privacy incident"
+      },
+      "security_risks": {
+        "unresolved": [
+          {
+            "id": "DPIA_EXECUTION",
+            "description": "Data Protection Impact Assessment execution and documentation pending before production",
+            "impact": "Compliance readiness and legal exposure risk"
+          },
+          {
+            "id": "REQ_PRIVACY_CONFLICT",
+            "description": "Frozen requirement still lists 'retain data indefinitely' conflicting with implemented configurable retention policy",
+            "impact": "Compliance traceability and documentation inconsistency"
+          }
+        ],
+        "mitigated": [
+          "PRIVACY_RETENTION_CONFLICT",
+          "AUTH_FLOW_UNDEFINED",
+          "COMPLIANCE_ALIGNMENT",
+          "MODERATION_MISSING",
+          "LLM_COST_MONITORING",
+          "SCALABILITY_VALIDATION",
+          "MODERATION_GOVERNANCE"
+        ],
+        "residual": [
+          "Potential user confusion if consent and retention configuration UX not clearly defined",
+          "Operational cost and latency risks for multimodal features under high load"
+        ]
+      }
+    },
+    "data": {
+      "entities": {
+        "User": {
+          "fields": [
+            "id",
+            "email",
+            "display_name",
+            "role",
+            "created_at",
+            "consent_status"
+          ],
+          "privacy": "PII separated; encrypted at rest"
+        },
+        "Conversation": {
+          "fields": [
+            "id",
+            "user_id",
+            "started_at",
+            "ended_at",
+            "metadata"
+          ],
+          "privacy": "Linked to user via foreign key; retention configurable"
+        },
+        "Message": {
+          "fields": [
+            "id",
+            "conversation_id",
+            "sender_type",
+            "content",
+            "timestamp",
+            "moderation_status"
+          ],
+          "privacy": "Content subject to moderation and anonymization"
+        },
+        "LLMRequestLog": {
+          "fields": [
+            "id",
+            "conversation_id",
+            "request_payload",
+            "response_metadata",
+            "token_usage",
+            "cost_estimate",
+            "timestamp"
+          ],
+          "privacy": "No PII; used for analytics and cost monitoring"
+        },
+        "AuditEvent": {
+          "fields": [
+            "id",
+            "event_type",
+            "actor_id",
+            "timestamp",
+            "details"
+          ],
+          "privacy": "Used for compliance and incident tracking"
+        }
+      },
+      "storage_design": {
+        "primary_db": "PostgreSQL (Azure Database for PostgreSQL Flexible Server)",
+        "cache": "Redis (Azure Cache for Redis)",
+        "media_storage": "Azure Blob Storage for multimodal assets",
+        "encryption": "AES-256 at rest, TLS 1.3 in transit",
+        "indexing": "B-tree indexes on user_id, conversation_id, timestamp",
+        "backup": "Daily encrypted backups with 30-day retention"
+      },
+      "schema_notes": {
+        "normalization": "3NF for relational consistency; separate tables for user, conversation, message, and audit events",
+        "privacy_controls": "PII stored in isolated schema with restricted access; anonymization jobs scheduled",
+        "auditability": "All data changes logged in AuditEvent table for compliance traceability",
+        "foreign_keys": "Enforced between user, conversation, and message entities",
+        "performance": "Partition large tables by timestamp for efficient retention purging"
+      },
+      "retention_and_deletion": {
+        "policy": "Configurable retention (default 12 months) with user opt-in for extended storage",
+        "workflow": "Scheduled anonymization and purge jobs executed via Celery; audit logged",
+        "user_controls": "Consent and retention settings accessible via user profile UI",
+        "compliance_alignment": "GDPR/CCPA compliant; DPIA documentation pending completion",
+        "exception_handling": "Legal hold and moderation data exempt from automatic deletion until resolved"
+      },
+      "analytics_events": {
+        "types": [
+          "chat_session_started",
+          "message_sent",
+          "message_flagged",
+          "llm_request_completed",
+          "user_consent_updated",
+          "data_purged"
+        ],
+        "storage": "PostgreSQL analytics schema and Azure Application Insights",
+        "aggregation": "Daily summaries for usage metrics, token consumption, and cost tracking",
+        "privacy": "Aggregated and anonymized; no direct PII exposure",
+        "export": "Secure API for admin dashboards and compliance reporting"
+      },
+      "consistency_notes": {
+        "transaction_model": "ACID transactions in PostgreSQL; Redis used for ephemeral caching only",
+        "data_integrity": "Foreign key constraints and cascading deletes enforced",
+        "sync_strategy": "Event-driven updates between FastAPI services via message queue",
+        "observability": "OpenTelemetry tracing for data flow consistency verification",
+        "compliance_traceability": "AuditEvent ensures end-to-end data lifecycle visibility"
+      },
+      "migration_notes": {
+        "initial_setup": "Schema creation via Alembic migrations; baseline version tagged v1.0",
+        "future_changes": "Retention configuration stored in metadata table for dynamic updates",
+        "data_transfer": "Secure migration scripts with anonymization for legacy imports",
+        "rollback": "Transactional rollback supported; audit entries preserved",
+        "testing": "Pre-deployment migration validation in staging environment"
+      },
+      "data_risks": {
+        "unresolved": [
+          {
+            "id": "DPIA_EXECUTION",
+            "description": "Data Protection Impact Assessment execution and documentation pending; compliance readiness incomplete."
+          },
+          {
+            "id": "REQ_PRIVACY_CONFLICT",
+            "description": "Frozen requirement still lists 'retain data indefinitely' instead of implemented configurable retention; must be reconciled for compliance traceability."
+          }
+        ],
+        "mitigations": [
+          "Finalize and document DPIA before production deployment.",
+          "Update frozen requirement contract to reflect configurable retention (default 12 months).",
+          "Implement explicit user consent UX for retention configuration.",
+          "Maintain audit logging and anonymization workflows for privacy assurance."
+        ],
+        "residual_risks": [
+          "Potential user confusion around retention settings until consent UX finalized.",
+          "Operational latency and cost spikes under high multimodal load."
+        ]
+      }
+    },
+    "devops": {
+      "deployment_topology": {
+        "model": "Azure-based modular microservice architecture",
+        "components": {
+          "frontend": "React SPA hosted via Azure Front Door + CDN",
+          "backend": "FastAPI microservices deployed on Azure App Service or AKS",
+          "database": "Azure Database for PostgreSQL Flexible Server",
+          "cache": "Azure Cache for Redis",
+          "storage": "Azure Blob Storage for media and logs",
+          "secrets": "Azure Key Vault for API keys and credentials",
+          "networking": "Azure Front Door with WAF and DDoS protection",
+          "observability": "Azure Monitor + Application Insights + OpenTelemetry"
+        },
+        "scaling": {
+          "strategy": "Horizontal scaling for stateless services, vertical scaling for database",
+          "autoscaling_triggers": [
+            "CPU",
+            "memory",
+            "latency",
+            "request throughput"
+          ]
+        },
+        "security_zones": {
+          "public_zone": "Frontend and gateway services",
+          "protected_zone": "Backend APIs and data services behind private VNet",
+          "management_zone": "Admin and observability dashboards with RBAC access"
+        }
+      },
+      "environments": {
+        "development": {
+          "tools": [
+            "Docker Compose",
+            "local PostgreSQL",
+            "mock GPT API"
+          ],
+          "security": "Local secrets via .env, HTTPS enforced in dev proxy"
+        },
+        "staging": {
+          "hosting": "Azure App Service staging slots",
+          "data": "Sanitized dataset, synthetic user data",
+          "testing": [
+            "integration",
+            "load",
+            "security",
+            "DPIA dry-run"
+          ]
+        },
+        "production": {
+          "hosting": "Azure App Service or AKS with autoscaling",
+          "data": "Live PostgreSQL with configurable retention (default 12 months)",
+          "security": "OAuth2/JWT via Azure AD B2C, HTTPS, WAF, rate limiting",
+          "compliance": "GDPR/CCPA alignment, DPIA completed pre-launch"
+        }
+      },
+      "ci_cd_design": {
+        "pipeline": "GitHub Actions + Azure DevOps",
+        "stages": [
+          "linting",
+          "unit tests",
+          "integration tests",
+          "security scans",
+          "build",
+          "deploy"
+        ],
+        "deployment_strategy": "Blue-green with rollback hooks",
+        "infrastructure_as_code": "Terraform or Bicep templates for reproducibility",
+        "testing_integration": {
+          "load_testing": "k6 integrated in CI/CD",
+          "security_scanning": "OWASP ZAP and dependency checks",
+          "compliance_checks": "Automated DPIA status and retention policy validation"
+        },
+        "approvals": "Manual approval gates for production deployment"
+      },
+      "observability_stack": {
+        "logging": "Structured JSON logs via Azure Monitor and Application Insights",
+        "metrics": [
+          "latency",
+          "error rate",
+          "token usage",
+          "cost metrics"
+        ],
+        "tracing": "OpenTelemetry integrated with FastAPI and frontend",
+        "alerting": {
+          "channels": [
+            "email",
+            "Teams",
+            "PagerDuty"
+          ],
+          "thresholds": {
+            "latency_ms": 2000,
+            "error_rate_percent": 2,
+            "cost_spike_percent": 10
+          }
+        },
+        "dashboards": {
+          "performance": "Response time and throughput",
+          "cost": "LLM API usage and Azure resource spend",
+          "compliance": "Retention and consent audit metrics"
+        }
+      },
+      "rollback_strategy": {
+        "method": "Blue-green deployment rollback via slot swap",
+        "trigger_conditions": [
+          "deployment failure",
+          "latency > threshold",
+          "error rate spike"
+        ],
+        "data_consistency": "Database migrations reversible via Alembic versioning",
+        "backup_revert": "Restore from latest snapshot if rollback affects data integrity",
+        "communication": "Automated rollback notification to DevOps and compliance leads"
+      },
+      "backup_and_recovery": {
+        "backup_frequency": "Daily full backups, hourly incremental",
+        "storage": "Encrypted backups in Azure Blob Storage with 30-day retention",
+        "encryption": "AES-256 at rest, TLS 1.3 in transit",
+        "recovery_objectives": {
+          "RTO": "≤ 2 hours",
+          "RPO": "≤ 15 minutes"
+        },
+        "testing": "Quarterly disaster recovery drills",
+        "audit": "Backup integrity and restoration logs retained for 12 months"
+      },
+      "cost_controls": {
+        "monitoring": "Azure Cost Management + custom LLM API usage dashboard",
+        "alerts": "Automated notifications for cost anomalies >10%",
+        "optimization": {
+          "caching": "Redis caching for GPT responses",
+          "batching": "Batch GPT API calls to reduce token usage",
+          "reserved_instances": "Use reserved compute for predictable workloads"
+        },
+        "budgeting": {
+          "monthly_estimate_usd": "2000–10000",
+          "review_cycle": "Monthly cost audit and optimization review"
+        }
+      },
+      "devops_risks": {
+        "unresolved": [
+          {
+            "id": "DPIA_EXECUTION",
+            "description": "Data Protection Impact Assessment execution and documentation pending before production.",
+            "impact": "Compliance readiness risk; must be completed pre-launch."
+          },
+          {
+            "id": "REQ_PRIVACY_CONFLICT",
+            "description": "Frozen requirement still lists 'retain data indefinitely' instead of configurable retention (default 12 months).",
+            "impact": "Compliance traceability risk; administrative correction required."
+          }
+        ],
+        "operational": [
+          "High LLM API cost variability under multimodal load",
+          "Latency spikes during peak usage periods",
+          "User confusion if consent and retention UX not clearly defined"
+        ],
+        "mitigations": [
+          "Finalize DPIA and update frozen requirement contract",
+          "Implement caching and batching for GPT API calls",
+          "Conduct load testing and cost validation before public launch",
+          "Integrate clear consent and retention configuration UX flow"
+        ]
+      }
+    }
+  }
+}
