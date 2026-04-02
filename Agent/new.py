@@ -2660,6 +2660,7 @@ Section-specific data:
         style_h3 = ParagraphStyle("h3", fontSize=11, leading=14, textColor=colors.HexColor("#374151"), spaceBefore=8, spaceAfter=4, fontName="Helvetica-Bold", keepWithNext=True)
         style_body = ParagraphStyle("body", fontSize=9.5, leading=14.5, alignment=TA_JUSTIFY, textColor=colors.HexColor("#1F2937"), spaceAfter=5)
         style_body_mono = ParagraphStyle("body_mono", fontSize=8.5, leading=12, textColor=colors.HexColor("#374151"), spaceAfter=4, fontName="Courier", backColor=colors.HexColor("#F8FAFC"), leftIndent=8)
+        style_code_block = ParagraphStyle("code_block", fontSize=8, leading=11.5, textColor=colors.HexColor("#1E293B"), fontName="Courier", backColor=colors.HexColor("#F1F5F9"), leftIndent=10, rightIndent=10, spaceAfter=0, spaceBefore=0, borderPad=4)
         style_caption = ParagraphStyle("caption", fontSize=8, leading=10, alignment=TA_CENTER, textColor=colors.HexColor("#6B7280"), spaceAfter=8, fontName="Helvetica-Oblique")
         style_small = ParagraphStyle("small", fontSize=8.5, leading=11, textColor=colors.HexColor("#475569"), spaceAfter=3)
         style_toc = ParagraphStyle("toc", fontSize=10, leading=15, textColor=colors.HexColor("#1D4ED8"), spaceAfter=2)
@@ -2686,15 +2687,16 @@ Section-specific data:
 
         def add_body(text: str) -> None:
             for para in self._split_paragraphs(text):
-                story.append(Paragraph(self._pdf_escape(para), style_body))
+                if para.strip():
+                    story.append(Paragraph(md_inline_to_xml(para), style_body))
 
         def add_bullet_list(items: List[str], indent: int = 14) -> None:
-            flow = [ListItem(Paragraph(self._pdf_escape(str(item)), style_body)) for item in items if str(item).strip()]
+            flow = [ListItem(Paragraph(md_inline_to_xml(str(item)), style_body)) for item in items if str(item).strip()]
             if flow:
                 story.append(ListFlowable(flow, bulletType="bullet", leftIndent=indent))
 
         def add_numbered_list(items: List[str]) -> None:
-            flow = [ListItem(Paragraph(self._pdf_escape(str(item)), style_body)) for item in items if str(item).strip()]
+            flow = [ListItem(Paragraph(md_inline_to_xml(str(item)), style_body)) for item in items if str(item).strip()]
             if flow:
                 story.append(ListFlowable(flow, bulletType="1", leftIndent=18))
 
@@ -2792,23 +2794,230 @@ Section-specific data:
                     story.append(Paragraph(self._pdf_escape(line), style_body_mono))
             story.append(Spacer(1, 4))
 
+        def md_inline_to_xml(text: str) -> str:
+            """Convert inline markdown to ReportLab-safe XML markup (bold, italic, code)."""
+            result = []
+            i = 0
+            n = len(text)
+            while i < n:
+                # Inline code: `code`
+                if text[i] == '`' and i + 1 < n:
+                    j = text.find('`', i + 1)
+                    if j != -1:
+                        code_inner = text[i+1:j]
+                        code_inner = code_inner.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+                        result.append(f'<font name="Courier" size="8" color="#C0392B">{code_inner}</font>')
+                        i = j + 1
+                        continue
+                # Bold+Italic: ***text***
+                if text[i:i+3] == '***':
+                    j = text.find('***', i + 3)
+                    if j != -1:
+                        inner = md_inline_to_xml(text[i+3:j])
+                        result.append(f'<b><i>{inner}</i></b>')
+                        i = j + 3
+                        continue
+                # Bold: **text**
+                if text[i:i+2] == '**':
+                    j = text.find('**', i + 2)
+                    if j != -1:
+                        inner = md_inline_to_xml(text[i+2:j])
+                        result.append(f'<b>{inner}</b>')
+                        i = j + 2
+                        continue
+                # Bold: __text__
+                if text[i:i+2] == '__':
+                    j = text.find('__', i + 2)
+                    if j != -1:
+                        inner = md_inline_to_xml(text[i+2:j])
+                        result.append(f'<b>{inner}</b>')
+                        i = j + 2
+                        continue
+                # Italic: *text* (single asterisk, not double)
+                if text[i] == '*' and (i == 0 or text[i-1] != '*') and i + 1 < n and text[i+1] != '*':
+                    j = i + 1
+                    while j < n and text[j] != '*':
+                        j += 1
+                    if j < n and (j + 1 >= n or text[j+1] != '*'):
+                        inner = md_inline_to_xml(text[i+1:j])
+                        result.append(f'<i>{inner}</i>')
+                        i = j + 1
+                        continue
+                # XML-special characters
+                if text[i] == '&':
+                    result.append('&amp;')
+                elif text[i] == '<':
+                    result.append('&lt;')
+                elif text[i] == '>':
+                    result.append('&gt;')
+                else:
+                    result.append(text[i])
+                i += 1
+            return ''.join(result)
+
+        def add_md_body(text: str) -> None:
+            """Add a body paragraph with inline markdown rendering."""
+            converted = md_inline_to_xml(text)
+            story.append(Paragraph(converted, style_body))
+
         def add_deep_section_content(content: str) -> None:
-            """Render deep section content, handling ## subheadings."""
+            """Render deep section content with full markdown support:
+            headings, bold, italic, inline code, code blocks, tables, bullets, numbered lists."""
             if not content:
                 return
+
             lines = content.splitlines()
-            for line in lines:
-                line_stripped = line.strip()
-                if line_stripped.startswith("## "):
-                    add_h2(line_stripped[3:])
-                elif line_stripped.startswith("### "):
-                    add_h3(line_stripped[4:])
-                elif line_stripped.startswith("- ") or line_stripped.startswith("* "):
-                    story.append(ListFlowable([ListItem(Paragraph(self._pdf_escape(line_stripped[2:]), style_body))], bulletType="bullet", leftIndent=14))
-                elif line_stripped.startswith(("1. ", "2. ", "3. ")):
-                    story.append(Paragraph(self._pdf_escape(line_stripped), style_body))
-                elif line_stripped:
-                    story.append(Paragraph(self._pdf_escape(line_stripped), style_body))
+            i = 0
+            para_buffer: List[str] = []
+
+            def flush_para_buffer() -> None:
+                if para_buffer:
+                    combined = " ".join(para_buffer).strip()
+                    if combined:
+                        add_md_body(combined)
+                    para_buffer.clear()
+
+            while i < len(lines):
+                raw = lines[i]
+                stripped = raw.strip()
+
+                # ── Fenced code block ───────────────────────────────────────
+                if stripped.startswith("```"):
+                    flush_para_buffer()
+                    lang = stripped[3:].strip()
+                    i += 1
+                    code_lines: List[str] = []
+                    while i < len(lines) and not lines[i].strip().startswith("```"):
+                        code_lines.append(lines[i])
+                        i += 1
+                    i += 1  # skip closing ```
+                    if code_lines:
+                        # Trim common leading whitespace
+                        min_indent = min((len(l) - len(l.lstrip()) for l in code_lines if l.strip()), default=0)
+                        code_lines = [l[min_indent:] for l in code_lines]
+                        story.append(Spacer(1, 4))
+                        for cl in code_lines:
+                            safe = cl.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+                            display = safe if safe.strip() else "&nbsp;"
+                            story.append(Paragraph(display, style_code_block))
+                        story.append(Spacer(1, 4))
+                    continue
+
+                # ── Horizontal rule ─────────────────────────────────────────
+                if re.match(r'^[-*_]{3,}$', stripped):
+                    flush_para_buffer()
+                    story.append(hr())
+                    i += 1
+                    continue
+
+                # ── ATX Headings ────────────────────────────────────────────
+                if stripped.startswith("#### "):
+                    flush_para_buffer()
+                    story.append(Paragraph(f"<b>{md_inline_to_xml(stripped[5:])}</b>", style_body))
+                    i += 1
+                    continue
+                if stripped.startswith("### "):
+                    flush_para_buffer()
+                    add_h3(stripped[4:])
+                    i += 1
+                    continue
+                if stripped.startswith("## "):
+                    flush_para_buffer()
+                    add_h2(stripped[3:])
+                    i += 1
+                    continue
+                if stripped.startswith("# ") and not stripped.startswith("## "):
+                    flush_para_buffer()
+                    add_h2(stripped[2:])
+                    i += 1
+                    continue
+
+                # ── Bullet list ─────────────────────────────────────────────
+                if re.match(r'^[-*•]\s', stripped):
+                    flush_para_buffer()
+                    bullet_items: List[str] = []
+                    while i < len(lines):
+                        ls = lines[i].strip()
+                        if re.match(r'^[-*•]\s', ls):
+                            bullet_items.append(ls[2:])
+                            i += 1
+                        elif lines[i].startswith("  ") and bullet_items:
+                            bullet_items[-1] += " " + ls
+                            i += 1
+                        else:
+                            break
+                    flow = [ListItem(Paragraph(md_inline_to_xml(item), style_body)) for item in bullet_items if item.strip()]
+                    if flow:
+                        story.append(ListFlowable(flow, bulletType="bullet", leftIndent=14))
+                    continue
+
+                # ── Numbered list ───────────────────────────────────────────
+                if re.match(r'^\d+[.)]\s', stripped):
+                    flush_para_buffer()
+                    num_items: List[str] = []
+                    while i < len(lines):
+                        ls = lines[i].strip()
+                        m = re.match(r'^\d+[.)]\s+(.*)', ls)
+                        if m:
+                            num_items.append(m.group(1))
+                            i += 1
+                        elif lines[i].startswith("   ") and num_items:
+                            num_items[-1] += " " + ls
+                            i += 1
+                        else:
+                            break
+                    flow = [ListItem(Paragraph(md_inline_to_xml(item), style_body)) for item in num_items if item.strip()]
+                    if flow:
+                        story.append(ListFlowable(flow, bulletType="1", leftIndent=18))
+                    continue
+
+                # ── Markdown table ──────────────────────────────────────────
+                if stripped.startswith("|") and "|" in stripped[1:]:
+                    flush_para_buffer()
+                    tbl_lines: List[str] = []
+                    while i < len(lines) and lines[i].strip().startswith("|"):
+                        tbl_lines.append(lines[i].strip())
+                        i += 1
+                    rows: List[List[str]] = []
+                    for tl in tbl_lines:
+                        if re.match(r'^\|[\s|:-]+\|$', tl):
+                            continue  # separator row
+                        cells = [c.strip() for c in tl.split("|")][1:-1]
+                        if cells:
+                            rows.append(cells)
+                    if len(rows) >= 1:
+                        max_cols = max(len(r) for r in rows)
+                        rows = [r + [""] * (max_cols - len(r)) for r in rows]
+                        col_w = (155 * mm) / max_cols
+                        # Convert inline markdown in cells
+                        pdf_rows = [[Paragraph(md_inline_to_xml(cell), style_body if ri > 0 else ParagraphStyle("th", fontSize=8.5, fontName="Helvetica-Bold", textColor=colors.white)) for cell in row] for ri, row in enumerate(rows)]
+                        rt = RLTable(pdf_rows, colWidths=[col_w] * max_cols, repeatRows=1)
+                        rt.setStyle(TableStyle([
+                            ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#374151")),
+                            ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+                            ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+                            ("BOX", (0, 0), (-1, -1), 0.5, colors.HexColor("#94A3B8")),
+                            ("INNERGRID", (0, 0), (-1, -1), 0.3, colors.HexColor("#CBD5E1")),
+                            ("FONTSIZE", (0, 0), (-1, -1), 8.5),
+                            ("VALIGN", (0, 0), (-1, -1), "TOP"),
+                            ("PADDING", (0, 0), (-1, -1), 5),
+                            ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#F8FAFC")]),
+                        ]))
+                        story.append(rt)
+                        story.append(Spacer(1, 6))
+                    continue
+
+                # ── Blank line → flush paragraph buffer ─────────────────────
+                if not stripped:
+                    flush_para_buffer()
+                    i += 1
+                    continue
+
+                # ── Regular text → accumulate into paragraph ─────────────────
+                para_buffer.append(stripped)
+                i += 1
+
+            flush_para_buffer()
 
         # ===================================================================
         # COVER PAGE
