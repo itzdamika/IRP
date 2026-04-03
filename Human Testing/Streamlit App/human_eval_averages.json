@@ -1,0 +1,18 @@
+{
+  "Hashan": {
+    "auditor": {
+      "issue_identification": 9.235294117647058,
+      "reasoning_quality": 8.450980392156863,
+      "recommendation_actionability": 8.549019607843137,
+      "rubric_calibration": 7.215686274509804,
+      "overall_audit_quality": 8.07843137254902
+    },
+    "architect": {
+      "contract_alignment": 7.980392156862745,
+      "fix_report_accuracy": 8.470588235294118,
+      "architecture_quality": 7.509803921568627,
+      "security_coverage": 7.235294117647059,
+      "plan_completeness": 8.509803921568627
+    }
+  }
+}
