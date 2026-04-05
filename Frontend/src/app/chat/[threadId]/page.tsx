@@ -663,7 +663,7 @@ export default function ThreadPage() {
   }
 
   async function exportMd() {
-    const base = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+    const base = process.env.NEXT_PUBLIC_API_URL || "https://arkon-be.azurewebsites.net/";
     const q = activeBranchId
       ? `?fmt=markdown&branch_id=${encodeURIComponent(activeBranchId)}`
       : "?fmt=markdown";
