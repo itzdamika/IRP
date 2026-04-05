@@ -1,18 +1,50 @@
 {
   "Hashan": {
     "auditor": {
-      "issue_identification": 9.235294117647058,
-      "reasoning_quality": 8.450980392156863,
-      "recommendation_actionability": 8.549019607843137,
-      "rubric_calibration": 7.215686274509804,
-      "overall_audit_quality": 8.07843137254902
+      "issue_identification": 9.2353,
+      "reasoning_quality": 8.451,
+      "recommendation_actionability": 8.549,
+      "rubric_calibration": 7.2157,
+      "overall_audit_quality": 8.0784
     },
     "architect": {
-      "contract_alignment": 7.980392156862745,
-      "fix_report_accuracy": 8.470588235294118,
-      "architecture_quality": 7.509803921568627,
-      "security_coverage": 7.235294117647059,
-      "plan_completeness": 8.509803921568627
+      "contract_alignment": 7.9804,
+      "fix_report_accuracy": 8.4706,
+      "architecture_quality": 7.5098,
+      "security_coverage": 7.2353,
+      "plan_completeness": 8.5098
+    }
+  },
+  "Yuvin": {
+    "auditor": {
+      "issue_identification": 9.3333,
+      "reasoning_quality": 8.6275,
+      "recommendation_actionability": 8.6078,
+      "rubric_calibration": 7.4706,
+      "overall_audit_quality": 8.2941
+    },
+    "architect": {
+      "contract_alignment": 8.2353,
+      "fix_report_accuracy": 8.5882,
+      "architecture_quality": 7.7255,
+      "security_coverage": 7.4706,
+      "plan_completeness": 8.7255
+    }
+  },
+  "ALL_AUTHORS_AVERAGE": {
+    "auditor": {
+      "issue_identification": 9.2843,
+      "reasoning_quality": 8.5392,
+      "recommendation_actionability": 8.5784,
+      "rubric_calibration": 7.3431,
+      "overall_audit_quality": 8.1863
+    },
+    "architect": {
+      "contract_alignment": 8.1078,
+      "fix_report_accuracy": 8.5294,
+      "architecture_quality": 7.6176,
+      "security_coverage": 7.3529,
+      "plan_completeness": 8.6176
     }
   }
 }

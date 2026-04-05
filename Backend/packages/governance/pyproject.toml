@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "arkon-governance"
+version = "0.1.0"
+description = "Architectural governance agent (parity with new.py)"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "openai>=1.40.0",
+    "python-dotenv>=1.0.0",
+    "reportlab>=4.0.0",
+]
+
+[tool.setuptools]
+packages = ["governance"]
+
+[tool.setuptools.package-dir]
+governance = "."
