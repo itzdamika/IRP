@@ -21,7 +21,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Copy dependency manifests first for layer caching
-COPY apps/api/requirements.txt  /build/api-requirements.txt
+COPY requirements.txt  /build/api-requirements.txt
 COPY packages/governance/pyproject.toml /build/gov-pyproject.toml
 
 # Install all Python deps into a virtual-env
@@ -52,7 +52,7 @@ ENV PATH="/opt/venv/bin:$PATH" \
     PYTHONPATH=/app
 
 # Copy the API source
-COPY apps/api/ /app/
+COPY . .
 
 # Data & artifacts directories (mount a volume in production)
 RUN mkdir -p /data /app/artifacts && \
