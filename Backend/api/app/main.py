@@ -9,16 +9,11 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from .routers import artifacts_dl, auth, planning, settings as settings_r, share, threads, users
+
 from .core.config import settings
 from .db.session import init_db
 from .routers import (
-    artifacts_dl,
-    auth,
-    planning,
-    share,
-    settings as settings_r,
-    threads,
-    users,
     ws_jobs,
 )
 from .services import planning_ws

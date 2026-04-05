@@ -8,7 +8,7 @@ from sqlalchemy.orm import Session
 from ..db.session import get_db
 from ..deps import get_current_user
 from ..db.models import User
-from ..routers.threads import _thread
+from .threads import _thread
 from ..services import jobs as job_svc
 
 router = APIRouter(prefix="/threads", tags=["planning"])

@@ -13,12 +13,15 @@ export function PlanningEventsPanel({
   showPlaceholder,
   onExpand,
   compactMaxHeight = true,
+  completed = false,
 }: {
   events: UiEvent[];
   showPlaceholder?: boolean;
   onExpand?: () => void;
   /** When false (e.g. modal), inner list uses a taller max-height. */
   compactMaxHeight?: boolean;
+  /** When true, shows a "completed" badge instead of the active indicator. */
+  completed?: boolean;
 }) {
   const scrollRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -33,14 +36,21 @@ export function PlanningEventsPanel({
     <div className="mb-6 overflow-hidden rounded-2xl border border-emerald-500/20 bg-[#080808] shadow-[0_12px_40px_-12px_rgba(16,185,129,0.15)]">
       <div className="flex items-center gap-3 border-b border-white/[0.06] px-4 py-3">
         <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-emerald-500/15 text-[13px]">
-          ◇
+          {completed ? "✓" : "◇"}
         </span>
         <div className="min-w-0 flex-1">
           <p className="text-[14px] font-semibold tracking-tight text-white">
             Planning activity
+            {completed && (
+              <span className="ml-2 inline-flex items-center rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-emerald-400/90">
+                Completed
+              </span>
+            )}
           </p>
           <p className="text-[12px] text-[#707070]">
-            Agents reasoning, scoring, and revising the architecture
+            {completed
+              ? "Planning session finished — logs preserved for reference"
+              : "Agents reasoning, scoring, and revising the architecture"}
           </p>
         </div>
         {onExpand && (

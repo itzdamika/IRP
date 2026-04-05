@@ -461,7 +461,7 @@ export default function ThreadPage() {
           setLoading(false);
           setBusyHint("");
           setPlanningStreamOpen(false);
-          setPlanningUiEvents([]);
+          /* Keep planningUiEvents so logs remain visible after planning completes */
         }
       }
     })();
@@ -610,7 +610,7 @@ export default function ThreadPage() {
       setLoading(false);
       setBusyHint("");
       setPlanningStreamOpen(false);
-      setPlanningUiEvents([]);
+      /* Keep planningUiEvents so logs remain visible after planning completes */
     }
   }
 
@@ -822,6 +822,7 @@ export default function ThreadPage() {
     )
   );
   const showSavedBranchPlanning =
+    branchPlanningTranscript.length > 0 &&
     branchPlanningTranscript.length > maxInlinePlanningLen;
   /** Prefer live buffer; during active stream with no chunks yet, don't fall back to stale branch. */
   const planningPanelEvents =
@@ -833,7 +834,8 @@ export default function ThreadPage() {
   const showPlanningActivityPanel =
     phase === "PLANNING" ||
     planningStreamOpen ||
-    planningPanelEvents.length > 0;
+    planningPanelEvents.length > 0 ||
+    planningUiEvents.length > 0;
   const mustUseDev = phase === "DEVELOPMENT" && mode === "main";
   const authTok = getToken();
   const pdfEmbedUrl =
@@ -1106,6 +1108,7 @@ export default function ThreadPage() {
                       return (
                         <PlanningEventsPanel
                           events={norm}
+                          completed
                           onExpand={() => {
                             setExpandedPlanningEvents(norm);
                             setPlanningExpandedOpen(true);
@@ -1149,6 +1152,7 @@ export default function ThreadPage() {
               </p>
               <PlanningEventsPanel
                 events={branchPlanningTranscript}
+                completed
                 onExpand={() => {
                   setExpandedPlanningEvents(branchPlanningTranscript);
                   setPlanningExpandedOpen(true);
@@ -1217,6 +1221,11 @@ export default function ThreadPage() {
                   loading &&
                   planningUiEvents.length === 0 &&
                   mode === "main"
+                }
+                completed={
+                  planningPanelEvents.length > 0 &&
+                  !planningStreamOpen &&
+                  !loading
                 }
                 onExpand={
                   planningPanelEvents.length

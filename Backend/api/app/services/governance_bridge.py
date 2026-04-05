@@ -228,7 +228,7 @@ def execute_user_turn(
     if stream_job_id:
 
         def _emit(ui: GovernanceUIBridge) -> None:
-            from ..services import jobs as job_svc
+            from . import jobs as job_svc
 
             job_svc.sync_live_ui_events(stream_job_id, list(ui.events))
 
@@ -447,7 +447,7 @@ def run_governance_only(
     if stream_job_id:
 
         def _emit(ui: GovernanceUIBridge) -> None:
-            from ..services import jobs as job_svc
+            from . import jobs as job_svc
 
             job_svc.sync_live_ui_events(stream_job_id, list(ui.events))
 
