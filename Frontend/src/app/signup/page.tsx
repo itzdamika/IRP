@@ -26,7 +26,7 @@ export default function SignupPage() {
       setToken(data.access_token);
       router.push("/chat");
     } catch (ex) {
-      setErr(ex instanceof Error ? ex.message : "Signup failed");
+      setErr("Signup failed");
     } finally {
       setLoading(false);
     }
