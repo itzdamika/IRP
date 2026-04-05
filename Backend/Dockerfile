@@ -4,10 +4,10 @@
 #  Build context must be the REPO ROOT so the governance
 #  package is available:
 #
-#    docker build -f apps/api/Dockerfile -t arkon-api .
+#    docker build -f Dockerfile -t arkon-api .
 #
 #  Run:
-#    docker run --env-file apps/api/.env -p 8000:8000 arkon-api
+#    docker run --env-file .env -p 8000:8000 arkon-api
 # ─────────────────────────────────────────────────────────
 
 # ── Stage 1: build ───────────────────────────────────────
