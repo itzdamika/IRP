@@ -461,7 +461,7 @@ export default function ThreadPage() {
           setLoading(false);
           setBusyHint("");
           setPlanningStreamOpen(false);
-          /* Keep planningUiEvents so logs remain visible after planning completes */
+          setPlanningUiEvents([]);
         }
       }
     })();
@@ -610,7 +610,7 @@ export default function ThreadPage() {
       setLoading(false);
       setBusyHint("");
       setPlanningStreamOpen(false);
-      /* Keep planningUiEvents so logs remain visible after planning completes */
+      setPlanningUiEvents([]);
     }
   }
 
@@ -822,6 +822,7 @@ export default function ThreadPage() {
     )
   );
   const showSavedBranchPlanning =
+    phase !== "REQUIREMENTS" &&
     branchPlanningTranscript.length > 0 &&
     branchPlanningTranscript.length > maxInlinePlanningLen;
   /** Prefer live buffer; during active stream with no chunks yet, don't fall back to stale branch. */
@@ -833,9 +834,8 @@ export default function ThreadPage() {
         : branchPlanningTranscript;
   const showPlanningActivityPanel =
     phase === "PLANNING" ||
-    planningStreamOpen ||
-    planningPanelEvents.length > 0 ||
-    planningUiEvents.length > 0;
+    (planningStreamOpen && phase !== "REQUIREMENTS") ||
+    (phase === "DEVELOPMENT" && planningPanelEvents.length > 0);
   const mustUseDev = phase === "DEVELOPMENT" && mode === "main";
   const authTok = getToken();
   const pdfEmbedUrl =
@@ -1102,6 +1102,7 @@ export default function ThreadPage() {
                     )}
                     <MessageMarkdown content={m.content || ""} />
                     {(() => {
+                      if (phase === "REQUIREMENTS") return null;
                       const pe = m.metadata?.planning_ui_events;
                       if (!Array.isArray(pe) || pe.length === 0) return null;
                       const norm = normalizeUiEvents(pe);
@@ -1246,7 +1247,7 @@ export default function ThreadPage() {
                   type="button"
                   disabled={loading}
                   onClick={() => send(q.value)}
-                  className="group/qr flex w-fit max-w-full items-start gap-3 rounded-xl px-1 py-2.5 text-left transition-colors hover:bg-[#141414] hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
+                  className="group/qr flex w-fit max-w-full items-start gap-3 rounded-xl px-3 py-2.5 text-left transition-colors hover:bg-[#141414] hover:text-white disabled:cursor-not-allowed disabled:opacity-40"
                 >
                   <span
                     className="mt-[3px] shrink-0 font-sans text-[15px] leading-none text-[#5c5c5c] transition-colors group-hover/qr:text-[#8a8a8a]"

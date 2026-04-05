@@ -8,9 +8,9 @@ import { CHAT_COLUMN } from "@/lib/chatConstants";
 import { THREADS_REFRESH } from "@/lib/appEvents";
 
 const STARTERS = [
-  "Design a production-ready REST API for a multi-tenant SaaS with full role-based access control and logging",
+  "Design a multi-tenant SaaS REST API with RBAC and logging",
   "Build a SE project: an event-driven order pipeline using Kafka, outbox pattern, and CI/CD testing",
-  "Perform threat modeling and secure SDLC gates for a fintech mobile + web app stack with authentication"
+  "Do threat modeling and secure SDLC for a fintech app with auth"
 ];
 
 export default function ChatIndex() {

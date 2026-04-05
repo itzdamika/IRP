@@ -25,7 +25,7 @@ export default function LoginPage() {
       setToken(data.access_token);
       router.push("/chat");
     } catch (ex) {
-      setErr(ex instanceof Error ? ex.message : "Login failed");
+      setErr("Login failed");
     } finally {
       setLoading(false);
     }

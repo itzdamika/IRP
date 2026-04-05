@@ -29,7 +29,7 @@ export function AuthShell({
           aria-hidden
         />
 
-        <div className="relative z-[1] flex flex-1 flex-col justify-center">
+        <div className="relative z-[1] flex flex-1 flex-col justify-center pb-16">
           <div className="flex items-center gap-3">
             <div className="relative h-10 w-10 overflow-hidden rounded-xl border border-white/[0.1] bg-white/[0.04]">
               <Image
