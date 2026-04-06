@@ -1357,7 +1357,8 @@ class GovernanceEngine:
             "best_plan": self.state.best_plan,
         }
         self._ui.log(f"Round {round_no} · ArchitectAgent · integrating full architecture plan (LLM)…")
-        result = self.llm.complete_json(GLOBAL_SYSTEM + "\n" + AGENT_PROMPTS["ArchitectAgent"], payload, max_tokens=self.token_budget("plan"), reasoning=True)
+        # result = self.llm.complete_json(GLOBAL_SYSTEM + "\n" + AGENT_PROMPTS["ArchitectAgent"], payload, max_tokens=self.token_budget("plan"), reasoning=True)
+        result = self.llm.complete_architect_slm_json(GLOBAL_SYSTEM + "\n" + AGENT_PROMPTS["ArchitectAgent"], payload, max_tokens=self.token_budget("plan"))
         self.thinking(
             "ArchitectAgent",
             result.get("thinking_summary") or "Integrated plan produced from reasoners + specialists.",
@@ -1462,7 +1463,8 @@ class GovernanceEngine:
             "best_audit": self.state.best_audit,
         }
         self._ui.log(f"Round {round_no} · AuditorAgent · validating plan, rubric scoring, issue ledger…")
-        result = self.llm.complete_json(GLOBAL_SYSTEM + "\n" + AGENT_PROMPTS["AuditorAgent"], payload, max_tokens=self.token_budget("analysis"), reasoning=True)
+        # result = self.llm.complete_json(GLOBAL_SYSTEM + "\n" + AGENT_PROMPTS["AuditorAgent"], payload, max_tokens=self.token_budget("analysis"), reasoning=True)
+        result = self.llm.complete_auditor_slm_json(GLOBAL_SYSTEM + "\n" + AGENT_PROMPTS["AuditorAgent"], payload, max_tokens=self.token_budget("analysis"))
 
         strengths = ensure_list_of_str(result.get("strengths"))
         concerns = ensure_list_of_str(result.get("concerns"))

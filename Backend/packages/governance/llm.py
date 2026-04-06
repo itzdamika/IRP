@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import os
 from typing import Any, Dict, List, Optional
+import requests
 
 from openai import OpenAI
 
@@ -125,3 +126,71 @@ class AzureLLM:
             max_tokens=max_tokens,
         )
         return resp.choices[0].message.content or ""
+    
+
+    def complete_architect_slm_json(
+        self,
+        system_prompt: str,
+        payload: Dict[str, Any],
+        max_tokens: int = 5000,
+        temperature: float = 0.0,
+    ) -> Dict[str, Any]:
+        """Custom caller for the fine-tuned SLM model."""
+        url = "http://93.91.156.86:46948/v1/completions"
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer EMPTY"
+        }
+        
+        prompt = f"<start_of_turn>user\n{system_prompt}\n\n---\n\n{json.dumps(payload, indent=1)}<end_of_turn>\n<start_of_turn>model\n"
+        
+        data = {
+            "model": "my-custom-model", 
+            "prompt": prompt,      
+            "max_tokens": max_tokens,    
+            "temperature": temperature
+        }
+        
+        try:
+            response = requests.post(url, headers=headers, json=data)
+            content = response.json()['choices'][0]['text'].strip()
+            
+            parsed = safe_json_loads(content)
+            return parsed if parsed else {"raw": content}
+        except Exception as e:
+            print(f"Custom SLM Request failed: {e}")
+            return {}
+
+    def complete_auditor_slm_json(
+        self,
+        system_prompt: str,
+        payload: Dict[str, Any],
+        max_tokens: int = 5000,
+        temperature: float = 0.0,
+    ) -> Dict[str, Any]:
+        """Custom caller for the fine-tuned SLM model."""
+        url = "http://93.91.156.86:46948/v1/completions"
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer EMPTY"
+        }
+        
+        prompt = f"<start_of_turn>user\n{system_prompt}\n\n---\n\n{json.dumps(payload, indent=1)}<end_of_turn>\n<start_of_turn>model\n"
+        
+        data = {
+            "model": "my-custom-model", 
+            "prompt": prompt,      
+            "max_tokens": max_tokens,    
+            "temperature": temperature
+        }
+        
+        try:
+            response = requests.post(url, headers=headers, json=data)
+            content = response.json()['choices'][0]['text'].strip()
+            
+            parsed = safe_json_loads(content)
+            return parsed if parsed else {"raw": content}
+        except Exception as e:
+            print(f"Custom SLM Request failed: {e}")
+            return {}
+
